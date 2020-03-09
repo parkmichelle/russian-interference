@@ -33,7 +33,26 @@ def filterStatuses():
 	filtered = filter(lambda p: p[1] in top_statuses, reader)
 	csv.writer(open(r"filteredStatuses.csv",'w'),delimiter=',').writerows(filtered)
 
-filterStatuses();
+def getReplies():
+	trolls = []
+	author_trolls = []
+	replied_trolls = []
+	users = csv.reader(open(r"../../data/users.csv"),delimiter=',')
+	for row in users:
+		trolls.append(row[8].lower());
+	prez = csv.reader(open(r"../../data/preztweets.csv"),delimiter=',')
+	# row 4: original_author, row 6: in_reply_to_screen_name
+	for row in prez:
+		print(row[6].lower())
+		if row[4].lower() in trolls:
+			author_trolls.append(row[4].lower())
+		if row[6].lower() in trolls:
+			replied_trolls.append(row[6].lower())
+
+	print("author trolls: ", author_trolls)
+	print("replied trolls: ", replied_trolls)
+
+getReplies();
 
 
 
