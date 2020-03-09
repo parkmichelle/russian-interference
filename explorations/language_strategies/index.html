@@ -1,0 +1,149 @@
+<html>
+  <head>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://d3js.org/d3-dispatch.v1.min.js"></script>
+    <script src="https://d3js.org/d3-selection.v1.min.js"></script>
+    <script src="https://d3js.org/d3-drag.v1.min.js"></script>
+
+    <link rel="stylesheet" href="style.css"> 
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+    Hello
+    <div class='content-container'>
+      <div id='hashtag-timeline-container'/> 
+    </div>
+    <script>
+      // Read in data
+      dataDir = './';
+      tweetsFilename = 'tweets.csv';
+
+      timelineWidth = 500;
+      timelineHeight = 400;
+
+      var origData;
+      var svg = d3.select('#hashtag-timeline-container').append('svg')
+                  .attr('width', timelineWidth)
+                  .attr('height', timelineHeight);
+
+      d3.csv(dataDir + tweetsFilename, function(d) {
+        return {
+          tweetID: d.tweet_id,
+          text: d.text,
+          retweeted: d.retweeted
+          //preprocessed_text: +d.preprocessed_text
+        };
+      }).then(function(data) {
+        origData = data;
+        
+        drawHashtagTimeline(origData);
+      });
+
+      function drawHashtagTimeline(data) {
+
+
+        /*const id = 'hashtagFreqTimeline';
+        let points = svg.selectAll('#' + id);
+        let updatedPoints = points.data(data, d => d.tweetID);
+        let enterSelection = updatedPoints.enter();
+        let newPoints = enterSelection.append('circle')
+                          .attr('r', function(d) { 
+                            return 20; 
+                           })
+                          .attr('id', id)
+                          .attr('cx', function(d) { 
+                            return 20; 
+                           })
+                          .attr('cx', function(d) { 
+                            return 20; 
+                           })
+                          .attr('cy', function(d) { 
+                            return 20; 
+                           });
+                          
+          updatedPoints.exit().remove();*/
+      }
+
+      // Refreshes display by replotting data points according to current
+      // stores of spotlight intersection and name search data points
+      function refreshPoints() {
+        var highlightData;
+        if (useSpotlights) {
+          highlightData = dataIntersection(spotlightIntersectionData, passNameSearchData);
+        } else {
+          highlightData = passNameSearchData;
+        }
+        drawPoints(highlightData, 'passAll');
+      }
+
+      function dataIntersection(a, b) {
+        return a.filter(value => b.includes(value));
+      }
+
+      // Adds event handler for name search,
+      // updates global passNameSearchData with points that pass new name search
+      d3.select('#searchbox').on('keyup', function() {
+        var inputText = document.getElementById('searchbox').value.toUpperCase();
+        if (inputText === '') {
+          passNameSearchData = allData;
+        } else {
+          passNameSearchData = allData.filter(d => d.name.toUpperCase().includes(inputText));
+        }
+        refreshPoints(); 
+      });
+
+      // Callback for dragging- need to learn how to pass in data
+      // Need to pass in the data sets and other svg so we can re-calculate and plot intersection
+      function handleSpotlightDrag() {
+        // update position of spotlight svg element that was dragged
+        d3.select(this)
+          .attr('cx', d3.event.x)
+          .attr('cy', d3.event.y);
+        
+        // update current spotlight intersection data points
+        spotlightIntersectionData = 
+          getSpotlightIntersection(allData, spotlightA, spotlightB);
+
+        refreshPoints();
+      }
+
+      // Updates the circle size and text based on radius
+      function handleSpotlightResize(nRadius, id) {
+        var dec = d3.format(".1f");
+
+        // adjust the text on the range slider
+        d3.select("#nRadius-value").text(dec(nRadius*milesPerR) + " miles");
+        d3.select("#text" + id).text(dec(nRadius*milesPerR) + " miles");
+
+        // update the circle radius
+        d3.select('#' + id).attr('r', nRadius);
+
+        spotlightIntersectionData = getSpotlightIntersection(allData, spotlightA, spotlightB);
+        refreshPoints();
+      }
+
+      // Toggles the spotlights 
+      function handleSpotlightToggle(checkbox) {
+        useSpotlights = checkbox.checked;
+        if (!useSpotlights) {
+          spotlightA.attr('visibility', 'hidden');
+          spotlightB.attr('visibility', 'hidden');
+        } else {
+          spotlightA.attr('visibility', 'visible');
+          spotlightB.attr('visibility', 'visible');
+        }
+
+        refreshPoints();
+     }
+
+     // Clears search bar and refreshes points
+     function clearSearch() {
+        document.getElementById('searchbox').value = '';
+        passNameSearchData = allData;
+        refreshPoints();
+     }
+    </script>
+  </body>
+<html/>

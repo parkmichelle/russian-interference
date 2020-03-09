@@ -1,1 +1,3 @@
 explorations/mentions_network/results/
+node_modules/*
+explorations/language_strategies/node_modules/*
