@@ -3,6 +3,12 @@
   <head>
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="scripts/d3.layout.cloud.js"></script>
+
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+    <script src="scripts/jQAllRangeSliders-min.js"></script>
+
+    <link rel="stylesheet" href="scripts/classic-min.css">
   </head>
   <body>
     <h1>Exploring Russian Interference</h1>
@@ -14,9 +20,16 @@
     <h2>Analyzing Strategies</h2>
 
       <h3> Rhetoric Over Time </h3>
-      <input id="input" type="range" min="0" max="365" step="1" value="0">
-      <label><b>260 days</b> before election</label>
-      <div id='hashtag-timeline-container'></div>
+      <div>
+
+        <div id="slider"></div>
+
+
+        <input id="input" type="range" min="0" max="365" step="1" value="0">
+        <label><b>260 days</b> before election</label>
+
+        <div id='hashtag-timeline-container'></div>
+      </div>
 
     	<h3>Fake News Outlets</h3>
     	<p> All troll users- favorites vs. followers. Size of bubble is number of posts. </p>
