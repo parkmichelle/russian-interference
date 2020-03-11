@@ -33,7 +33,7 @@ var svg = d3.select('#hashtag-timeline-container').append('svg')
 });*/
 
 d3.json(dataDir + hashtagFilename).then(function(data) {
-  console.log(data);
+  //console.log(data);
   origData = data;
   const defaultData = origData["2015-07-17"];
   drawHashtagTimeline(defaultData);
