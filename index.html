@@ -1,23 +1,24 @@
-<!DOCTYPE html>
+<!DOCTYPE html >
 <html>
   <head>
+    <meta charset="UTF-8">
     <script src="https://d3js.org/d3.v5.min.js"></script>
-    <script src="external_scripts/d3.layout.cloud.js"></script>
 
+    <script src="external_scripts/d3.layout.cloud.js"></script>
     <script src="external_scripts/jquery-3.4.1.min.js"></script>
     <script src="external_scripts/jquery-ui.min.js"></script>
     <script src="external_scripts/jQAllRangeSliders-min.js"></script>
+    <script src="external_scripts/papaparse.js"></script>
 
     <link rel="stylesheet" href="scripts/classic-min.css">
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <h1>Exploring Russian Interference</h1>
 
     <h2>Hook (Case Study)</h2>
 
-    <h2>Measuring Russian Influence</h2>
-
-    <h2>Analyzing Strategies</h2>
+    <h2>Setup Strategies</h2>
 
       <h3> Rhetoric Over Time </h3>
       <div>
@@ -26,13 +27,31 @@
       </div>
 
     	<h3>Fake News Outlets</h3>
-    	<p> All troll users- favorites vs. followers. Size of bubble is number of posts. </p>
-   		 <img src="https://lh3.googleusercontent.com/W-NqkyFZci04ARKHyKX0htAZEZFYfqouZpPv5Z42HK-umxzB4fhHu_0khuLSDL3Gx8Kd0zSgYD2aOBMz1odBl3Q77z1zHdEZq8JxEwxBFAnOiSZjMQMNEmWbMXITkPYWCzb7AAhkpE_RNs38b0ZL6j_zOhCfdWM7TuWPkxfIl9Mez04FesARaTbsBa9B_N0zSD9kfou-R_S1RhBM7VMfstmgd1hBmcwTyyOnejef-0iynGn7zNId298Djjv-pa8MQmUDyrc-t0BzVFYjRVgrt7f5cXlQnFCfmGwKoh25izgFtUCXvgwYggagpufdZluGPTmR68tAk-y6eoPeuPAGfHaHmW6T3ShPtqR6yp_b6FX63eEkQbxjNBTDl50s1k6_PFRf5-zlzZjJPEMjlERA8qJIOij5C0LtXzPtf9wKpVcp4q0wyfcH17oSzKJwiIVP0_HnNacCYKSOmvBs7JFhZ25vBPppozJoWr82hzU0K_8sbniwFfRlsTl8KuEsVLsnawntoSHfoCiI6p_QZN58wTgRz3NEgHHzyBvMMOj5kQ6WCsZwK10vwXQAFaYLnp53NF0vYnORMrwtmP9KocZ-8ZtmbRdCakp19Pt1nSKVutHoXJ-TanDjLKVmBiXZtutAhfWmDF942FhAuTeXFCvhiHt59xXNGqZz1nHQNlLk2R86ooTsWIgnjo98=w584-h594-no"></img>
-
+    	 <p> All troll users- favorites vs. followers. Size of bubble is number of posts. </p>
    		 <p> Favorites vs. followers for just the news impersonators. </p>
-   		 <img src="https://lh3.googleusercontent.com/pXbYE1BnjWOK7gsxCD-XfjFUM0QrFugxgJXGVKO9Zgplmko67vq2b_RGEU9dBOAHj9CIxENyaVMqAeLeYnnJb3E0RZVSwhBC2lUQoJwZSROOjdkLCiYySHkhPBQvc3qiBa1J2Gd0mV-C_zkz7lIT3Qtw3jsS_56mVG0nunBBQTVvSA3ms7tR3rYxRg5obTHV4GUpu1nSEj7P4y-atD8Afx_1U6Q3pbvPKHIp5mpPHruo_MCecLYjDg8Ka-oqER3AtrnMD6tX_5TSONx-vacxOxQAUxQCw9AOxwAC9_Tw_AXOa11rz2ZxhpbWXYwjNdE1g5cM99OpRB5xUQmzr4d1XdphWMVS0w-sr9wMyr9GxI8o3JufojeFUoHGAftPJiccF-iv0U1cEXAQPGAHFiluTkdSuoVmmqZ3xWGS-GzvJe3ZcG67lt1GpXhH4q4kl484t46FlRQPH7kNAB1drWXmMWYsgaLUwfNv8F1g6FQEYL6ci2z_CfM6kK7xWCCX9e5X2_dUMTTLkOQocp0eWvLb1QLVSJiZgSw3xYEJuxnsyBwAwNeVqhlf9KgbokWou6UxTguRGoGN6sOxCLn15mGpLEIPLXz7fWajiaCL1DFNJ7ph4NH6565SCK2u0FYyz6sPY040YtronxDXJ2vQTh2qENBe5qgh6XSMqIa2ukIKYG3LotyuVFOGWhfG=w593-h596-no"></img>
-    <h2>Changes Before/After Election</h2>
+
+    <h2>Active/Interference Strategies</h2>
+    <h2>Close Look at Strategy Representatives</h2>
+    <div class="horizontal-flex">
+    <div class="profile">
+      <h1>Amelie Baldwin</h1>
+      <p>@ameliebaldwin</p>
+      <p>Wife, Mother, Patriot, Friend</p>
+    </div>
+    <div class="profile">
+      <h1>Tennessee</h1>
+      <p>@ten_gop</p>
+       <p>Unofficial Twitter of Tennessee Republicans. Covering breaking news, national politics, foreign policy and more. #MAGA #2A</p>
+    </div>
+    </div>
+
+    <div class="horizontal-flex">
+      <div class="scroll" id = "amelie_scroll"></div>
+      <div class="scroll" id = "ten_gop_scroll"></div>
+    </div>
     <h2>Conclusion (Call to action that Russian interference is ongoing)</h2>
+    <script src="rehydrate_tweets.js"></script>
     <script src="hashtag_timeline.js"></script>
+    
   </body>
 </html>
