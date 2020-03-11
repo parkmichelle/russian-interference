@@ -1,0 +1,62 @@
+h1 {
+	font-weight: bold;
+	font-size: 24px;
+}
+
+.bright {
+	border: 1px solid #009EF6;
+}
+
+.horizontal-flex {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+.scroll {
+	width: 40%;
+	height: 400px;
+	overflow: auto;
+	padding: 10px;
+	border: .25px solid #697D8C;
+}
+
+.profile {
+	width: 40%;
+	padding: 10px;
+	border: .25px solid #697D8C;
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+}
+
+::-webkit-scrollbar {
+	width: 10px;
+	height: 50px;
+}
+
+::-webkit-scrollbar-track {
+	border: 1px solid #009EF6;
+	border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #009EF6;  
+	border-radius: 5px;
+	height: 5px;
+}
+
+.tweet {
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+}
+
+.h1 {
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.h2 {
+	font-size: 14px;
+	color: #697D8C
+}
+
+hr {
+	border: .5px solid #697D8C;
+}
