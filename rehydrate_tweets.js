@@ -5,7 +5,7 @@ width = 800;
 height = 600;
 const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
   "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-const parser = d3.timeParse("%Y-%m-%d");
+const parser = d3.timeParse("%Y/%m/%d");
 
 var origData;
 var amelie_scroll = d3.select('#amelie_scroll')
@@ -38,26 +38,33 @@ function drawTweet(row) {
   plot.append('tspan')
       .attr('class', 'tweet h2')
       .text("   @" + row.user_key + " | ");
-  /*plot.append('tspan')
+  plot.append('tspan')
       .attr('class', 'tweet h2')
-      .text(convertDate(row.created_str));*/
+      .text(convertDate(row.created_at));
   plot.append('p')
       .attr('class', 'tweet body')
       .text(row.text);
+  console.log(row.retweet_count);
   plot.append('tspan')
       .attr('class', 'tweet h2')
-      .text("Retweets: " + row.retweet_count); // TODO add retweet/favorite icon
+      .text("Retweets: " + getCount(row.retweet_count)); // TODO add retweet/favorite icon
   plot.append('tspan')
       .attr('class', 'tweet h2')
-      .text("     Favorites: " + row.favorite_count); // TODO handle missing values
+      .text("     Favorites: " + getCount(row.favorite_count));
   plot.append('hr')
 }
 
-// Converts a string of format '2016-10-30 01:48:19' to a date of format 'Oct 30, 2016'
+// Converts a unicode time string to a date of format 'Oct 30, 2016'
   function convertDate(datestr) {
-    var date = parser(datestr.substring(0, 10));
-    var year = 1900 + date.getYear();
+    var date = new Date(parseFloat(datestr));
+    var year =  date.getFullYear();
     return monthNames[date.getMonth()] + " " + date.getDate() + ", " + year;
+  }
+
+// Handles null values for tweet and favorite count
+  function getCount(count) {
+    if (count == 0) return 0;
+    else return count;
   }
 
 
