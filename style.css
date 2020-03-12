@@ -28,6 +28,19 @@ body {
 	padding: 2%;
 }
 
+button {
+	height: 150px;
+	width: 250px;
+	border: 2px solid steelblue;
+	border-radius: 10px;
+
+	font-size: 18px;
+	font-family: 'Work Sans', sans-serif;
+	color: white;
+	background-color: steelblue;
+	opacity: .5;
+}
+
 .bright {
 	border: 1px solid #009EF6;
 }

@@ -6,6 +6,14 @@ let outerWidth = plotWidth + 2 * plotMargin;
 let outerHeight = plotHeight + 2 * plotMargin; 
 
 const font = "Work Sans";
+const newsNames = ["darknally", "DailySanFran", "ChicagoDailyNew", "OnlineMemphis", 
+"DetroitDailyNew", "KansasDailyNews", "TodayPittsburgh", "PhiladelphiaON", "DailyLosAngeles", 
+"WashingtOnline", "TodayNYCity", "OnlineCleveland", "PhoenixDailyNew", "SanAntoTopNews", "Baltimore0nline", 
+"StLouisOnline", "RichmondVoice", "NewarkVoice", "BatonRougeVoice", "blackmattersus", "NewOrleansON", "ElPasoTopNews", 
+"TodayCincinnati", "TodayBostonMA", "Seattle_Post", "HoustonTopNews", "DailySanDiego", "DallasTopNews", "Atlanta_Online", 
+"TodayMiami", "OaklandOnline", "nj_blacknews", "riafanru", "PigeonToday"]
+var newsOff = false;
+
 
 let wholeChart = d3.select('#users-overview'); 
 wholeChart
@@ -83,6 +91,13 @@ d3.csv('data/users.csv').then(function(data){
     drawScatterPlot(data);
 }); 
 
+d3.csv('data/filteredNews.csv').then(function(data){
+    window.newsNames = data;
+    data.forEach(element => {
+      parseInputRow(element);
+    });
+}); 
+
 // Convert values from strings to numbers
 function parseInputRow(d) {
   return {
@@ -95,19 +110,68 @@ function parseInputRow(d) {
 };
 
 function drawScatterPlot(userData) {
-  let circles = plot.selectAll('circle'); 
-  let updatedCircles = circles.data(userData, d => d.id); 
-  let enterSelection = updatedCircles.enter();
-  let newCircles = enterSelection.append('circle')
-    // Uses an exponent because # statuses scales exponentially
-    .attr('r', function (d) { return Math.pow(d.statuses_count, .9)*.0005; })
-    .attr('cx', function (d) { return xScale(d.followers_count); })
-    .attr('cy', function (d) { return yScale(d.favourites_count); })
-    .attr("fill-opacity","0")
-    .style("stroke","steelblue")
-    .style("stroke-width","2px")
-    .on("mouseover", tipMouseover)
-    .on("mouseout", tipMouseout);
-  updatedCircles.exit().remove();
-
+  if (newsOff) plot.selectAll('circle').attr("stroke-opacity", "1");
+  else {
+    let circles = plot.selectAll('circle'); 
+    let updatedCircles = circles.data(userData, d => d.id); 
+    let enterSelection = updatedCircles.enter();
+    let newCircles = enterSelection.append('circle')
+      // Uses an exponent because # statuses scales exponentially
+      .attr('r', function (d) { return Math.pow(d.statuses_count, .9)*.0005; })
+      .attr('cx', function (d) { return xScale(d.followers_count); })
+      .attr('cy', function (d) { return yScale(d.favourites_count); })
+      .attr("fill-opacity","0")
+      .style("stroke","steelblue")
+      .style("stroke-width","2px")
+      .on("mouseover", tipMouseover)
+      .on("mouseout", tipMouseout);
+  updatedCircles.exit().attr("stroke-opacity",".2");
+  }
 };
+
+  let newsToggle = document.querySelectorAll('#news');
+  newsToggle.forEach(function(item) {
+
+    item.addEventListener('mouseover', function() {
+      newsOff = false;
+      let newData = allData;
+      newData = allData.filter(function(d) {
+        if (newsNames.includes(d.screen_name)) {
+          console.log("found");
+        }
+        return newsNames.includes(d.screen_name);
+      });
+      drawScatterPlot(newData);
+    });
+
+    item.addEventListener('mouseout', function() {
+      newsOff = true;
+      console.log("moused out");
+      drawScatterPlot(allData);
+    });
+  });
+
+function toggleNews(on) {
+  if (on) {
+    newsOff = false;
+    let newData = allData;
+    newData = allData.filter(function(d) {
+    if (newsNames.includes(d.screen_name)) {
+      console.log("found");
+    }
+    return newsNames.includes(d.screen_name);
+    });
+    drawScatterPlot(newData);
+  }
+
+  else {
+    newsOff = true;
+    console.log("moused out");
+    drawScatterPlot(allData);
+  }
+}
+
+
+
+
+

@@ -55,6 +55,7 @@ def getReplies():
 	print("replied trolls: ", replied_trolls)
 
 
-filterUsers(feed_users, "top2.csv")
+#filterUsers(feed_users, "top2.csv")
+filterNews();
 
 
