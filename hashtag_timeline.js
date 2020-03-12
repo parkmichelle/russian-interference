@@ -1,12 +1,9 @@
 const NUM_WORDS_IN_CLOUD = 100;
 const FONT_SIZE_MAX = 120;
 
-// TODO: test dates, remove on prod
 const FIRST_TWEET_DATE = "2014-07-14";
 const LAST_TWEET_DATE = "2017-09-26";
 const ELECTION_DATE = "2016-11-08";
-const TEST_DATE_EMOJI = "2015-07-17";
-const TEST_DATE = "2015-12-08";
 
 const DEFAULT_TWEET_DATE_MIN = "2016-01-01";
 const DEFAULT_TWEET_DATE_MAX = ELECTION_DATE;
@@ -21,26 +18,34 @@ const WORDCLOUD_HEIGHT = 500;
 const WORDCLOUD_CONTAINER_WIDTH = 1000;
 const WORDCLOUD_CONTAINER_HEIGHT = 600;
 
-var grayscaleFill = d3.scaleLinear()
-              .domain([0,1,2,3,4,5,6,10,15,20,100])
-              .range(["#ddd", "#ccc", "#bbb", "#aaa", "#999", "#888", "#777", "#666", "#555", "#444", "#333", "#222"]);
+$("#slider").dateRangeSlider({
+  bounds:{
+    min: new Date(FIRST_TWEET_DATE),
+    max: new Date(LAST_TWEET_DATE)
+  },
+  defaultValues:{
+    min: new Date(DEFAULT_TWEET_DATE_MIN),
+    max: new Date(DEFAULT_TWEET_DATE_MAX)
+  },
+  range: false,
+});
+
+var dateRangeSliderElem = document.getElementById("slider");
+
+dateRangeSliderElem.addEventListener('mouseup', function() {
+  var values = $("#slider").dateRangeSlider('values');
+  var startDate = values.min;
+  var endDate = values.max;
+  updateWordRange(startDate, endDate)
+});
 
 var fill = d3.scaleOrdinal(d3.schemeCategory10);
 
 var dateHashtagsMap;
 var hashtagWordCloud;
 
-var lowData;
-var mediumData;
-var highData;
-
 d3.json(DATA_DIR + HASHTAG_COUNTS_FILENAME).then(function(data) {
   dateHashtagsMap = data;
-
-  // TODO: cases for testing, remove on prod
-  lowData = dateHashtagsMap['2015-11-11'];
-  mediumData = dateHashtagsMap[TEST_DATE];
-  highData = dateHashtagsMap[ELECTION_DATE];
 
   // Initialize wordcloud
   hashtagWordCloud = wordCloud('#hashtag-timeline-container');
@@ -52,40 +57,25 @@ d3.json(DATA_DIR + HASHTAG_COUNTS_FILENAME).then(function(data) {
   updateWordRange(dateRange.min, dateRange.max);
 });
 
-function getFontSize(data, d) {
-/*  const minFont = 6;
-  const maxFont = 120;
-  var fontSizeScale = d3.scalePow().exponent(5).domain([0,1]).range([ minFont, maxFont]);
-  var maxSize = d3.max(data, function (d) {return d.size;});
-  return fontSizeScale(d.size/maxSize);*/
-  return Math.sqrt(d.size * 30);
-  //return FONT_SIZE_MAX * d.norm_size;
-}
-
-$("#slider").dateRangeSlider({
-  bounds:{
-    min: new Date(FIRST_TWEET_DATE),
-    max: new Date(LAST_TWEET_DATE)
-  },
-  defaultValues:{
-    min: new Date(DEFAULT_TWEET_DATE_MIN),
-    max: new Date(DEFAULT_TWEET_DATE_MAX)
-  },
-  range: false
-});
-
-// TODO: speed up
-function updateWordRange(startDate, endDate) {
-  // Get new word counts
-  var hashtagBatch = [];
-  for (var d = startDate; d <= endDate; d.setDate(d.getDate() + 1)) {
-    var dateStr = d.toISOString().split('T')[0];
-    hashtagBatch = hashtagBatch.concat(dateHashtagsMap[dateStr]);
+function squashHashtagCounts(hashtagBatch) {
+  var hashtagCountMap = {};
+  for (var i = 0; i < hashtagBatch.length; i++) {
+    var currHashtagCount = hashtagBatch[i];
+    if (currHashtagCount.text in hashtagCountMap) {
+      hashtagCountMap[currHashtagCount.text] += currHashtagCount.size;
+    } else {
+      hashtagCountMap[currHashtagCount.text] = currHashtagCount.size;
+    }
   }
+  // for each key
+  // make new object
+  var result = []
+  for (const [hashtag, size] of Object.entries(hashtagCountMap)) {
+    result.push({text: hashtag, size: size});
+  }
+  return result;
 
-  // Join new hashtag counts
-  // Reduce examples credits: https://stackoverflow.com/questions/46664213/how-to-group-or-merge-this-array-of-objects-in-javascript
-  var results = hashtagBatch.reduce((mergedList, curr) => {
+  /*return hashtagBatch.reduce((mergedList, curr) => {
     var found = mergedList.find(mergedItem => mergedItem.text === curr.text);
     if (found) {
         found.size += curr.size;
@@ -94,6 +84,24 @@ function updateWordRange(startDate, endDate) {
     }
     return mergedList;
   }, []);
+  */
+}
+
+// TODO: speed up
+function updateWordRange(startDate, endDate) {
+  // Get new word counts
+  var hashtagBatch = [];
+  //console.time('date iter');
+  for (var d = startDate; d <= endDate; d.setDate(d.getDate() + 1)) {
+    var dateStr = d.toISOString().split('T')[0];
+    hashtagBatch = hashtagBatch.concat(dateHashtagsMap[dateStr]);
+  }
+  //console.timeEnd('date iter');
+
+  // Join new hashtag counts
+  // Reduce examples credits: https://stackoverflow.com/questions/46664213/how-to-group-or-merge-this-array-of-objects-in-javascript
+  var results = squashHashtagCounts(hashtagBatch);
+
   results.sort((a, b) => (a.size < b.size) ? 1 : -1)
   results = results.slice(0, NUM_WORDS_IN_CLOUD);
 
@@ -115,12 +123,6 @@ function normalizeSize(hashtagObjs) {
     }
   });
 }
-
-$("#slider").on("valuesChanging", function (e, data) {
-  var startDate = data.values.min;
-  var endDate = data.values.max;
-  updateWordRange(startDate, endDate)
-});
 
 // Wordcloud credits to http://bl.ocks.org/joews/9697914
 function wordCloud(selector) {
