@@ -3,6 +3,9 @@ tweetsFilename = 'top2.csv';
 
 width = 800;
 height = 600;
+const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const parser = d3.timeParse("%Y-%m-%d");
 
 var origData;
 var amelie_scroll = d3.select('#amelie_scroll')
@@ -35,9 +38,9 @@ function drawTweet(row) {
   plot.append('tspan')
       .attr('class', 'tweet h2')
       .text("   @" + row.user_key + " | ");
-  plot.append('tspan')
+  /*plot.append('tspan')
       .attr('class', 'tweet h2')
-      .text(row.created_str); // TODO format date in Month, Day format
+      .text(convertDate(row.created_str));*/
   plot.append('p')
       .attr('class', 'tweet body')
       .text(row.text);
@@ -49,6 +52,13 @@ function drawTweet(row) {
       .text("     Favorites: " + row.favorite_count); // TODO handle missing values
   plot.append('hr')
 }
+
+// Converts a string of format '2016-10-30 01:48:19' to a date of format 'Oct 30, 2016'
+  function convertDate(datestr) {
+    var date = parser(datestr.substring(0, 10));
+    var year = 1900 + date.getYear();
+    return monthNames[date.getMonth()] + " " + date.getDate() + ", " + year;
+  }
 
 
 
