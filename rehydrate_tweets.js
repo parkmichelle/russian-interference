@@ -44,7 +44,6 @@ function drawTweet(row) {
   plot.append('p')
       .attr('class', 'tweet body')
       .text(row.text);
-  console.log(row.retweet_count);
   plot.append('tspan')
       .attr('class', 'tweet h2')
       .text("Retweets: " + getCount(row.retweet_count)); // TODO add retweet/favorite icon
