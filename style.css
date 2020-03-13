@@ -74,6 +74,11 @@ button {
 	border: .25px solid #697D8C;
 }
 
+#fakenews_scroll {
+	height: 200px;
+	width: 350px;
+}
+
 .profile {
 	width: 30%;
 	padding: 20px;
