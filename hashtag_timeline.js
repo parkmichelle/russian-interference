@@ -18,7 +18,9 @@ const WORDCLOUD_HEIGHT = 500;
 const WORDCLOUD_CONTAINER_WIDTH = 1000;
 const WORDCLOUD_CONTAINER_HEIGHT = 600;
 
-$("#slider").dateRangeSlider({
+const SLIDER_ID = 'wordcloud-slider'
+
+$("#" + SLIDER_ID).dateRangeSlider({
   bounds:{
     min: new Date(FIRST_TWEET_DATE),
     max: new Date(LAST_TWEET_DATE)
@@ -30,10 +32,10 @@ $("#slider").dateRangeSlider({
   range: false,
 });
 
-var dateRangeSliderElem = document.getElementById("slider");
+var dateRangeSliderElem = document.getElementById(SLIDER_ID);
 
 dateRangeSliderElem.addEventListener('mouseup', function() {
-  var values = $("#slider").dateRangeSlider('values');
+  var values = $("#" + SLIDER_ID).dateRangeSlider('values');
   var startDate = values.min;
   var endDate = values.max;
   updateWordRange(startDate, endDate)
@@ -53,7 +55,7 @@ d3.json(DATA_DIR + HASHTAG_COUNTS_FILENAME).then(function(data) {
   // Update wordcloud with default range
   const startDate = new Date(DEFAULT_TWEET_DATE_MIN);
   const endDate = new Date(DEFAULT_TWEET_DATE_MAX);
-  var dateRange = $("#slider").dateRangeSlider("values");
+  var dateRange = $("#" + SLIDER_ID).dateRangeSlider("values");
   updateWordRange(dateRange.min, dateRange.max);
 });
 
