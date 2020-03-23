@@ -98,6 +98,8 @@ d3.csv('data/filteredNews.csv').then(function(data){
     });
 }); 
 
+populateScroll();
+
 // Convert values from strings to numbers
 function parseInputRow(d) {
   return {
@@ -129,7 +131,12 @@ function drawScatterPlot(userData) {
         .on("mouseover", null)
         .on("mouseout", null);
     }
-  else plot.selectAll('circle').attr("stroke-opacity", "1");
+  else {
+    plot.selectAll('circle')
+      .attr("stroke-opacity", "1")
+      .on("mouseover", tipMouseover)
+      .on("mouseout", tipMouseout);
+    }
 };
 
   let newsToggle = document.querySelectorAll('#news');
@@ -153,6 +160,18 @@ function drawScatterPlot(userData) {
       }
     });
   });
+
+function populateScroll() {
+  var origData;
+  var scroll = d3.select('#fakenews_scroll')
+  let plot = scroll.append('g')
+
+  newsNames.forEach(function(item) {
+    plot.append('p')
+      .attr('class', 'tweet h2')
+      .text("@" + item);
+  })
+}
 
 /*function toggleNews(on) {
   if (on) {

@@ -1,4 +1,5 @@
 import csv
+import datetime
 
 top_followed = ["maxdementiev", "kadirovrussia", "jenn_abrams", "todaynycity", "lavrovmuesli"
 , "coldwar20_ru", "politweecs", "washingtonline", "pigeonToday", "neworleanson"]
@@ -54,8 +55,34 @@ def getReplies():
 	print("author trolls: ", author_trolls)
 	print("replied trolls: ", replied_trolls)
 
+# Counts the tweets per day of top2 users ameliebaldwin and ten_gop
+def countTweets():
+	data = csv.reader(open(r"../../data/top2.csv", 'rU'),delimiter=',')
+	amelie = {}
+	ten_gop = {}
+	amelie_wr = csv.writer(open(r"../../data/amelie_count.csv",'w'),delimiter=',')
+	ten_gop_wr = csv.writer(open(r"../../data/ten_gop_count.csv",'w'),delimiter=',')
+	
+	count = 0;
+	for row in data: # converts dates of format 2/5/16 11:39 to datetime objects
+		if count > 0: # skips the first row
+			date = datetime.datetime.strptime(row[3], '%m/%d/%y %H:%M')
+			date_only = date.date();
+			if row[1] == "ameliebaldwin":
+				amelie[date_only] = amelie.get(date_only, 0) + 1
+			else:
+				ten_gop[date_only] = ten_gop.get(date_only, 0) + 1
+		count = count + 1
+
+	# label the rows
+	amelie_wr.writerow(["date", "count"])
+	ten_gop_wr.writerow(["date", "count"])
+	for key in amelie.keys():
+		amelie_wr.writerow([key, amelie.get(key)])
+	for key in ten_gop.keys():
+		ten_gop_wr.writerow([key, ten_gop.get(key)])
 
 #filterUsers(feed_users, "top2.csv")
-filterNews();
+countTweets()
 
 
