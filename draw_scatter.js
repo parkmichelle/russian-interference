@@ -131,7 +131,12 @@ function drawScatterPlot(userData) {
         .on("mouseover", null)
         .on("mouseout", null);
     }
-  else plot.selectAll('circle').attr("stroke-opacity", "1");
+  else {
+    plot.selectAll('circle')
+      .attr("stroke-opacity", "1")
+      .on("mouseover", tipMouseover)
+      .on("mouseout", tipMouseout);
+    }
 };
 
   let newsToggle = document.querySelectorAll('#news');

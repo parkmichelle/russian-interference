@@ -76,9 +76,3 @@ function drawTweet(row) {
     if (count == 0) return 0;
     else return count;
   }
-
-
-
-
-
-
