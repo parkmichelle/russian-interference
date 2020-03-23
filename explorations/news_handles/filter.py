@@ -1,5 +1,6 @@
 import csv
 import datetime
+from datetime import timedelta, date
 
 top_followed = ["maxdementiev", "kadirovrussia", "jenn_abrams", "todaynycity", "lavrovmuesli"
 , "coldwar20_ru", "politweecs", "washingtonline", "pigeonToday", "neworleanson"]
@@ -55,6 +56,10 @@ def getReplies():
 	print("author trolls: ", author_trolls)
 	print("replied trolls: ", replied_trolls)
 
+def daterange(start_date, end_date):
+    for n in range(int ((end_date - start_date).days)):
+        yield start_date + timedelta(n)
+
 # Counts the tweets per day of top2 users ameliebaldwin and ten_gop
 def countTweets():
 	data = csv.reader(open(r"../../data/top2.csv", 'rU'),delimiter=',')
@@ -77,10 +82,19 @@ def countTweets():
 	# label the rows
 	amelie_wr.writerow(["date", "count"])
 	ten_gop_wr.writerow(["date", "count"])
-	for key in amelie.keys():
-		amelie_wr.writerow([key, amelie.get(key)])
-	for key in ten_gop.keys():
-		ten_gop_wr.writerow([key, ten_gop.get(key)])
+
+	#for key in amelie:
+	#	amelie_wr.writerow([key, amelie.get(key, 0)])
+	#for key in ten_gop:
+	#	ten_gop_wr.writerow([key, ten_gop.get(key, 0)])
+
+	start_date = datetime.datetime(2016, 2, 1)
+	end_date = datetime.datetime(2017, 3, 31)
+
+	for single_date in daterange(start_date, end_date):
+		date = single_date.date()
+		amelie_wr.writerow([date, amelie.get(date, 0)])
+		ten_gop_wr.writerow([date, ten_gop.get(date, 0)])
 
 #filterUsers(feed_users, "top2.csv")
 countTweets()
