@@ -46,6 +46,11 @@ button {
 	opacity: .5;
 }
 
+line {
+	stroke: #00AA8D;
+	fill: none;
+}
+
 .bright {
 	border: 1px solid #009EF6;
 }
