@@ -1,0 +1,27 @@
+{
+  "name": "russian_interference",
+  "version": "1.0.0",
+  "description": "Analysis of Russian bot activity during 2016 presidential elections",
+  "main": "count_overview.js",
+  "dependencies": {
+    "d3-cloud": "^1.2.5",
+    "counterup2": "^1.0.4",
+    "countup.js": "^2.0.4",
+    "waypoints": "^4.0.1",
+    "jquery": "^3.4.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/parkmichelle/russian-interference.git"
+  },
+  "author": "Abdallah Abuhashem, Stephanie Niu, Michelle Park",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/parkmichelle/russian-interference/issues"
+  },
+  "homepage": "https://github.com/parkmichelle/russian-interference#readme"
+}
