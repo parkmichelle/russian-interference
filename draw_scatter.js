@@ -12,7 +12,7 @@ const newsNames = ["darknally", "DailySanFran", "ChicagoDailyNew", "OnlineMemphi
 "StLouisOnline", "RichmondVoice", "NewarkVoice", "BatonRougeVoice", "blackmattersus", "NewOrleansON", "ElPasoTopNews", 
 "TodayCincinnati", "TodayBostonMA", "Seattle_Post", "HoustonTopNews", "DailySanDiego", "DallasTopNews", "Atlanta_Online", 
 "TodayMiami", "OaklandOnline", "nj_blacknews", "riafanru", "PigeonToday"]
-var newsOff = false;
+var clicked = false;
 
 
 let wholeChart = d3.select('#users-overview'); 
@@ -76,7 +76,7 @@ plot.append("text")
 
 // Add title
 plot.append("text")
-  .attr("x", (width / 3))             
+  .attr("x", (plotWidth / 3))             
   .attr("y", 0 - (plotMargin / 2))
   .attr("text-anchor", "middle")  
   .style("font-size", "24px") 
@@ -98,6 +98,8 @@ d3.csv('data/filteredNews.csv').then(function(data){
     });
 }); 
 
+populateScroll();
+
 // Convert values from strings to numbers
 function parseInputRow(d) {
   return {
@@ -110,8 +112,6 @@ function parseInputRow(d) {
 };
 
 function drawScatterPlot(userData) {
-  if (newsOff) plot.selectAll('circle').attr("stroke-opacity", "1");
-  else {
     let circles = plot.selectAll('circle'); 
     let updatedCircles = circles.data(userData, d => d.id); 
     let enterSelection = updatedCircles.enter();
@@ -125,33 +125,55 @@ function drawScatterPlot(userData) {
       .style("stroke-width","2px")
       .on("mouseover", tipMouseover)
       .on("mouseout", tipMouseout);
-  updatedCircles.exit().attr("stroke-opacity",".2");
-  }
+    if (clicked) {
+      updatedCircles.exit()
+        .attr("stroke-opacity",".2")
+        .on("mouseover", null)
+        .on("mouseout", null);
+    }
+  else {
+    plot.selectAll('circle')
+      .attr("stroke-opacity", "1")
+      .on("mouseover", tipMouseover)
+      .on("mouseout", tipMouseout);
+    }
 };
 
   let newsToggle = document.querySelectorAll('#news');
   newsToggle.forEach(function(item) {
-
-    item.addEventListener('mouseover', function() {
-      newsOff = false;
-      let newData = allData;
-      newData = allData.filter(function(d) {
-        if (newsNames.includes(d.screen_name)) {
-          console.log("found");
-        }
-        return newsNames.includes(d.screen_name);
-      });
-      drawScatterPlot(newData);
-    });
-
-    item.addEventListener('mouseout', function() {
-      newsOff = true;
-      console.log("moused out");
-      drawScatterPlot(allData);
+    item.addEventListener('change', function() {
+      if (!clicked) {
+         clicked = true;
+         let newData = allData;
+         newData = allData.filter(function(d) {
+           if (newsNames.includes(d.screen_name)) {
+             console.log("found");
+           }
+           return newsNames.includes(d.screen_name);
+         });
+         drawScatterPlot(newData);
+       }
+      else {
+        clicked = false;
+        console.log("moused out");
+        drawScatterPlot(allData);
+      }
     });
   });
 
-function toggleNews(on) {
+function populateScroll() {
+  var origData;
+  var scroll = d3.select('#fakenews_scroll')
+  let plot = scroll.append('g')
+
+  newsNames.forEach(function(item) {
+    plot.append('p')
+      .attr('class', 'tweet h2')
+      .text("@" + item);
+  })
+}
+
+/*function toggleNews(on) {
   if (on) {
     newsOff = false;
     let newData = allData;
@@ -169,7 +191,7 @@ function toggleNews(on) {
     console.log("moused out");
     drawScatterPlot(allData);
   }
-}
+}*/
 
 
 
