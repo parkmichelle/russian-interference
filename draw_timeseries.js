@@ -2,6 +2,10 @@ dataDir = 'data/';
 tweetsFilename = 'top2.csv';
 
 let smallHeight = 100;
+var x0 = 0;
+var x1 = 0;
+var scroll0 = 0;
+var maxScroll = d3.select("#amelie_scroll").node().scrollHeight
 
 var amelie = d3.select('#amelie_time')
   .attr('width', outerWidth)
@@ -73,21 +77,28 @@ ten_gop_t.append("text")
   .style("font-family", font)
   .text("Tweets"); 
 
-//Titles
-amelie_t.append("text")
-  .attr("x", (width / 3))             
-  .attr("y", 0 - (plotMargin / 2))
-  .attr("text-anchor", "middle")  
-  .style("font-size", "24px") 
-  .style("font-family", font)  
-  .text("Amelie");
-ten_gop_t.append("text")
-  .attr("x", (width / 3))             
-  .attr("y", 0 - (plotMargin / 2))
-  .attr("text-anchor", "middle")  
-  .style("font-size", "24px") 
-  .style("font-family", font)  
-  .text("ten_gop"); 
+// Create x-axis brush
+var brush = d3.brushX()
+    .extent([[0, 0], [plotWidth, smallHeight]])
+    .on("brush", brushed);
+
+amelie_t.append("g")
+  .attr("class", "brush")
+  .call(brush) // initialize brush to 2-week range
+  .call(brush.move, [x2(new Date("2016-02-01")), x2(new Date("2016-02-14"))]);
+
+ten_gop_t.append("g")
+  .attr("class", "brush")
+  .call(brush) // initialize brush to 2-week range
+  .call(brush.move, [x2(new Date("2016-02-01")), x2(new Date("2016-02-14"))]);
+
+d3.selectAll('.brush>.handle').remove();
+d3.selectAll('.brush>.overlay').remove();
+
+// https://bl.ocks.org/EfratVil/5edc17dd98ece6aabc9744384e46f45b
+// Initialize the brush to Feb-March 2016
+//amelie_t.call(brush)
+  //  .call(brush.move, [x2(new Date("2016-02-01")), x2(new Date("2016-02-07"))]);
 
 
 d3.csv('data/amelie_count.csv').then(function(data) {
@@ -117,3 +128,17 @@ var line_context = d3.line()
     .x(function(d) { return x2(new Date(d.date)); })
     .y(function(d) { return y2(+d.count); 
     });
+
+// Update the scroll on brush
+function brushed() {
+  const selection = d3.event.selection;
+  x_val = x2.invert(selection[0]); // get ths date associated with the beginning of the brush range
+  console.log("start date ", x_val);
+
+  deltax = x1-x0;
+      
+  //move scroller to starting scroll value + change in x
+  //the Math.min is probably unneccesary since it will automatically
+  //stop the scroller at the end of the div
+  d3.select("#amelie_scroll").property("scrollTop",Math.min(scroll0 + deltax, maxScroll))
+}
