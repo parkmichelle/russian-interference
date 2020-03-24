@@ -1,7 +1,10 @@
 dataDir = 'data/';
 tweetsFilename = 'top2.csv';
 
-let smallHeight = 100;
+let smallHeight = 125;
+let smallMargin = 20;
+let largeMargin = 50;
+
 var x0 = 0;
 var x1 = 0;
 var scroll0 = 0;
@@ -9,49 +12,32 @@ var maxScroll = d3.select("#amelie_scroll").node().scrollHeight
 
 var amelie = d3.select('#amelie_time')
   .attr('width', outerWidth)
-  .attr('height', smallHeight + 2 * plotMargin); 
+  .attr('height', smallHeight + 2 * smallMargin); 
 var ten_gop = d3.select('#ten_gop_time')
   .attr('width', outerWidth)
-  .attr('height', smallHeight + 2 * plotMargin); 
+  .attr('height', smallHeight + 2 * smallMargin); 
 
 let amelie_t= amelie.append('g')
-  .attr('transform', `translate(${plotMargin},${plotMargin})`); 
+  .attr('transform', `translate(${plotMargin},${smallMargin})`); 
 let ten_gop_t= ten_gop.append('g')
-  .attr('transform', `translate(${plotMargin},${plotMargin})`); 
+  .attr('transform', `translate(${plotMargin},${smallMargin})`); 
 
 var x2 = d3.scaleTime()
   .domain([new Date("2016-02-01"), new Date("2017-03-31")])
   .range([0, plotWidth]);
 
-var y2 = d3.scaleLinear()
+var y2 = d3.scalePow()
   .domain([0, 834])
+  .exponent(.5)
   .range([smallHeight, 0])
 
-/*var yAxis_t = d3.axisLeft(y2)
-    .tickFormat(function(d) { return "e" + formatPower(Math.round(Math.log(d))); });
-
-amelie_t.append("g")
-    .attr("class", "axis axis--y")
-    .attr("transform", "translate(-10,0)")
-    .call(yAxis_t);*/
-
-// Append the axes
+// Append the axes with abbreviated month format
 amelie_t.append('g')
   .attr('transform', `translate(0,${smallHeight})`)
-  .call(d3.axisBottom(x2))
-  .selectAll("text")
-    .style("text-anchor", "end")
-    .attr("dx", "-.8em")
-    .attr("dy", ".15em")
-    .attr("transform", "rotate(-65)");
+  .call(d3.axisBottom(x2).tickFormat(d3.timeFormat('%b')));
 ten_gop_t.append('g')
   .attr('transform', `translate(0,${smallHeight})`)
-  .call(d3.axisBottom(x2))
-  .selectAll("text")
-    .style("text-anchor", "end")
-    .attr("dx", "-.8em")
-    .attr("dy", ".15em")
-    .attr("transform", "rotate(-65)");
+  .call(d3.axisBottom(x2).tickFormat(d3.timeFormat('%b'))); 
 
 amelie_t.append('g')
   .call(d3.axisLeft(y2));
@@ -62,20 +48,20 @@ ten_gop_t.append('g')
 // y-axis label
 amelie_t.append("text")
   .attr("transform", "rotate(-90)")
-  .attr("y", 0 - plotMargin)
+  .attr("y", 0 - largeMargin)
   .attr("x",0 - (smallHeight / 2))
   .attr("dy", "1em")
   .style("text-anchor", "middle")
   .style("font-family", font)
-  .text("Tweets");  
+  .text("Tweets per Day");  
 ten_gop_t.append("text")
   .attr("transform", "rotate(-90)")
-  .attr("y", 0 - plotMargin)
+  .attr("y", 0 - largeMargin)
   .attr("x",0 - (smallHeight / 2))
   .attr("dy", "1em")
   .style("text-anchor", "middle")
   .style("font-family", font)
-  .text("Tweets"); 
+  .text("Tweets per Day"); 
 
 // Create x-axis brush
 var brush = d3.brushX()

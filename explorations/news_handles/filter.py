@@ -31,6 +31,26 @@ def filterUsers(top_list, output):
 	filtered = filter(lambda p: p[1] in top_list, reader)
 	csv.writer(open(output,'w'),delimiter=',').writerows(filtered)
 
+# Creates 2 csvs, one per power user, of dates
+def filterUsersSep():
+	reader = csv.reader(open(r"../../data/tweets.csv"),delimiter=',')
+	filtered = filter(lambda p: p[1] in feed_users, reader)
+	amelie_only = csv.writer(open(r"../../data/amelie_only.csv",'w'),delimiter=',')
+	ten_gop_only = csv.writer(open(r"../../data/ten_gop_only.csv",'w'),delimiter=',')
+
+	amelie_only.writerow(["date"])
+	ten_gop_only.writerow(["date"])
+	count = 0
+	for row in filtered:
+		if count > 0:
+			date = datetime.datetime.strptime(row[3], '%Y-%m-%d %H:%M:%S')
+			date_only = date.date();
+			if row[1] == "ameliebaldwin":
+				amelie_only.writerow([date_only])
+			else:
+				ten_gop_only.writerow([date_only])
+		count = count + 1
+
 # Filters tweets to only those created by the top 10 most-posting trolls
 def filterStatuses():
 	reader = csv.reader(open(r"../../data/tweets.csv"),delimiter=',')
@@ -97,6 +117,6 @@ def countTweets():
 		ten_gop_wr.writerow([date, ten_gop.get(date, 0)])
 
 #filterUsers(feed_users, "top2.csv")
-countTweets()
-
+#countTweets()
+filterUsersSep()
 

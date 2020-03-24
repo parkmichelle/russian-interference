@@ -76,7 +76,7 @@ plot.append("text")
 
 // Add title
 plot.append("text")
-  .attr("x", (width / 3))             
+  .attr("x", (plotWidth / 3))             
   .attr("y", 0 - (plotMargin / 2))
   .attr("text-anchor", "middle")  
   .style("font-size", "24px") 
