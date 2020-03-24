@@ -1,7 +1,7 @@
 dataDir = 'data/';
 tweetsFilename = 'top2.csv';
 
-let smallHeight = 300;
+let smallHeight = 100;
 var x0 = 0;
 var x1 = 0;
 var scroll0 = 0;
