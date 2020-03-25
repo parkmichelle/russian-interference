@@ -82,24 +82,6 @@ ten_gop_t.append("svg")
   .style('stroke', 'goldenrod')
   .style('opacity', .7);
 
-/*// Create x-axis brush
-var brush = d3.brushX()
-    .extent([[0, 0], [plotWidth, smallHeight]])
-    .on("brush", brushed);
-
-amelie_t.append("g")
-  .attr("class", "brush")
-  .call(brush) // initialize brush to 2-week range
-  .call(brush.move, [x2(new Date("2016-02-01")), x2(new Date("2016-02-14"))]);
-
-ten_gop_t.append("g")
-  .attr("class", "brush")
-  .call(brush) // initialize brush to 2-week range
-  .call(brush.move, [x2(new Date("2016-02-01")), x2(new Date("2016-02-14"))]);
-
-d3.selectAll('.brush>.handle').remove();
-d3.selectAll('.brush>.overlay').remove();*/
-
 d3.csv('data/amelie_count.csv').then(function(data) {
   data.forEach(element => {
     d = new Date(element.date);
