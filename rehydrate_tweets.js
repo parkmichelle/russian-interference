@@ -74,7 +74,7 @@ function drawTweet(row) {
       .text(row.text);
   plot.append('tspan')
       .attr('class', 'tweet h2')
-      .text("Retweets: " + getCount(row.retweet_count)); // TODO add retweet/favorite icon
+      .text(getCount("Retweets: " + row.retweet_count)); // TODO add retweet/favorite icon
   plot.append('tspan')
       .attr('class', 'tweet h2')
       .text("     Favorites: " + getCount(row.favorite_count));

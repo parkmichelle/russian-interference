@@ -1,5 +1,18 @@
 import { CountUp } from './node_modules/countup.js/dist/countUp.js';
 
+$('#counter-accounts').waypoint(function(direction){
+  let counter = new CountUp('counter-accounts', 454);
+  if (!counter.error) {
+    counter.start();
+  } else {
+    console.error(counter.error);
+  }
+},{
+  //bottom-in-view ensures event is thrown 
+  // when the element's bottom crosses bottom of viewport.
+  offset: 'bottom-in-view'
+});
+
 $('#counter-tweets').waypoint(function(direction){
   let counter = new CountUp('counter-tweets', 203482);
   if (!counter.error) {

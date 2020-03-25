@@ -4,6 +4,7 @@
   "description": "Analysis of Russian bot activity during 2016 presidential elections",
   "main": "count_overview.js",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.13.0",
     "counterup2": "^1.0.4",
     "countup": "^1.8.2",
     "countup.js": "^2.0.4",
