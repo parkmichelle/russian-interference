@@ -20,14 +20,18 @@ let ten_gop_plot = ten_gop_scroll.append('g')
 // Creates an array of ordered dates of posts for ameliebaldwin
 d3.csv('data/amelie_only.csv').then(function(data) {
   data.forEach(element => {
-    amelie_dates.push(new Date(element.date));
+    d = new Date(element.date);
+    d.setUTCHours(0, 0, 0, 0);
+    amelie_dates.push(d);
   });
 });
 
 // Creates an array of ordered dates of posts for ten_gop
 d3.csv('data/ten_gop_only.csv').then(function(data) {
   data.forEach(element => {
-    ten_gop_dates.push(new Date(element.date));
+    d = new Date(element.date);
+    d.setUTCHours(0, 0, 0, 0);
+    ten_gop_dates.push(d);
   });
 });
 
@@ -95,14 +99,13 @@ function updateDotA() {
   // Calculates which date should be top based on average pixels per tweet (height)
   index = Math.floor(amelie_scroll.node().scrollTop / (amelie_scroll.node().scrollHeight/amelie_dates.length));
   topdate = amelie_dates[index];
-  console.log("TOPDATE: ", topdate);
 
   amelie_t.selectAll('circle').remove();
   amelie_t.append("svg")
     .append('circle')
     .attr('cx', function() {return x2(topdate);})
-    .attr('cy', function() {return y2(400);})
-    .attr('r', 4)
+    .attr('cy', function() {return y2(amelie_counts[topdate])})
+    .attr('r', dotRadius)
     .style('fill', 'gold')
     .style('stroke', 'goldenrod')
     .style('opacity', .7);
@@ -112,14 +115,13 @@ function updateDotT() {
   // Calculates which date should be top based on average pixels per tweet (height)
   index = Math.floor(ten_gop_scroll.node().scrollTop / (ten_gop_scroll.node().scrollHeight/ten_gop_dates.length));
   topdate = ten_gop_dates[index];
-  console.log("TOPDATE: ", topdate);
 
   ten_gop_t.selectAll('circle').remove();
   ten_gop_t.append("svg")
     .append('circle')
     .attr('cx', function() {return x2(topdate);})
-    .attr('cy', function() {return y2(400);})
-    .attr('r', 4)
+    .attr('cy', function() {return y2(ten_gop_counts[topdate]);})
+    .attr('r', dotRadius)
     .style('fill', 'gold')
     .style('stroke', 'goldenrod')
     .style('opacity', .7);
