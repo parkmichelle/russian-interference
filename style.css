@@ -56,6 +56,28 @@ line {
 	fill: none;
 }
 
+.center {
+	text-align: center;
+}
+
+.counter {
+	font-family: 'Work Sans', sans-serif;
+	font-size: 18px;
+	text-align: center;
+}
+
+.number {
+	font-family: 'Work Sans', sans-serif;
+	font-size: 18px;
+	text-align: center;
+	color: steelblue;
+}
+
+#counter-impact {
+	font-size: 24px;
+	font-weight: bold;
+}
+
 .retweet {
 	width: 100px;
 	height: 100px;
@@ -79,7 +101,18 @@ line {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	align-self: center;
 	width: 30%;
+}
+
+.thirty {
+	width: 30%;
+}
+
+.forty {
+	width: 40%;
+	margin-left: 30%;
+	margin-right: 30%;
 }
 
 .scroll {
@@ -89,6 +122,10 @@ line {
 	padding: 15px;
 	border: .25px solid #697D8C;
 	overflow-x: hidden;
+}
+
+.spacer {
+	height: 50px;
 }
 
 #fakenews_scroll {
