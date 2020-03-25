@@ -4,11 +4,12 @@
   "description": "Analysis of Russian bot activity during 2016 presidential elections",
   "main": "count_overview.js",
   "dependencies": {
-    "d3-cloud": "^1.2.5",
     "counterup2": "^1.0.4",
+    "countup": "^1.8.2",
     "countup.js": "^2.0.4",
-    "waypoints": "^4.0.1",
-    "jquery": "^3.4.1"
+    "d3-cloud": "^1.2.5",
+    "jquery": "^3.4.1",
+    "waypoints": "^4.0.1"
   },
   "devDependencies": {},
   "scripts": {

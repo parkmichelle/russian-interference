@@ -4,11 +4,12 @@ tweetsFilename = 'top2.csv';
 let smallHeight = 125;
 let smallMargin = 20;
 let largeMargin = 50;
+let startDate = new Date("2016-02-01");
+let dotRadius = 5;
 
-var x0 = 0;
-var x1 = 0;
-var scroll0 = 0;
-var maxScroll = d3.select("#amelie_scroll").node().scrollHeight
+// Maps that store counts of dates that had tweets (nonzero counts)
+var amelie_counts = {};
+var ten_gop_counts = {};
 
 var amelie = d3.select('#amelie_time')
   .attr('width', outerWidth)
@@ -44,7 +45,6 @@ amelie_t.append('g')
 ten_gop_t.append('g')
   .call(d3.axisLeft(y2));
 
-
 // y-axis label
 amelie_t.append("text")
   .attr("transform", "rotate(-90)")
@@ -63,7 +63,26 @@ ten_gop_t.append("text")
   .style("font-family", font)
   .text("Tweets per Day"); 
 
-// Create x-axis brush
+// Draws initial yellow circle on timeseries
+amelie_t.append("svg")
+  .append('circle')
+  .attr('cx', function() {return x2(startDate);})
+  .attr('cy', function() {return y2(1);})
+  .attr('r', dotRadius)
+  .style('fill', 'gold')
+  .style('stroke', 'goldenrod')
+  .style('opacity', .7);
+
+ten_gop_t.append("svg")
+  .append('circle')
+  .attr('cx', function() {return x2(startDate);})
+  .attr('cy', function() {return y2(1);})
+  .attr('r', dotRadius)
+  .style('fill', 'gold')
+  .style('stroke', 'goldenrod')
+  .style('opacity', .7);
+
+/*// Create x-axis brush
 var brush = d3.brushX()
     .extent([[0, 0], [plotWidth, smallHeight]])
     .on("brush", brushed);
@@ -79,15 +98,14 @@ ten_gop_t.append("g")
   .call(brush.move, [x2(new Date("2016-02-01")), x2(new Date("2016-02-14"))]);
 
 d3.selectAll('.brush>.handle').remove();
-d3.selectAll('.brush>.overlay').remove();
-
-// https://bl.ocks.org/EfratVil/5edc17dd98ece6aabc9744384e46f45b
-// Initialize the brush to Feb-March 2016
-//amelie_t.call(brush)
-  //  .call(brush.move, [x2(new Date("2016-02-01")), x2(new Date("2016-02-07"))]);
-
+d3.selectAll('.brush>.overlay').remove();*/
 
 d3.csv('data/amelie_count.csv').then(function(data) {
+  data.forEach(element => {
+    d = new Date(element.date);
+    d.setUTCHours(0, 0, 0, 0);
+    amelie_counts[d] = +element.count;
+  });
   amelie_t.append("path")
     .datum(data)
     .attr("class", "line")
@@ -99,6 +117,12 @@ d3.csv('data/amelie_count.csv').then(function(data) {
 });
 
 d3.csv('data/ten_gop_count.csv').then(function(data) {
+  data.forEach(element => {
+    d = new Date(element.date);
+    d.setUTCHours(0, 0, 0, 0);
+    ten_gop_counts[d] = +element.count;
+  });
+  console.log(ten_gop_counts);
   ten_gop_t.append("path")
     .datum(data)
     .attr("class", "line")
@@ -114,17 +138,3 @@ var line_context = d3.line()
     .x(function(d) { return x2(new Date(d.date)); })
     .y(function(d) { return y2(+d.count); 
     });
-
-// Update the scroll on brush
-function brushed() {
-  const selection = d3.event.selection;
-  x_val = x2.invert(selection[0]); // get ths date associated with the beginning of the brush range
-  console.log("start date ", x_val);
-
-  deltax = x1-x0;
-      
-  //move scroller to starting scroll value + change in x
-  //the Math.min is probably unneccesary since it will automatically
-  //stop the scroller at the end of the div
-  d3.select("#amelie_scroll").property("scrollTop",Math.min(scroll0 + deltax, maxScroll))
-}
