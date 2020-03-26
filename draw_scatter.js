@@ -49,7 +49,7 @@ let xScale = d3.scaleLinear()
   .domain([0, 100000])
   .range([0, plotWidth])
 let yScale = d3.scaleLinear()
-  .domain([0, 25000])
+  .domain([0, 27200])
   .range([plotHeight, 0]); 
 
 // Draw our axes based on xScale and yScale
@@ -98,7 +98,15 @@ d3.csv('data/filteredNews.csv').then(function(data){
     });
 }); 
 
-populateScroll();
+var scroll = d3.select('#fakenews_scroll');
+var bio_label = d3.select('#bio_label');
+
+let scroll_plot = scroll.append('g');
+var bio_plot = bio_label.append('g');
+
+  scroll_plot.append('div')
+      .attr('class', 'tweet body')
+      .text("Click a user to see their Twitter bio.");
 
 // Convert values from strings to numbers
 function parseInputRow(d) {
@@ -124,18 +132,21 @@ function drawScatterPlot(userData) {
       .style("stroke","steelblue")
       .style("stroke-width","2px")
       .on("mouseover", tipMouseover)
-      .on("mouseout", tipMouseout);
+      .on("mouseout", tipMouseout)
+      .on("click", showBio);
     if (clicked) {
       updatedCircles.exit()
         .attr("stroke-opacity",".2")
         .on("mouseover", null)
-        .on("mouseout", null);
+        .on("mouseout", null)
+        .on("click", null);
     }
   else {
     plot.selectAll('circle')
       .attr("stroke-opacity", "1")
       .on("mouseover", tipMouseover)
-      .on("mouseout", tipMouseout);
+      .on("mouseout", tipMouseout)
+      .on("click", showBio);
     }
 };
 
@@ -161,39 +172,23 @@ function drawScatterPlot(userData) {
     });
   });
 
-function populateScroll() {
-  var origData;
-  var scroll = d3.select('#fakenews_scroll')
-  let plot = scroll.append('g')
+// Displays the bio of the clicked account
+var showBio = function(d) {
+  scroll_plot.selectAll('div').remove();
+  bio_plot.select('span').remove();
 
-  newsNames.forEach(function(item) {
-    plot.append('p')
-      .attr('class', 'tweet h2')
-      .text("@" + item);
-  })
-}
+  bio_plot.append('span')
+    .text(": @" + d.screen_name);
 
-/*function toggleNews(on) {
-  if (on) {
-    newsOff = false;
-    let newData = allData;
-    newData = allData.filter(function(d) {
-    if (newsNames.includes(d.screen_name)) {
-      console.log("found");
-    }
-    return newsNames.includes(d.screen_name);
-    });
-    drawScatterPlot(newData);
-  }
-
-  else {
-    newsOff = true;
-    console.log("moused out");
-    drawScatterPlot(allData);
-  }
-}*/
-
-
-
+  scroll_plot.append('div')
+    .attr('class', 'tweet-header')
+    .text(d.name);
+  scroll_plot.append('div')
+      .attr('class', 'handle')
+      .text("@" + d.screen_name);
+  scroll_plot.append('div')
+      .attr('class', 'tweet body')
+      .text(d.description);
+};
 
 
