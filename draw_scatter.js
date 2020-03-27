@@ -4,6 +4,8 @@ let plotHeight = 500;
 let plotMargin = 75;
 let outerWidth = plotWidth + 2 * plotMargin;
 let outerHeight = plotHeight + 2 * plotMargin; 
+let zoomK = 1;
+var allUserData;
 
 const font = "Work Sans";
 const newsNames = ["darknally", "DailySanFran", "ChicagoDailyNew", "OnlineMemphis", 
@@ -16,9 +18,6 @@ var clicked = false;
 
 
 let wholeChart = d3.select('#users-overview'); 
-wholeChart
-  .attr('width', outerWidth)
-  .attr('height', outerHeight); 
 // Create a `g` element to our SVG
 let plot = wholeChart.append('g')
   .attr('transform', `translate(${plotMargin},${plotMargin})`); 
@@ -26,6 +25,7 @@ let plot = wholeChart.append('g')
 var tooltip = d3.select(".tooltip");
 
 var tipMouseover = function(d) {
+    d3.select(this).style("cursor", "pointer"); 
     var html  = "<span class='tooltip-header'>" + "@" + d.screen_name + "</span>" + 
     "<br/>" + "Followers: " + "<span class='tooltip-text'>" + 
     d.followers_count + "</span>"+ "<br/>" + "Favorites: " + "<span class='tooltip-text'>"
@@ -39,6 +39,7 @@ var tipMouseover = function(d) {
 };
 // tooltip mouseout event handler
 var tipMouseout = function(d) {
+    d3.select(this).style("cursor", "default"); 
     tooltip.transition()
         .duration(0) // ms
         .style("opacity", 0); // don't care about position!
@@ -57,7 +58,60 @@ let xAxis = plot.append('g')
   .attr('transform', `translate(0,${plotHeight})`)
   .call(d3.axisBottom(xScale));
 let yAxis = plot.append('g')
-  .call(d3.axisLeft(yScale)); 
+  .call(d3.axisLeft(yScale));
+
+wholeChart
+  .attr('width', outerWidth)
+  .attr('height', outerHeight)
+  .call(d3.zoom().on("zoom", (d) => {
+            // Transform the axes
+            var new_xScale = d3.event.transform.rescaleX(xScale);
+            var new_yScale = d3.event.transform.rescaleY(yScale);
+            xAxis.call(d3.axisBottom(new_xScale));
+            yAxis.call(d3.axisLeft(new_yScale));
+
+            d3.selectAll('circle').data(allData)
+              .attr('cx', function(d) {
+                //if (new_xScale(d.followers_count) < plotMargin) return null;
+                return new_xScale(d.followers_count);
+              })
+              .attr('cy', function(d) {return new_yScale(d.favourites_count)});   
+
+              d3.selectAll('circle')
+            .attr("r", (d) => {
+              if (new_xScale(d.followers_count) < plotMargin) {
+                console.log("outside margins");
+                return 0;
+              }
+              return 1.5/Math.sqrt(d3.event.transform.k) * getRadius(d);
+            })
+            .style("stroke-width", function (d) {
+                if (this.style.strokeWidth && this.style.strokeWidth !== "0") {
+                    return 1.5/(Math.sqrt(d3.event.transform.k*0.5));
+                }
+                return 0;
+            })       
+
+            //xAxis.call(d3.axisBottom(d3.event.transform.rescaleX(xScale)));
+            //yAxis.call(d3.axisLeft(d3.event.transform.rescaleX(yScale)));
+        })
+      /*.on('end', (d) => {
+            d3.selectAll('circle')
+            .attr("r", (d) => {
+              if (new_xScale(d.followers_count) < plotMargin) {
+                console.log("outside margins");
+                return 0;
+              }
+              return 1.5/Math.sqrt(d3.event.transform.k) * getRadius(d);
+            })
+            .style("stroke-width", function (d) {
+                if (this.style.strokeWidth && this.style.strokeWidth !== "0") {
+                    return 1.5/(Math.sqrt(d3.event.transform.k*0.5));
+                }
+                return 0;
+            })
+
+        })*/); 
 
 // label the axes
 plot.append("text")             
@@ -120,12 +174,13 @@ function parseInputRow(d) {
 };
 
 function drawScatterPlot(userData) {
+    allUserData = userData;
     let circles = plot.selectAll('circle'); 
     let updatedCircles = circles.data(userData, d => d.id); 
     let enterSelection = updatedCircles.enter();
     let newCircles = enterSelection.append('circle')
       // Uses an exponent because # statuses scales exponentially
-      .attr('r', function (d) { return Math.pow(d.statuses_count, .9)*.0005; })
+      .attr('r', function (d) { return getRadius(d); })
       .attr('cx', function (d) { return xScale(d.followers_count); })
       .attr('cy', function (d) { return yScale(d.favourites_count); })
       .attr("fill-opacity","0")
@@ -172,6 +227,11 @@ function drawScatterPlot(userData) {
     });
   });
 
+
+function getRadius(d) {
+  if (d == undefined) return 0;
+  return Math.pow(d.statuses_count, .9)*.0005;
+}
 // Displays the bio of the clicked account
 var showBio = function(d) {
   scroll_plot.selectAll('div').remove();
