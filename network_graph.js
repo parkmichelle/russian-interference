@@ -94,6 +94,6 @@ d3.json(DATA_DIR + GRAPH_DATA).then(function(data) {
             trollsOnly['links'].push(n);
         }
     })
-    let graph = data;
+    let graph = trollsOnly;
     run(graph)
 });
