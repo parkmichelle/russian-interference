@@ -104,7 +104,6 @@ d3.csv('data/ten_gop_count.csv').then(function(data) {
     d.setUTCHours(0, 0, 0, 0);
     ten_gop_counts[d] = +element.count;
   });
-  console.log(ten_gop_counts);
   ten_gop_t.append("path")
     .datum(data)
     .attr("class", "line")

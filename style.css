@@ -129,6 +129,10 @@ line {
 	height: 50px;
 }
 
+#subtitle {
+	position: absolute;
+}
+
 #fakenews_scroll {
 	height: 200px;
 	width: 350px;
