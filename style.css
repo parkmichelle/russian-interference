@@ -19,6 +19,7 @@ h1 {
 
 h2 {
 	font-family: 'Work Sans', sans-serif;
+	font-size: 24px;
 }
 
 .label {
@@ -131,6 +132,10 @@ line {
 
 .spacer {
 	height: 50px;
+}
+
+#subtitle {
+	position: absolute;
 }
 
 #fakenews_scroll {
