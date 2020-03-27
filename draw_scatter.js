@@ -32,7 +32,7 @@ var tipMouseover = function(d) {
     var html  = "<span class='tooltip-header'>" + "@" + d.screen_name + "</span>" + 
     "<br/>" + "Followers: " + "<span class='tooltip-text'>" + 
     d.followers_count + "</span>"+ "<br/>" + "Favorites: " + "<span class='tooltip-text'>"
-    + d.favourites_count + "</span>" + "<br/>" + "Tweets: " + "<span class='tooltip-text'>"
+    + d.favourites_count + "</span>" + "<br/>" + "Total Tweets: " + "<span class='tooltip-text'>"
     + d.statuses_count + "</span>";
     tooltip.html(html)
         .style("left", (d3.event.pageX + 10) + "px")
@@ -54,7 +54,7 @@ let xScale = d3.scaleLinear()
   .domain([0, 100000])
   .range([0, plotWidth])
 let yScale = d3.scaleLinear()
-  .domain([0, 27200])
+  .domain([0, 27500])
   .range([plotHeight, 0]); 
 
 // Draw our axes based on xScale and yScale
@@ -63,6 +63,21 @@ let xAxis = plot.append('g')
   .call(d3.axisBottom(xScale));
 let yAxis = plot.append('g')
   .call(d3.axisLeft(yScale));
+
+// Add circle legend- not working currently
+var l = circleLegend(plot)
+        .domain([0, 61735]) // the dataset min and max
+        .range([0, getRadius(61735)]) // the circle area/size mapping
+        .values( [getRadius(500), getRadius(5000), getRadius(50000)]) // pass in values (e.g. min,mean/median & max)
+        // optional
+        .width(outerWidth - 300) // it centers to this
+        .height(plotMargin) // it centers to this
+        .suffix(' tweets') // ability to pass in a suffix e.g. '%'
+        .circleColor('steelblue') // stroke of the circles
+        .textPadding(0) // left padding on text
+        .textColor( '#454545'); // the fill for text
+    // and render it
+//l.render();
 
 var zoom = d3.zoom().on("zoom", (d) => {
             // Transform the axes
@@ -79,7 +94,7 @@ var zoom = d3.zoom().on("zoom", (d) => {
                 var new_y = new_yScale(d.favourites_count);
                 if (new_x < 0 || new_x > plotWidth) return 0;
                 if (new_y > plotHeight || new_y < 0) return 0;
-                return 1.5/(Math.pow(d3.event.transform.k, .1)) * getRadius(d);
+                return 1/(Math.pow(d3.event.transform.k, .1)) * getRadius(d.statuses_count);
               })
               .style('stroke-width', function() {
                 if (this.style.strokeWidth && this.style.strokeWidth !== "0") return 1.5/(Math.sqrt(d3.event.transform.k*0.5));
@@ -146,6 +161,12 @@ var subtitle = plot.append("text")
   .style("font-family", font)  
   .text("Scroll to zoom");
 
+// Add legend
+plot.append("svg:image")
+  .attr('x', plotWidth - plotMargin)
+  .attr('y', subtitleHeight + 10)
+  .attr("xlink:href", "images/legend.png")
+
 d3.csv('data/users.csv').then(function(data){
     window.allData = data;
     data.forEach(element => {
@@ -189,7 +210,7 @@ function drawScatterPlot(userData) {
     let enterSelection = updatedCircles.enter();
     let newCircles = enterSelection.append('circle')
       // Uses an exponent because # statuses scales exponentially
-      .attr('r', function (d) { return getRadius(d); })
+      .attr('r', function (d) { return getRadius(d.statuses_count); })
       .attr('cx', function (d) { return xScale(d.followers_count); })
       .attr('cy', function (d) { return yScale(d.favourites_count); })
       .attr("fill-opacity","0")
@@ -198,6 +219,7 @@ function drawScatterPlot(userData) {
       .on("mouseover", tipMouseover)
       .on("mouseout", tipMouseout)
       .on("click", showBio);
+
     if (clicked) {
       updatedCircles.exit()
         .attr("stroke-opacity",".2")
@@ -234,10 +256,10 @@ function drawScatterPlot(userData) {
     });
   });
 
-// Given an entry d, returns the radius of the point representing d
-function getRadius(d) {
-  if (d.statuses_count == null) return 0;
-  return Math.pow(d.statuses_count, .85)*.001;
+// Given a status count, returns the radius of the point
+function getRadius(statuses) {
+  if (statuses == null) return 0;
+  return Math.pow(statuses, .85)*.001;
 }
 // Displays the bio of the clicked account
 var showBio = function(d) {
@@ -257,5 +279,89 @@ var showBio = function(d) {
       .attr('class', 'tweet body')
       .text(d.description);
 };
+
+function circleLegend(selection) {
+    let instance = {}
+    // set some defaults 
+    const api = {
+        domain: [0, 100], // the values min and max
+        range: [0, 80], // the circle area/size mapping
+        values: [8, 34, 89], // values for circles
+        width: 500,
+        height: 500,
+        suffix:'', // ability to pass in a suffix
+        circleColor: '#888',
+        textPadding: 40,
+        textColor: '#454545'
+    }
+    const sqrtScale = d3.scaleSqrt()
+        .domain(api.domain)
+        .range(api.range)
+    instance.render = function () {
+        const s = selection.append('g')
+            .attr('class', 'legend-wrap')
+            // push down to radius of largest circle
+            .attr('transform', 'translate(0,' + sqrtScale(d3.max(api.values)) + ')')
+        // append the values for circles
+        s.append('g')
+            .attr('class', 'values-wrap')
+            .selectAll('circle')
+            .data(api.values)
+            .enter().append('circle')
+            .attr('class', d => 'values values-' + d)
+            .attr('r', d => sqrtScale(d))
+            .attr('cx', api.width/2)
+            .attr('cy', d => api.height/2 - sqrtScale(d))
+            .style('fill', 'none') 
+            .style('stroke', api.circleColor) 
+            .style('opacity', 0.5) 
+
+        // append some lines based on values
+        s.append('g')
+            .attr('class', 'values-line-wrap')
+            .selectAll('.values-labels')
+            .data(api.values)
+            .enter().append('line')
+            .attr('x1', d => api.width/2 + sqrtScale(d))
+            .attr('x2', api.width/2 + sqrtScale(api.domain[1]) + 10)
+            .attr('y1', d => api.height/2 - sqrtScale(d))
+            .attr('y2', d => api.height/2 - sqrtScale(d))
+            .style('stroke', api.textColor)
+            .style('stroke-dasharray', ('2,2'))
+
+        // append some labels from values
+        s.append('g')
+            .attr('class', 'values-labels-wrap')
+            .selectAll('.values-labels')
+            .data(api.values)
+            .enter().append('text')
+            .attr('x', api.width/2 + sqrtScale(api.domain[1]) + api.textPadding)
+            .attr('y', d => (api.height/2 - sqrtScale(d)) + 5)
+            .attr('shape-rendering', 'crispEdges')
+            .style('text-anchor', 'end')
+            .style('fill', api.textColor)
+            .text(d => d + api.suffix)
+
+        return instance
+    }
+
+    for (let key in api) {
+        instance[key] = getSet(key, instance).bind(api)
+    }
+
+    return instance
+
+    // https://gist.github.com/gneatgeek/5892586
+    function getSet(option, component) {
+        return function (_) {
+            if (! arguments.length) {
+                return this[option];
+            }
+        this[option] = _;
+        return component;
+      }
+    }
+    
+}
 
 
