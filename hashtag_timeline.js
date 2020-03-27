@@ -1,5 +1,5 @@
 const NUM_WORDS_IN_CLOUD = 100;
-const FONT_SIZE_MAX = 120;
+const FONT_SIZE_MAX = 90;
 
 const FIRST_TWEET_DATE = "2014-07-14";
 const LAST_TWEET_DATE = "2017-09-26";
@@ -16,7 +16,7 @@ const HASHTAG_COUNTS_FILENAME = 'hashtags_by_day.json'
 const WORDCLOUD_WIDTH = 500;
 const WORDCLOUD_HEIGHT = 500;
 const WORDCLOUD_CONTAINER_WIDTH = 1000;
-const WORDCLOUD_CONTAINER_HEIGHT = 600;
+const WORDCLOUD_CONTAINER_HEIGHT = 500;
 
 const SLIDER_ID = 'wordcloud-slider'
 
@@ -135,7 +135,7 @@ function wordCloud(selector) {
     .attr("width", WORDCLOUD_CONTAINER_WIDTH)
     .attr("height", WORDCLOUD_CONTAINER_HEIGHT)
     .append("g")
-    .attr("transform", "translate(250,250)");
+    .attr("transform", "translate(300,250)");
 
   //Draw the word cloud
   function draw(words) {
@@ -204,7 +204,7 @@ function wordCloud(selector) {
           .words(words)
           .font("Impact")
           .text(function(d) { return d.text; })
-          .padding(5)
+          .padding(4)
           .rotate(function() {return 0; })
           .fontSize(function(d) { return fontScale(d.size); })
           .on("end", draw)
