@@ -2,6 +2,7 @@
 let plotWidth = 500;
 let plotHeight = 500;
 let plotMargin = 75;
+let subtitleHeight = 0 - (plotMargin / 6);
 let outerWidth = plotWidth + 2 * plotMargin;
 let outerHeight = plotHeight + 2 * plotMargin; 
 let zoomK = 1;
@@ -63,10 +64,7 @@ let xAxis = plot.append('g')
 let yAxis = plot.append('g')
   .call(d3.axisLeft(yScale));
 
-wholeChart
-  .attr('width', outerWidth)
-  .attr('height', outerHeight)
-  .call(d3.zoom().on("zoom", (d) => {
+var zoom = d3.zoom().on("zoom", (d) => {
             // Transform the axes
             new_xScale = d3.event.transform.rescaleX(xScale);
             new_yScale = d3.event.transform.rescaleY(yScale);
@@ -84,15 +82,34 @@ wholeChart
                 return 1.5/(Math.pow(d3.event.transform.k, .1)) * getRadius(d);
               })
               .style('stroke-width', function() {
-                if (this.style.strokeWidth && this.style.strokeWidth !== "0") {
-                    return 1.5/(Math.sqrt(d3.event.transform.k*0.5));
-                }
+                if (this.style.strokeWidth && this.style.strokeWidth !== "0") return 1.5/(Math.sqrt(d3.event.transform.k*0.5));
                 return 0;
               });
+              // Replace "Scroll to Zoom" with "Reset Zoom"
+              subtitle.remove();
+              reset_btn = plot.append("text")
+                .attr("x", (plotWidth / 2))             
+                .attr("y", subtitleHeight)
+                .attr("text-anchor", "middle")  
+                .style("font-size", "16px") 
+                .style("font-style", "italic")
+                .style("fill", "steelblue")
+                .style("font-family", font)  
+                .text("Reset Zoom")
+                .on("click", () => {
+                plot.transition()
+                  .duration(750)
+                  .call(zoom.transform, d3.zoomIdentity);
+                });
 
         })
-        .scaleExtent([0, 5]));
+        .scaleExtent([0, 5]);
         //.translateExtent([-plotWidth, -plotHeight], [outerWidth, outerHeight])); 
+
+wholeChart
+  .attr('width', outerWidth)
+  .attr('height', outerHeight)
+  .call(zoom);
 
 // label the axes
 plot.append("text")             
@@ -121,7 +138,7 @@ plot.append("text")
 // Add subtitle
 var subtitle = plot.append("text")
   .attr("x", (plotWidth / 2))             
-  .attr("y", 0 - (plotMargin / 5))
+  .attr("y", subtitleHeight)
   .attr("text-anchor", "middle")  
   .style("font-size", "16px") 
   .style("font-style", "italic")
