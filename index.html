@@ -29,15 +29,23 @@
 
   </head>
   <body>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
     <h1>Exploring Russian Interference</h1>
+    <h2 class="center">Hook (Case Study)</h2>
+    <div class="spacer"></div>
 
-    <h2>Hook (Case Study)</h2>
+    <div class="body-text">
+    <p>Almost a year after taking office, President Donald Trump retweeted a Russian bot. This retweet was of a fake account called <b>@ten_gop</b> that posed as the “Unofficial Twitter of Tennessee Republicans.” Before being removed, it was favorited by nearly <a href="https://twitter.com/realDonaldTrump/status/910331061409902592">45,000 people</a> and retweeted by thousands more before it was eventually removed. At the time this tweet was published in 2017, the American public had already been informed about Russian interference in the 2016 presidential elections. How, then, could  this fake account succeed- and consequently, American democracy fail- so dramatically?</p>
+    <img class="body-text" src="images/trump_retweet.png"></img>
+    <div class="caption"><a href="https://archive.thinkprogress.org/trump-retweet-a-fake-twitter-account-149f3f9c1360/">Source: ThinkProgress</a></div>
+    <p>Since 2016, information about Russian interference in the presidential election has become public knowledge.  What’s less obvious is the targeted strategies Russian actors used to achieve remarkable success in hacking American trust.  In this article, we take a deep dive into the subtle strategies used by Russian trolls to push and pull our dialogue during the elections. By understanding how these troll accounts worked, particularly the successful ones, we seek to understand the biggest vulnerabilities in American digital trust, as well as give insight into how we can defend against such interference in upcoming elections. </p>
 
-    <h2>Setup Strategies</h2>
+    <h2 class="center">Setup Strategies</h2>
     <p>The largest success of the troll accounts was establishing a voice. In the world of Twitter, being heard requires establishing authenticity as a run-of-the-mill neighbor, or authority as something like a news source. The accounts identified as trolls were able to do both with frightening success, using two main strategies.
     </p>
 
-      <h3> Establishing Authenticity </h3>
+      <h3 class="center"> Establishing Authenticity </h3>
       <p>The first strategy we observed in identified troll accounts was establishing authenticity as an average American citizen with an average American voice. Russian bots used varying rhetorical strategies over time to mimic the American voice and interject divisive dialogue. In the following wordclouds, we display the most frequently used hashtags in 2014, 2015, 2016, and 2017.
       </p>
 
@@ -53,6 +61,7 @@
 
       <p>In the interactive wordcloud below, we present the hashtags used by Russian bots in the given range of time. To view the hashtags published by these fake accounts in a certain time range, drag the labeled knobs on the slider to select your desired start and end date.
       </p>
+  </div>
 
       <div class="wordcloud-container">
         <div id="wordcloud-slider"></div>
@@ -73,19 +82,22 @@
             <!--  step text   -->
                 <article>
                 <div class='step second-step' data-index='0'>
-                <p>In addition to establishing the American authenticity of these fake accounts, Russian actors also sought to establish authority and power by garnering followers and posing as powerful American institutions. When looking at user popularity (in favorites vs. followers), most troll tweets fall into a dense column near the y-axis; these posts garner a lot of favorites, despite being made by users with not many followers. Many of these accounts pose as regular people, with handles like <b>@KarenParker93, @MsM0re,</b> and <b>@RealRobert1987.</b></p>
+                <p>In addition to establishing the American authenticity of these fake accounts, Russian actors also sought to establish authority and power by garnering followers and posing as powerful American institutions.</p>
                 </div>
                 <div class='step second-step' data-index='1'>
-                <p>However, we also see a band of accounts along the x-axis that do not have very popular posts, but do have many followers- and post quite a lot. This is a striking departure from where most accounts cluster along the y-axis. Interestingly, these low-favorited, well-followed accounts are almost all fake news accounts.</p>
+                <p>When looking at user popularity (in favorites vs. followers), most troll tweets fall into a dense column near the y-axis; these posts garner a lot of favorites, despite being made by users with not many followers. Many of these accounts pose as regular people, with handles like <b>@KarenParker93, @MsM0re,</b> and <b>@RealRobert1987.</b></p>
                 </div>
                 <div class='step second-step' data-index='2'>
-                <p>Examining account handles shows just how targeted fake news accounts were. Many mentioned densely-populated American cities, like <b>@TodayNYCity</b>. Some even copied names of genuine news outlets but replaced the word “news” with “new,” as in <b>@ChicagoDailyNew</b> or <b>@DetroitDailyNew</b>. The high follower counts of these accounts testify to their success at impersonating news outlets. </p>
+                <p>However, we also see a band of accounts along the x-axis that do not have very popular posts, but do have many followers- and post quite a lot. This is a striking departure from where most accounts cluster along the y-axis. Interestingly, these low-favorited, well-followed accounts are almost all fake news accounts.</p>
                 </div>
                 <div class='step second-step' data-index='3'>
+                <p>Examining account handles shows just how targeted fake news accounts were. Many mentioned densely-populated American cities, like <b>@TodayNYCity</b>. Some even copied names of genuine news outlets but replaced the word “news” with “new,” as in <b>@ChicagoDailyNew</b> or <b>@DetroitDailyNew</b>. The high follower counts of these accounts testify to their success at impersonating news outlets. </p>
+                </div>
+                <div class='step second-step' data-index='4'>
                 <p>Notice that <b>@ChicagoDailyNew</b> and <b>@DetroitDailyNew</b> have the exact same account description, aside from the location mentioned. These cookie-cutter fake news accounts provide a glimpse into the deeply systematized spread of misinformation that took place during election interference.
                 </p>
                 </div>
-                <div class='step second-step' data-index='4'>
+                <div class='step second-step' data-index='5'>
                 <p>Legitimacy for Russian troll accounts was more than appearing American- it also meant appearing to be an authoritative source. </p>
                 <p>Explore account bios by clicking on a dot; scroll to zoom in to the dense left corner.
                 </p>
@@ -218,7 +230,7 @@
     <script src="network_graph.js"></script>
     <script src="draw_scatter.js"></script>
     <script src="draw_timeseries.js"></script>
-    <!-- <script src="rehydrate_tweets.js"></script> -->
+    <!--<script src="rehydrate_tweets.js"></script>-->
     <script src="scrollama_mod.js"></script>
   </body>
 </html>

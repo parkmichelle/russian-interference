@@ -31,15 +31,22 @@ h3 {
 
 p {
 	font-family: 'Open Sans', sans-serif;
-	font-size: 14px;
+	font-size: 18px;
+	line-height: 2;
 }
 
 div {
-	font-size: 14px;
+	font-size: 18px;
 }
 
 body {
 	overflow-x: hidden;
+}
+
+.body-text {
+	width: 60%;
+	margin-left: 20%;
+	margin-right: 20%;
 }
 
 button {
@@ -62,6 +69,13 @@ line {
 
 strong, b {
     font-weight: bold;
+}
+
+.caption {
+	text-align: center;
+	font-style: italic;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14px;
 }
 
 .center {
