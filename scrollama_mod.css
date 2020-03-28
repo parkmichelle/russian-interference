@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Work+Sans&display=swap');
+
+.filler {
+    height: 20rem;
+    text-align: center;
+  }
+
+.scrolly {
+  display: -webkit-box;
+  display: flex;
+  margin: 3rem auto;
+  background-color: #f4f4f4;
+  padding: 1rem;
+}
+
+.scrolly > * {
+  -webkit-box-flex: 1;
+          flex: 1;
+}
+
+article {
+  padding-right: 1rem;
+  max-width: 30rem;
+}
+
+.step {
+  min-height: 67vh;
+  margin-bottom: 1rem;
+  background-color: #5b5b5b;
+  -webkit-transition: background-color 250ms ease-in-out;
+  transition: background-color 250ms ease-in-out;
+}
+.step:last-of-type {
+  margin-bottom: 0;
+}
+
+.step.is-active {
+  background-color: steelblue;
+}
+
+.step p {
+  margin: 0;
+  padding: 1rem;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  color: white;
+}
+
+figure.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  top: 5%;
+  left: 0;
+}
+figure.sticky .chart {
+  width: 80%;
+  padding-left: 10%;
+  padding-right: 10%;
+  -webkit-transition: width 1s ease-in-out;
+  transition: width 1s ease-in-out;
+}

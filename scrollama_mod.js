@@ -1,8 +1,11 @@
+var root = "images/";
+var scatterImgs = ["leftband.png", "x-axis.png", "newsbios.png"];
+
+
 function updateChart(index, container, stepSel, barInner) {
   const sel = container.select(`[data-index='${index}']`); //select the element currently in view. Index is what matters here
-  const width = sel.attr('data-width'); //not necessary
   stepSel.classed('is-active', (d, i) => i === index); //Just color change. Ignore for now
-  container.select(barInner).style('width', width); //What needs to be on the sticky side
+  document.getElementById("second-img").src = root + scatterImgs[index]; //What needs to be on the sticky side
 }
 
 function init(scrollySide, step, sticky, barInner) {
@@ -25,5 +28,4 @@ function init(scrollySide, step, sticky, barInner) {
 
 }
 
-init('.first-scrolly-side', '.first-step', '.first-sticky', '.first-bar-inner');
-init('.second-scrolly-side', '.second-step', '.second-sticky', '.second-bar-inner');
+init('.scatter-scrolly', '.second-step', '.second-sticky', '.bar-outer');
