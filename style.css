@@ -47,6 +47,14 @@ body {
 	margin-right: 20%;
 }
 
+.backer {
+	opacity: .5;
+	display: inline;
+	position: absolute;
+	top: 0;
+	height: 300px;
+}
+
 button {
 	height: 100px;
 	border: 2px solid steelblue;
