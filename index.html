@@ -166,28 +166,31 @@
    		 <p> Favorites vs. followers for just the news impersonators. </p>
 
     <h2>Active/Interference Strategies</h2>
-
-    <div id='network-container'>
-      <div class="horizontal-flex">
-        <div class="horizontal-flex">
-          <input type="checkbox" id='network-trolls'>
-          <h3 class="label">Keep only trolls</h3>
-        </div>
-        <div class="horizontal-flex">
-          <input id='network-count'>
-          <h3 class="label">minimum connections</h3>
-        </div>
-
-        <div class="horizontal-flex">
-          <h3 class="label">Start date</h3>
+    
+    <div class="gray-bg-container" id='network-container'>
+      <div class="horizontal-flex graph-menu-row">
+        <div class="horizontal-flex graph-menu-option">
+          <h3 class="label">Start Date: </h3>
           <input id='network-start-date' type="date">
         </div>
-
-        <div class="horizontal-flex">
-          <h3 class="label">end date</h3>
+        <div class="horizontal-flex graph-menu-option">
+          <h3 class="label">End Date: </h3>
           <input id='network-end-date' type="date">
         </div>
-     </div>
+      </div>
+
+      <div class="horizontal-flex graph-menu-row">
+        <h3 class="label">Only show nodes with at least </h3>
+        <input id='network-count'>
+        <h3 class="label"> connections</h3>
+      </div>
+      <p class="note">*Note: Minimum value for the above is 10</p>
+
+      <div class="horizontal-flex graph-menu-row">
+        <input type="checkbox" id='network-trolls'>
+        <h3 class="label">Remove non-trolls</h3>
+      </div>
+
       <svg id="network">
       </svg>
     </div>
@@ -238,7 +241,10 @@
         <div class="scroll" id="ten_gop_scroll"></div>
     </div>
 
-    <div class="overview-container"> 
+    <div class="gray-bg-container"> 
+    <div class="body-text">
+      <h1 class="center overview-header">The Staggering Impact of these<br>Fake Accounts, in Numbers</h2>
+    </div>
       <div class="vertical-flex forty" id="count-overview">
         <h2 class="center">The Attack</h2>
         <div class="horizontal-flex space-around">
@@ -277,7 +283,7 @@
         <div class="counter">
           = 
           <span class="number" id="counter-impact"></span><br>
-          <div class="counter">
+          <div class="counter counter-final-label">
             times Russian agents manipulated U.S. elections
           </div>
         </div>
