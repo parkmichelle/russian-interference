@@ -228,7 +228,7 @@ strong, b {
     width:  auto;
     height: auto;
     pointer-events: none;
-    background-color: white;
+    background-color: #f4f4f4;
     opacity: 0;
 }
 
