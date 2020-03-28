@@ -56,6 +56,26 @@
     <h2>Active/Interference Strategies</h2>
 
     <div id='network-container'>
+      <div class="horizontal-flex">
+        <div class="horizontal-flex">
+          <input type="checkbox" id='network-trolls'>
+          <h3 class="label">Keep only trolls</h3>
+        </div>
+        <div class="horizontal-flex">
+          <input id='network-count'>
+          <h3 class="label">minimum connections</h3>
+        </div>
+
+        <div class="horizontal-flex">
+          <h3 class="label">Start date</h3>
+          <input id='network-start-date' type="date">
+        </div>
+
+        <div class="horizontal-flex">
+          <h3 class="label">end date</h3>
+          <input id='network-end-date' type="date">
+        </div>
+     </div>
       <svg id="network">
       </svg>
     </div>
