@@ -127,9 +127,9 @@ strong, b {
 }
 
 .forty {
-	width: 40%;
-	margin-left: 30%;
-	margin-right: 30%;
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .scroll {
@@ -307,9 +307,34 @@ input:checked + .slider:before {
   background-color: #f4f4f4;
 }
 
-.fade {
-  margin: 50px;
-  padding: 50px;
-  background-color: lightgreen;
-  opacity: 1;
+.figure-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.figure {
+  width: 500px;
+}
+
+.header-subtitle {
+  text-align: center;
+  color: #aaaaaa;
+  font-size: 20px;
+}
+
+.header-authors {
+  text-align: center;
+  font-size: 12px;
+}
+
+#count-overview {
+}
+
+.overview-container {
+  padding-top: 20px;
+  margin-top: 40px;
+  width: 100vw;
+  background-color: #f4f4f4;
 }
