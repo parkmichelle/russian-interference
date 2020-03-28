@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Work+Sans&display=swap');
 
+strong, b {
+    font-weight: bold;
+}
+
 .filler {
     height: 20rem;
     text-align: center;
@@ -57,7 +61,8 @@ figure.sticky {
 
 .bar-inner {
   width: 70%;
-  padding-left: 15%;
+  padding-right: 15%;
   -webkit-transition: width 1s ease-in-out;
   transition: width 1s ease-in-out;
 }
+

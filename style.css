@@ -27,6 +27,7 @@ h2 {
 	padding-left: 5px;
 }
 
+
 h3 {
 	font-family: 'Work Sans', sans-serif;
 }
@@ -60,6 +61,10 @@ button {
 line {
 	stroke: #00AA8D;
 	fill: none;
+}
+
+strong, b {
+    font-weight: bold;
 }
 
 .center {
