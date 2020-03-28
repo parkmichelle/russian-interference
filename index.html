@@ -166,6 +166,9 @@
   </div>
 
     <h2 class="center">Active/Interference Strategies</h2>
+    <div class="body-text">
+      <p>We wanted to better understand the patterns of interaction from trolls to real users and among the trolls themselves. As a result, we set on a network graph analysis of the mentions from trolls to other users.</p>
+    </div>
      <section class="network-scrolly">
             <div class='scrolly'>
             
@@ -178,19 +181,39 @@
             <!--  step text   -->
                 <article>
                 <div class='step second-step' data-index='0'>
-                <p>In addition to establishing the American authenticity of these fake accounts, Russian actors also sought to establish authority and power by garnering followers and posing as powerful American institutions.</p>
+                <p>We initially visualized the full network using directed graphs. In the photo, we see trolls in red and real users in green. While trolls were around 200 accounts, the total number of accounts in the graph was around 14000 indicating a large impact per troll. Our next step was to filter accounts that were not mentioned frequently.
+                </p>
                 </div>
                 <div class='step second-step' data-index='1'>
-                <p>When looking at user popularity (in favorites vs. followers), most troll tweets fall into a dense column near the y-axis; these posts garner a lot of favorites, despite being made by users with not many followers. Many of these accounts pose as regular people, with handles like <b>@KarenParker93, @MsM0re,</b> and <b>@RealRobert1987.</b></p>
+                <p>Here, we see an image of accounts that were mentioned by trolls at least 10 times. We start to see here a slightly different, and clearer, pattern compared to the initial visualization. This highlights that targeting from trolls was not random, but rather each troll (or group of trolls) focused on a certain set of topics and users, which created the clusters.</p>
                 </div>
                 <div class='step second-step' data-index='2'>
-                <p>However, we also see a band of accounts along the x-axis that do not have very popular posts, but do have many followers- and post quite a lot. This is a striking departure from where most accounts cluster along the y-axis. Interestingly, these low-favorited, well-followed accounts are almost all fake news accounts.</p>
+                <p>In the 3 main clusters shown, we see variability in the topics of the real accounts, size of clusters and troll ratio to real users. We found that cluster 1 includes a high number of accounts that are driven by social justice (or a certain ideology). While the overwhelming majority of the trolls showed clear connections to the GOP and Trump’s voter base, this cluster was the most neutral.
+</p>
                 </div>
                 <div class='step second-step' data-index='3'>
-                <p>Examining account handles shows just how targeted fake news accounts were. Many mentioned densely-populated American cities, like <b>@TodayNYCity</b>. Some even copied names of genuine news outlets but replaced the word “news” with “new,” as in <b>@ChicagoDailyNew</b> or <b>@DetroitDailyNew</b>. The high follower counts of these accounts testify to their success at impersonating news outlets. </p>
+                <p>Cluster 2 has a clear high number of trolls compared to real users. In addition, it has the largest number of trolls out of all 3. This was a cluster that had more news accounts than the other ones. We believe trolls here worked on building skepticism around news, which required a high number of trolls. Additionally, as news accounts tweet often, mentioning them is more likely than mentioning individuals.
+</p>
                 </div>
                 <div class='step second-step' data-index='4'>
-                <p>Notice that <b>@ChicagoDailyNew</b> and <b>@DetroitDailyNew</b> have the exact same account description, aside from the location mentioned. These cookie-cutter fake news accounts provide a glimpse into the deeply systematized spread of misinformation that took place during election interference.
+                <p>Cluster 3 included clear GOP supporters and Trump supporters and family members. Here, clearly the number of real users is far larger than trolls. It is unclear why that’s the reason, but one possibility is that trolls worked on amplifying the message of these real accounts, which did not require as many mentions, but rather possible retweets and favorites.
+
+                </p>
+                </div>
+                                <div class='step second-step' data-index='5'>
+                <p>While the 3 clusters are clearly separated, two of the accounts that are mentioned by trolls from all clusters are <b>@realdonaldtrump</b> and <b>@hillaryclinton</b> (they’re also the most mentioned accounts overall). This clustering and network makes it clear that the trolls tried to imitate real people instead of solely clustering around candidates. In order to further investigate the trolls actions, we took a look at the network graph without real users.
+
+                </p>
+                </div>
+                                <div class='step second-step' data-index='6'>
+                <p>One thing becomes clear right away here: most trolls did not interact with other trolls. In fact, we have a central weakly connected component that includes only 27% of the accounts, but more than 95% of the edges. One of the nodes that becomes immediately interesting as we look more at this graph is <b>@ten_gop</b>. This is an account that <b>@realdonaldtrump</b> retweeted, and it is clearly well connected with other trolls (the most mentioned troll by other trolls). However, in all of the larger networks that we looked at, <b>@ten_gop</b> did not seem to be of particular significance.
+
+                </p>
+                </div>
+                                <div class='step second-step' data-index='7'>
+                <p>On the contrary, when we visualize the full graph, we see a new special troll account. The account is <b>@ameliebaldwin</b>, and it’s in fact the most connected troll. We notice here that <b>@ameliebaldwin’s</b> style involves mentioning a lot of real users (many of which are mentioned only once). Other trolls follow a similar pattern, but <b>@ameliebaldwin</b> is the clear front-runner here. This is an interesting contrast to the case of <b>@ten_gop</b>. <b>@ameliebaldwin</b> is not significant in the trolls only network, but it interacts with real users way more. On the contrary, <b>@ten_gop</b> is a source of disinformation even for other trolls.
+
+
                 </p>
                 </div>
                 </article>
