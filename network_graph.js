@@ -9,12 +9,12 @@ let maxGraphDate = null;
 let currMinGraphDate = null;
 let currMaxGraphDate = null;
 
-var width = window.innerWidth,
-    height = window.innerHeight * 0.90;
+var network_width = window.innerWidth,
+    network_height = window.innerHeight * 0.90;
 
 var svg = d3.select("#network")
-    .attr("width", width)
-    .attr("height", height);
+    .attr("width", network_width)
+    .attr("height", network_height);
 
 svg.append("svg:defs").append("svg:marker")
     .attr("id", "triangle")
@@ -57,7 +57,7 @@ function run(data) {
         .force("charge", d3.forceManyBody().strength(-120))
         .force("x", d3.forceX())
         .force("y", d3.forceY())
-        .force("center", d3.forceCenter(width / 2, height / 2)); 
+        .force("center", d3.forceCenter(network_width / 2, network_height / 2)); 
 
     const link = svg.append("g")
         .attr("stroke-opacity", 0.4)
