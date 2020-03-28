@@ -122,7 +122,7 @@ strong, b {
 }
 
 .bright {
-	border: 1px solid #009EF6;
+	border: 1px solid steelblue;
 }
 
 .horizontal-flex {
@@ -197,12 +197,12 @@ strong, b {
 }
 
 ::-webkit-scrollbar-track {
-	border: 1px solid #009EF6;
+	border: 1px solid steelblue;
 	border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
-	background: #009EF6;  
+	background: steelblue;  
 	border-radius: 5px;
 	height: 5px;
 }
