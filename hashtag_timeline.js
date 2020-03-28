@@ -1,22 +1,26 @@
 const NUM_WORDS_IN_CLOUD = 100;
-const FONT_SIZE_MAX = 90;
+const FONT_SIZE_MAX = 84;
 
 const FIRST_TWEET_DATE = "2014-07-14";
 const LAST_TWEET_DATE = "2017-09-26";
 const ELECTION_DATE = "2016-11-08";
 
-const DEFAULT_TWEET_DATE_MIN = "2016-01-01";
-const DEFAULT_TWEET_DATE_MAX = ELECTION_DATE;
+const DEFAULT_TWEET_DATE_MIN = "2015-04-22";
+const DEFAULT_TWEET_DATE_MAX = "2016-04-18";
 
 var fontScale = d3.scaleLinear().range([0, FONT_SIZE_MAX]);
 
 const DATA_DIR = 'data/';
 const HASHTAG_COUNTS_FILENAME = 'hashtags_by_day.json'
 
-const WORDCLOUD_WIDTH = 500;
-const WORDCLOUD_HEIGHT = 500;
-const WORDCLOUD_CONTAINER_WIDTH = 1000;
-const WORDCLOUD_CONTAINER_HEIGHT = 500;
+const TRANSLATE_X = 340;
+const TRANSLATE_Y = 300;
+
+const SCALE = 1;
+const WORDCLOUD_WIDTH = 600 * SCALE;
+const WORDCLOUD_HEIGHT = 500 * SCALE;
+const WORDCLOUD_CONTAINER_WIDTH = 720 * SCALE;
+const WORDCLOUD_CONTAINER_HEIGHT = 600 * SCALE;
 
 const SLIDER_ID = 'wordcloud-slider'
 
@@ -135,7 +139,7 @@ function wordCloud(selector) {
     .attr("width", WORDCLOUD_CONTAINER_WIDTH)
     .attr("height", WORDCLOUD_CONTAINER_HEIGHT)
     .append("g")
-    .attr("transform", "translate(300,250)");
+    .attr("transform", "translate(" + TRANSLATE_X + ", " + TRANSLATE_Y + ")");
 
   //Draw the word cloud
   function draw(words) {

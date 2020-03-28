@@ -13,24 +13,132 @@
     <script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.5/waypoints.min.js"></script>
 
+    <!-- Uncomment for loading bar -->
+    <!--script src="external_scripts/pace.min.js"></script-->
+    <!--script src="load_destroy.js"></script-->
+    <!--link rel="stylesheet" href="external_scripts/load.css"-->
+
+    <script src="https://unpkg.com/intersection-observer"></script>
+    <script src="https://unpkg.com/scrollama"></script>
+    <script src="external_scripts/stickyfill.min.js"></script>
+    <script src="external_scripts/enter-view.min.js"></script>
+
     <link rel="stylesheet" href="external_scripts/classic-min.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="scrollama_mod.css">
+
   </head>
   <body>
-    <h1>Exploring Russian Interference</h1>
+    <div class="spacer"></div>
+    <div class="spacer"></div>
 
-    <h2>Hook (Case Study)</h2>
+    <div class="body-text">
+    <h1>Exploring Russian Interference in<br>the 2016 U.S. Presidential Elections</h1>
+    <p class="header-subtitle">A deep dive into exactly how Russian actors injected divisive rhetoric into the 2016 U.S. presidential elections— and the resulting consequences.</p>
+    <p class="header-authors">Abdallah Abuhashem, Stephanie Niu, and Michelle Park</p>
+    <div class="spacer"></div>
+    <div class="figure-container">
+      <img class="figure" src="images/iris.png"></img>
+      <br>
+      <p class="caption">Network of Russian Twitter bots (red) mentioning real accounts (green) and one other from 2014-2017.</p>
+    </div>
+    <p>Almost a year after taking office, President Donald Trump retweeted a Russian bot. This retweet was of a fake account called <b>@ten_gop</b> that posed as the “Unofficial Twitter of Tennessee Republicans.” Before being removed, it was favorited by nearly <a href="https://twitter.com/realDonaldTrump/status/910331061409902592">45,000 people</a> and retweeted by thousands more before it was eventually removed. At the time this tweet was published in 2017, the American public had already been informed about Russian interference in the 2016 presidential elections. How, then, could  this fake account succeed- and consequently, American democracy fail- so dramatically?</p>
+    <img class="body-text" src="images/trump_retweet.png"></img>
+    <div class="caption"><a href="https://archive.thinkprogress.org/trump-retweet-a-fake-twitter-account-149f3f9c1360/">Source: ThinkProgress</a></div>
+    <p>Since 2016, information about Russian interference in the presidential election has become public knowledge.  What’s less obvious is the targeted strategies Russian actors used to achieve remarkable success in hacking American trust.  In this article, we take a deep dive into the subtle strategies used by Russian trolls to push and pull our dialogue during the elections. By understanding how these troll accounts worked, particularly the successful ones, we seek to understand the biggest vulnerabilities in American digital trust, as well as give insight into how we can defend against such interference in upcoming elections. </p>
 
-    <h2>Setup Strategies</h2>
+    <h2 class="center">Setup Strategies</h2>
+    <p>The largest success of the troll accounts was establishing a voice. In the world of Twitter, being heard requires establishing authenticity as a run-of-the-mill neighbor, or authority as something like a news source. The accounts identified as trolls were able to do both with frightening success, using two main strategies.
+    </p>
 
-      <h3> Rhetoric Over Time </h3>
-      <div>
+      <h3 class="center">1. Establishing Authenticity </h3>
+      <p>The first strategy we observed in identified troll accounts was establishing authenticity as an average American citizen with an average American voice. Russian bots used varying rhetorical strategies over time to mimic the American voice and interject divisive dialogue. In the following wordclouds, we walk through the most frequently used hashtags in 2014, 2015, 2016, and 2017.
+      </p>
+
+  </div>
+       <section class="word-scrolly">
+            <div class='scrolly'>
+            
+                <figure class='sticky word-sticky'>
+                    <div class='bar-outer'>
+                        <img class='bar-inner second-bar-inner' id="word-img"></img>
+                    </div>
+                </figure>
+
+            <!--  step text   -->
+                <article>
+                <div class='step second-step' data-index='0'>
+                <p>In 2014, just before election activity begins to stir, we see the Russian bots seek to establish themselves as authentic American accounts. Hashtags such as #Love and #USA dominate tweets in this year, as well as interesting references to music (#Itunes, #rap, #RAPCORE), famous Americans (#Kurt_Vonnegut, #SteveJobs), and emotions (#happy, #sadness, #lonely). This early setup stage— two years before the 2016 elections— indicates significant and intentional forethought on the part of the Russians as they prepared their bots to later inject divisive dialogue during the U.S. presidential election.
+                </p>
+                </div>
+                <div class='step second-step' data-index='1'>
+                <p>In 2015, we see the Russian bots begin to publish increasingly politically charged tweets, masquerading as Americans as they react to hot topics and news in the U.S. (#SanBernardino, #Prayers4California, #GOPDebate).
+                </p>
+                </div>
+                <div class='step second-step' data-index='2'>
+                <p>In 2016, the Russian bots peak in their divisive rhetoric, frequently supporting Donald Trump (#maga, #Trump2016) and antagonizing Hillary Clinton (#NeverHillary, #CrookedHillary).
+                </p>
+                </div>
+                <div class='step second-step' data-index='3'>
+                <p>Then, even after President Trump had won the 2016 elections, Russian bots continued to pose as Americans. In 2017, we see these fake accounts slowing down their political rhetoric and instead interjecting tweets about everyday American topics— similar to the 2014 setup stage. Alarmingly, this suggests that Russian actors sought to preserve the perceived authenticity of these fake accounts in preparation for more interference attempts in the future. The U.S. must prepare to prevent this from happening once more.
+                </p>
+                </div>
+                </article>
+              </div>
+        </section>
+
+
+      
+    <div class="body-text">
+      <p>In the interactive wordcloud below, we present the hashtags used by Russian bots in the given range of time. To view the hashtags published by these fake accounts in a certain time range, drag the labeled knobs on the slider to select your desired start and end date.
+      </p>
+    </div>
+
+
+      <div class="wordcloud-container">
         <div id="wordcloud-slider"></div>
         <div id='hashtag-timeline-container'></div>
       </div>
 
-    	<h3>Fake News Outlets</h3>
+    <h2 class="center">2. Establishing Authority</h3>
+
+      <section class="scatter-scrolly">
+            <div class='scrolly'>
+            
+                <figure class='sticky scatter-sticky'>
+                    <div class='bar-outer'>
+                        <img class='bar-inner second-bar-inner' id="scatter-img"></img>
+                    </div>
+                </figure>
+
+            <!--  step text   -->
+                <article>
+                <div class='step second-step' data-index='0'>
+                <p>In addition to establishing the American authenticity of these fake accounts, Russian actors also sought to establish authority and power by garnering followers and posing as powerful American institutions.</p>
+                </div>
+                <div class='step second-step' data-index='1'>
+                <p>When looking at user popularity (in favorites vs. followers), most troll tweets fall into a dense column near the y-axis; these posts garner a lot of favorites, despite being made by users with not many followers. Many of these accounts pose as regular people, with handles like <b>@KarenParker93, @MsM0re,</b> and <b>@RealRobert1987.</b></p>
+                </div>
+                <div class='step second-step' data-index='2'>
+                <p>However, we also see a band of accounts along the x-axis that do not have very popular posts, but do have many followers- and post quite a lot. This is a striking departure from where most accounts cluster along the y-axis. Interestingly, these low-favorited, well-followed accounts are almost all fake news accounts.</p>
+                </div>
+                <div class='step second-step' data-index='3'>
+                <p>Examining account handles shows just how targeted fake news accounts were. Many mentioned densely-populated American cities, like <b>@TodayNYCity</b>. Some even copied names of genuine news outlets but replaced the word “news” with “new,” as in <b>@ChicagoDailyNew</b> or <b>@DetroitDailyNew</b>. The high follower counts of these accounts testify to their success at impersonating news outlets. </p>
+                </div>
+                <div class='step second-step' data-index='4'>
+                <p>Notice that <b>@ChicagoDailyNew</b> and <b>@DetroitDailyNew</b> have the exact same account description, aside from the location mentioned. These cookie-cutter fake news accounts provide a glimpse into the deeply systematized spread of misinformation that took place during election interference.
+                </p>
+                </div>
+                </article>
+            
+            </div>
+            
+        </section>
+      <div class="body-text">
+        <p>Legitimacy for Russian troll accounts was more than appearing American- it also meant appearing to be an authoritative source. Explore bios of different troll accounts by clicking on a dot; scroll to zoom in to the dense left corner.
+        </p>
+      </div>
+
       <div class="horizontal-flex space-around">
       <svg id="users-overview">
         <div class="tooltip"></div>
@@ -43,8 +151,7 @@
          </label>
          <h3 class="label">See fake news accounts</h3>
       </div>
-    
-        <p class="caption">Examining account handles shows just how targeted fake news accounts were. Many mentioned densely-populated American cities, like TodayNYCity. Some even copied names of genuine news outlets but replaced the word “news” with “new,” as in SandiegoDailyNew or PhoenixDailyNew. The high follower count of these accounts testifies to their success at impersontating news outlets.</p>
+      <div class="spacer"></div>
         <h3 id="bio_label">User Bio</h3>
         <div class="profile scroll" id = "fakenews_scroll">
         </div>
@@ -80,9 +187,30 @@
       </svg>
     </div>
 
-    <h2>Close Look at Strategy Representatives</h2>
-    <!--<i class="fa fa-retweet"></i>
-    <i class="fa fa-heart"></i>-->
+    <h2 class="center">Facing the Tweets</h2>
+    <section class="feed-scrolly">
+            <div class='scrolly'>
+                <figure class='sticky feed-sticky'>
+                    <div class='bar-outer'>
+                        <img class='bar-inner second-bar-inner' id="feed-img"></img>
+                    </div>
+                </figure>
+            <!--  step text   -->
+                <article>
+                <div class='step second-step' data-index='0'>
+                <p>We’ve seen two drastically different approaches to election interference; the affected authenticity of <b>@ten_gop</b> aiming to create human content, and the retweet-machine of <b>@ameliebaldwin.</b></p>
+                </div>
+                <div class='step second-step' data-index='1'>
+                <p>Even the frequency of their activity differs vastly; <b>@ten_gop</b> posted regularly and consistently, while <b>@ameliebaldwin</b> remained dormant for a long time and suddenly tweeted en masse.</p><p> On September 2017, 2016 alone, she tweeted 834 times.</p>
+                </div>
+                <div class='step second-step' data-index='2'>
+                <p>Explore their tweets throughout and after the election period to see what each account what actually saying.</p>
+                </div>
+                </article>
+            
+            </div>
+            
+        </section>
       <svg id="amelie_time"></svg>
       <svg id="ten_gop_time"></svg>
     </div>
@@ -104,55 +232,78 @@
         <div class="scroll" id="ten_gop_scroll"></div>
     </div>
     
-  
+    <div class="body-text">
+      <h2>Final Thoughts</h2>
+    </div>
+    <div class="overview-container"> 
       <div class="vertical-flex forty" id="count-overview">
         <h2 class="center">The Attack</h2>
         <div class="horizontal-flex space-around">
 
           <div class="vertical-flex">
-            <span class="number" id="counter-accounts"></span> 
+            <span class="number">454</span> 
             <div class="counter">fake accounts</div>
           </div>
           <div class="vertical-flex">
-            <span class="number" id="counter-tweets"></span> 
+            <span class="number">203,482</span> 
             <div class="counter">tweets</div>
           </div>
           <div class="vertical-flex">
-            <span class="number" id="counter-mentions"></span> 
+            <span class="number">33,162</span> 
             <div class="counter">mentions</div>
           </div>
           <div class="vertical-flex">
-            <span class="number" id="counter-days"></span> 
+            <span class="number">1,170</span> 
             <div class="counter">days</div>
           </div>
           
         </div>
         <div class="spacer"></div>
-        <h2 class="center">The Effects</h2>
-        <div class="horizontal-flex space-around">
+        <h2 class="center">The Impact</h2>
+        <div class="horizontal-flex">
           <div class="vertical-flex">
-            <span class="number" id="counter-favorites"></span> 
+            <span class="number">2,061,661</span> 
             <div class="counter">favorites</div>
           </div>
                     <div class="vertical-flex">
-            <span class="number" id="counter-retweets"></span> 
+            <span class="number">2,302,521</span> 
             <div class="counter">retweets</div>
           </div>
         </div>
         <div class="spacer"></div>
-        <div class="counter">= <span class="number" id="counter-impact"></span><br>
-          <div class="counter">times Russian agents manipulated U.S. elections</div>
+        <div class="counter">
+          = 
+          <span class="number" id="counter-impact"></span><br>
+          <div class="counter">
+            times Russian agents manipulated U.S. elections
+          </div>
+        </div>
           <div class="spacer"></div>
       </div>
-       <p>As demonstrated previously, Russian interference continued after President Trump was sworn into office. This prolonged effort to influence American elections suggests that similar interventions may be in place right now in preparation for the 2020 elections. Hopefully, we can be better prepared this time.</p>
+    </div>
+    <div class="body-text">
+      <p>The Russian attack on U.S. elections was sophisticated and consequential, leading to interactions with millions online who believed these bots were their fellow citizens. Perhaps most importantly, Russian interference continued after President Trump was sworn into office, and is likely happening to this very day. This calls for serious efforts on part of all social media platforms and the U.S. government to expect and defend against Russian interference in our upcoming 2020 presidential election. All of us can do our part too. By understanding the way Russian trolls behave and acknowledging their existence in our Twitter, Facebook, and Reddit feeds, we can all take a step in reading online opinions with caution, and reporting any accounts that seem suspicious.
+      <br>
+      <br>
+      Hopefully, we will be better prepared this time.
+      </p>
+    </div>
+    <div class="spacer"></div>
+    <div class="caption"><p style="color: steelblue" onclick=topFunction()>Back to top</p></div>
     </body>
       
-
     <script type="module" src="count_overview.js"></script>
     <script src="hashtag_timeline.js"></script>
     <script src="network_graph.js"></script>
     <script src="draw_scatter.js"></script>
     <script src="draw_timeseries.js"></script>
-    <!-- <script src="rehydrate_tweets.js"></script> -->
+    <!--<script src="rehydrate_tweets.js"></script>-->
+    <script src="scrollama_mod.js"></script>
+    <script>
+  function topFunction() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  }
+    </script>
   </body>
 </html>
