@@ -1,5 +1,5 @@
 var root = "images/";
-var scatterImgs = ["leftband.png", "x-axis.png", "newsbios.png", "newsbios.png", "newsbios.png"];
+var scatterImgs = ["leftband_clean.png", "leftband.png", "x-axis.png", "newsbios_clean.png", "newsbios.png", "newsbios.png"];
 var feedImgs = ["timeseries_compare_clean.png", "timeseries_compare.png", "timeseries_compare.png"];
 
 function updateChart(index, container, stepSel, id, array) {
