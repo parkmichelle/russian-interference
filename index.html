@@ -13,6 +13,11 @@
     <script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.5/waypoints.min.js"></script>
 
+    <!-- Uncomment for loading bar -->
+    <!--script src="external_scripts/pace.min.js"></script-->
+    <!--script src="load_destroy.js"></script-->
+    <!--link rel="stylesheet" href="external_scripts/load.css"-->
+
     <script src="https://unpkg.com/intersection-observer"></script>
     <script src="https://unpkg.com/scrollama"></script>
     <script src="external_scripts/stickyfill.min.js"></script>
@@ -29,9 +34,27 @@
     <h2>Hook (Case Study)</h2>
 
     <h2>Setup Strategies</h2>
+    <p>The largest success of the troll accounts was establishing a voice. In the world of Twitter, being heard requires establishing authenticity as a run-of-the-mill neighbor, or authority as something like a news source. The accounts identified as trolls were able to do both with frightening success, using two main strategies.
+    </p>
 
-      <h3> Rhetoric Over Time </h3>
-      <div>
+      <h3> Establishing Authenticity </h3>
+      <p>The first strategy we observed in identified troll accounts was establishing authenticity as an average American citizen with an average American voice. Russian bots used varying rhetorical strategies over time to mimic the American voice and interject divisive dialogue. In the following wordclouds, we display the most frequently used hashtags in 2014, 2015, 2016, and 2017.
+      </p>
+
+      <img src="images/wordclouds/wordcloud_over_time.png" style="width: 800px"></img>
+      <p>In 2014, just before election activity begins to stir, we see the Russian bots seek to establish themselves as authentic American accounts. Hashtags such as #Love and #USA dominate tweets in this year, as well as interesting references to music (#Itunes, #rap, #RAPCORE), famous Americans (#Kurt_Vonnegut, #SteveJobs), and emotions (#happy, #sadness, #lonely). This early setup stage— two years before the 2016 elections— indicates significant and intentional forethought on the part of the Russians as they prepared their bots to later inject divisive dialogue during the U.S. presidential election.
+      </p>
+
+      <p>In 2015, we see the Russian bots begin to publish increasingly politically charged tweets, masquerading as Americans as they react to hot topics and news in the U.S. (#SanBernardino, #Prayers4California, #GOPDebate). In 2016, the Russian bots peak in their divisive rhetoric, frequently supporting Donald Trump (#maga, #Trump2016) and antagonizing Hillary Clinton (#NeverHillary, #CrookedHillary).
+      </p>
+
+      <p>Then, even after President Trump had won the 2016 elections, Russian bots continued to pose as Americans. In 2017, we see these fake accounts slowing down their political rhetoric and instead interjecting tweets about everyday American topics— similar to the 2014 setup stage. Alarmingly, this suggests that Russian actors sought to preserve the perceived authenticity of these fake accounts in preparation for more interference attempts in the future. The U.S. must prepare to prevent this from happening once more.
+      </p>
+
+      <p>In the interactive wordcloud below, we present the hashtags used by Russian bots in the given range of time. To view the hashtags published by these fake accounts in a certain time range, drag the labeled knobs on the slider to select your desired start and end date.
+      </p>
+
+      <div class="wordcloud-container">
         <div id="wordcloud-slider"></div>
         <div id='hashtag-timeline-container'></div>
       </div>
@@ -152,11 +175,11 @@
         <h2 class="center">The Effects</h2>
         <div class="horizontal-flex space-around">
           <div class="vertical-flex">
-            <span class="number" id="counter-favorites"></span> 
+            <span class="number" id="counter-favorites">454</span> 
             <div class="counter">favorites</div>
           </div>
                     <div class="vertical-flex">
-            <span class="number" id="counter-retweets"></span> 
+            <span class="number" id="counter-retweets">203,482</span> 
             <div class="counter">retweets</div>
           </div>
         </div>
@@ -165,7 +188,7 @@
           <div class="counter">times Russian agents manipulated U.S. elections</div>
           <div class="spacer"></div>
       </div>
-       <p>As demonstrated previously, Russian interference continued after President Trump was sworn into office. This prolonged effort to influence American elections suggests that similar interventions may be in place right now in preparation for the 2020 elections. Hopefully, we can be better prepared this time.</p>
+       <p>As demonstrated previously, Russian interference continued after President Trump was sworn into office. This prolonged effort to influence American elections suggests that similar interventions may be in place right now in preparation for the 2020 elections. Hopefully, we'll be better prepared this time.</p>
     </body>
       
 
