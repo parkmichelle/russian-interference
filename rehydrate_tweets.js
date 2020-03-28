@@ -74,11 +74,11 @@ function drawTweet(row) {
       .text(row.text);
   plot.append('tspan')
       .attr('class', 'tweet h2')
-      .text(getCount("Retweets: " + row.retweet_count)); // TODO add retweet/favorite icon
+      .text("Retweets: " + getCount(row.retweet_count));
   plot.append('tspan')
       .attr('class', 'tweet h2')
       .text("     Favorites: " + getCount(row.favorite_count));
-  plot.append('hr')
+  plot.append('hr');
 }
 
 // Converts a unicode time string to a date of format 'Oct 30, 2016'
@@ -90,7 +90,7 @@ function drawTweet(row) {
 
 // Handles null values for tweet and favorite count
   function getCount(count) {
-    if (count == 0) return 0;
+    if (count == 0 || count == null || count == undefined) return 0;
     else return count;
   }
 
