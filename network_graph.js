@@ -1,7 +1,7 @@
 const GRAPH_DATA = 'graph_data.json'
 let allGraphData = null;
 let graphClicked = false;
-let minCount = 10;
+let minCount = 20;
 let minGraphDateFloat = null;
 let maxGraphDateFloat = null;
 let minGraphDate = null;
@@ -224,7 +224,7 @@ function filterEnd(val) {
 }
 
 function filterCount(val) {
-    if (parseInt(val.target.value) < 10) return;
+    if (parseInt(val.target.value) < minCount) return;
     minCount = parseInt(val.target.value);
     let data = applyFiltersOnData(allGraphData);
     drawGraph(data);
