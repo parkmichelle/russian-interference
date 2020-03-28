@@ -96,7 +96,7 @@ strong, b {
 }
 
 #counter-impact {
-	font-size: 24px;
+	font-size: 48px;
 	font-weight: bold;
 }
 
@@ -107,6 +107,7 @@ strong, b {
 .horizontal-flex {
 	display: flex;
 	flex-direction: row;
+  justify-content: center;
 }
 
 .space-around {
@@ -304,4 +305,11 @@ input:checked + .slider:before {
   justify-content: center;
   border-radius: 3px;
   background-color: #f4f4f4;
+}
+
+.fade {
+  margin: 50px;
+  padding: 50px;
+  background-color: lightgreen;
+  opacity: 1;
 }
