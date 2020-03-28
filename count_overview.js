@@ -1,4 +1,4 @@
-import { CountUp } from './node_modules/countup.js/dist/countUp.js';
+import { CountUp } from './external_scripts/countup.js/dist/countUp.js';
 
 $('#counter-impact').waypoint(function(direction){
   let counter = new CountUp('counter-impact', 4362182);
