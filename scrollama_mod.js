@@ -1,8 +1,8 @@
 var root = "images/";
 var wordImgs = ["wordclouds/2014.png", "wordclouds/2015.png", "wordclouds/2016.png", "wordclouds/2017.png"];
 var scatterImgs = ["leftband_clean.png", "leftband.png", "x-axis.png", "newsbios_clean.png", "newsbios.png"];
-var networkImgs = ["iris.png", "high_mention.png", "high_mention_clusters.png", "high_mention_clusters.png", "high_mention_clusters.png",
-"high_mention_accounts.png" "trolls_graph_undirected.png", "trolls_only.png"];
+var networkImgs = ["iris.png", "high_mention.png", "high_mention_clusters.png", "high_mention_clusters.png", 
+"high_mention_clusters.png","high_mention_accounts.png", "trolls_graph_undirected.png", "trolls_only.png"];
 var feedImgs = ["timeseries_compare_clean.png", "timeseries_compare.png", "timeseries_compare.png"];
 
 
