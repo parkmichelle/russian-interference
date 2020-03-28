@@ -16,11 +16,17 @@
     <!-- Uncomment for loading bar -->
     <!--script src="external_scripts/pace.min.js"></script-->
     <!--script src="load_destroy.js"></script-->
-    <link rel="stylesheet" href="external_scripts/load.css">
+    <!--link rel="stylesheet" href="external_scripts/load.css"-->
+
+    <script src="https://unpkg.com/intersection-observer"></script>
+    <script src="https://unpkg.com/scrollama"></script>
+    <script src="external_scripts/stickyfill.min.js"></script>
+    <script src="external_scripts/enter-view.min.js"></script>
 
     <link rel="stylesheet" href="external_scripts/classic-min.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="scrollama_mod.css">
+
   </head>
   <body>
     <h1>Exploring Russian Interference</h1>
@@ -53,9 +59,41 @@
         <div id='hashtag-timeline-container'></div>
       </div>
 
-    	<h3>Fake News Outlets</h3>
-      <div class="horizontal-flex space-around">
+    <h2 class="center">Fake News Outlets</h3>
 
+      <section class="scatter-scrolly">
+            <div class='scrolly'>
+            
+            <!--  step text   -->
+                <article>
+                <div class='step second-step' data-width='10%' data-index='0'>
+                <p>In addition to establishing the American authenticity of these fake accounts, Russian actors also sought to establish authority and power by garnering followers and posing as powerful American institutions. When looking at user popularity (in favorites vs. followers), most troll tweets fall into a dense column near the y-axis; these posts garner a lot of favorites, despite being made by users with not many followers. Many of these account pose as regular people, with handles like KarenParker93, MsM0re, and RealRobert1987.</p>
+                </div>
+                <div class='step second-step' data-width='90%' data-index='1'>
+                <p>However, we also seethere’s a band of accounts along the x-axis that do notdon’t have very popular posts, but do have many followers- and post quite a lot. This is a striking departure from where most accounts cluster along the y-axis. Interestingly, tThese low-favorited, well-followed accounts are almost all fake news accounts.</p>
+                </div>
+                <div class='step second-step' data-width='50%' data-index='2'>
+                <p>Examining account handles shows just how targeted fake news accounts were. Many mentioned densely-populated American cities, like TodayNYCity. Some even copied names of genuine news outlets but replaced the word “news” with “new,” as in ChicagoDailyNew or DetroitDailyNew. The high follower count of these accounts testifies to their success at impersontating news outlets. </p>
+                </div>
+                <div class='step second-step' data-width='60%' data-index='2'>
+                <p>Notice that ChicagoDailyNew and DetroitDailyNew have the exact same account description besides the location mentioned. These cookie-cutter fake news accounts suggest the systematized spread of misinformation that underlied the election interference endeavor.
+
+                Explore account bios by clicking on a dot; scroll to zoom in to the dense left corner.
+                </p>
+                </div>
+                </article>
+            
+                <figure class='sticky second-sticky'>
+                    <div class='bar-outer'>
+                        <img class='bar-inner second-bar-inner' id = "second-img" src="images/leftband.png"></img>
+                    </div>
+                </figure>
+            
+            </div>
+            
+        </section>
+
+      <div class="horizontal-flex space-around">
       <svg id="users-overview">
         <div class="tooltip"></div>
       </svg>
@@ -158,5 +196,6 @@
     <script src="draw_scatter.js"></script>
     <script src="draw_timeseries.js"></script>
     <!-- <script src="rehydrate_tweets.js"></script> -->
+    <script src="scrollama_mod.js"></script>
   </body>
 </html>
