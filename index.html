@@ -27,6 +27,10 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="scrollama_mod.css">
 
+    <script type="text/javascript">
+        var timerStart = Date.now();
+    </script>
+
   </head>
   <body>
     <div class="spacer"></div>
@@ -291,7 +295,7 @@
     </div>
     </div>
 
-    <div class="horizontal-flex space-around">
+    <div class="horizontal-flex space-around" id="scrolls">
         <div class="scroll" id="amelie_scroll"></div>
         <div class="scroll" id="ten_gop_scroll"></div>
     </div>
@@ -362,13 +366,23 @@
     <script src="network_graph.js"></script>
     <script src="draw_scatter.js"></script>
     <script src="draw_timeseries.js"></script>
-    <script src="rehydrate_tweets.js"></script>
     <script src="scrollama_mod.js"></script>
+    <script defer src="rehydrate_tweets.js"></script>
     <script>
-  function topFunction() {
-    document.body.scrollTop = 0; // For Safari
-    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-  }
+    function topFunction() {
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    }
+    </script>
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+          console.log("Time until DOMready: ", Date.now()-timerStart);
+      });
+      $(window).load(function() {
+          console.log("Time until everything loaded: ", Date.now()-timerStart);
+      });
+
     </script>
   </body>
 </html>
