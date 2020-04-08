@@ -49,15 +49,19 @@ ten_gop_scroll.on("scroll.scroller", function() { updateDotT(); });
 function drawTweet(row) {
   var plot;
   // Populate the username
+  console.log("scroll top amelie: ", amelie_scroll.node().scrollTop);
+
   if (row.user_key == "ameliebaldwin") {
     amelie_plot.append('tspan')
       .attr('class', 'tweet h1')
+      .attr('loading', 'lazy')
       .text("Amelie Baldwin");
     plot = amelie_plot;
   }
   else {
     ten_gop_plot.append('tpsan')
       .attr('class', 'tweet h1')
+      .attr('loading', 'lazy')
       .text("Tennessee");
     plot = ten_gop_plot;
   }
@@ -65,20 +69,26 @@ function drawTweet(row) {
   // Populate the rest of the tweet
   plot.append('tspan')
       .attr('class', 'tweet h2')
+      .attr('loading', 'lazy')
       .text("   @" + row.user_key + " | ");
   plot.append('tspan')
       .attr('class', 'tweet h2')
+      .attr('loading', 'lazy')
       .text(convertDate(row.created_at));
   plot.append('p')
       .attr('class', 'tweet body')
+      .attr('loading', 'lazy')
       .text(row.text);
   plot.append('tspan')
       .attr('class', 'tweet h2')
+      .attr('loading', 'lazy')
       .text("Retweets: " + getCount(row.retweet_count));
   plot.append('tspan')
       .attr('class', 'tweet h2')
+      .attr('loading', 'lazy')
       .text("     Favorites: " + getCount(row.favorite_count));
-  plot.append('hr');
+  plot.append('hr')
+      .attr('loading', 'lazy');
 }
 
 // Converts a unicode time string to a date of format 'Oct 30, 2016'
