@@ -9,7 +9,9 @@ var feedImgs = ["timeseries_compare_clean.png", "timeseries_compare.png", "times
 function updateChart(index, container, stepSel, id, array) {
   const sel = container.select(`[data-index='${index}']`); //select the element currently in view. Index is what matters here
   stepSel.classed('is-active', (d, i) => i === index); //Just color change. Ignore for now
-  document.getElementById(id).src = root + array[index]; //What needs to be on the sticky side
+  stickyElement = document.getElementById(id);
+  stickyElement.src = root + array[index]; //What needs to be on the sticky side
+  stickyElement.classList.add("sticky-image");
 }
 
 function init(scrollySide, step, sticky, id, array) {
