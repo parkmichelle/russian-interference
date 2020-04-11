@@ -35,11 +35,20 @@ d3.csv('data/ten_gop_only.csv').then(function(data) {
   });
 });
 
-// Draws all tweets for both users
-d3.csv(dataDir + tweetsFilename).then(function(data) {
-  data.forEach(element => {
-    drawTweet(element)
+
+/*d3.csv(dataDir + 'small_top2.csv', function(data) {
+  d3.csv(dataDir + 'small_top2.csv', function(data) {
+    d3.csv(dataDir + 'small_top2.csv', function(data) {
+      drawTweet(data);
+    });
+    drawTweet(data);
   });
+  drawTweet(data);
+});*/
+
+// Draws all tweets for both users
+d3.csv(dataDir + tweetsFilename, function(data) {
+    drawTweet(data);
 });
 
 amelie_scroll.on("scroll.scroller", function() { updateDotA(); });
@@ -49,7 +58,7 @@ ten_gop_scroll.on("scroll.scroller", function() { updateDotT(); });
 function drawTweet(row) {
   var plot;
   // Populate the username
-  console.log("scroll top amelie: ", amelie_scroll.node().scrollTop);
+  //console.log("scroll top amelie: ", amelie_scroll.node().scrollTop);
 
   if (row.user_key == "ameliebaldwin") {
     amelie_plot.append('tspan')
