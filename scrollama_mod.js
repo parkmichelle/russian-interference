@@ -10,12 +10,8 @@ function updateChart(index, container, stepSel, id, array) {
   const sel = container.select(`[data-index='${index}']`); //select the element currently in view. Index is what matters here
   stepSel.classed('is-active', (d, i) => i === index); //Just color change. Ignore for now
   stickyElement = document.getElementById(id);
-  console.log("current scrollama element:", stickyElement);
-  //stickyElement.src = root + array[index].substring(0, array[index].length - 4) + "_small.png"; // placeholder image
-  //stickyElement.setAttribute('data-src', root + array[index]); // full-sized image
   stickyElement.src = root + array[index];
   stickyElement.classList.add("sticky-image");
-  //stickyElement.classList.add("lazy");
 }
 
 function init(scrollySide, step, sticky, id, array) {
