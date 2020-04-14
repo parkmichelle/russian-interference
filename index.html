@@ -356,12 +356,12 @@
     <div class="caption"><p style="color: steelblue" onclick=topFunction()>Back to top</p></div>
     </body>
       
+    <script src="scrollama_mod.js"></script>
     <script type="module" src="count_overview.js"></script>
     <script src="hashtag_timeline.js"></script>
     <script src="network_graph.js"></script>
     <script src="draw_scatter.js"></script>
     <script src="draw_timeseries.js"></script>
-    <script src="scrollama_mod.js"></script>
     <script>
     function topFunction() {
       document.body.scrollTop = 0; // For Safari
@@ -378,7 +378,7 @@
       });
     </script>
     <script>
-       // Code for lazy loading images
+       // Code for lazy loading content images
         document.addEventListener("DOMContentLoaded", function() {
         var lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
         console.log("lazy images: ", lazyImages);
