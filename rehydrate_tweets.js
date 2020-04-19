@@ -1,18 +1,25 @@
 dataDir = 'data/';
 tweetsFilename = 'top2.csv';
 
+amelie_filename = 'amelie_only.csv';
+tengop_filename = 'tengop_only.csv';
+
 width = 800;
 height = 600;
 
 amelie_dates = [];
 ten_gop_dates = [];
+
+var tweets_map = {};
+
+const LOAD_CHUNK_SIZE = 5;
 const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
   "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const parser = d3.timeParse("%Y/%m/%d");
 
 var origData;
-var amelie_scroll = d3.select('#amelie_scroll')
-var ten_gop_scroll = d3.select('#ten_gop_scroll')
+var amelie_scroll = d3.select('#amelie_scroll');
+var ten_gop_scroll = d3.select('#ten_gop_scroll');
 
 let amelie_plot = amelie_scroll.append('g')
 let ten_gop_plot = ten_gop_scroll.append('g')
@@ -46,14 +53,29 @@ d3.csv('data/ten_gop_only.csv').then(function(data) {
   drawTweet(data);
 });*/
 
-// Draws all tweets for both users
-d3.csv(dataDir + tweetsFilename, function(data) {
-    drawTweet(data);
+// Stores all tweets for both users
+// Note that current implementation requires csv file to
+// be sorted by ascending date
+d3.csv(dataDir + tweetsFilename, function(row) {
+  if (row.user_key in tweets_map) {
+    tweets_map[row.user_key].push(row)
+  } else {
+    tweets_map[row.user_key] = []
+  }
+}).then(function(data) {
+  loadNextChunk("ameliebaldwin");
+  loadNextChunk("ten_gop");
 });
 
 amelie_scroll.on("scroll.scroller", function() { updateDotA(); });
 ten_gop_scroll.on("scroll.scroller", function() { updateDotT(); });
 
+function loadNextChunk(userKey) {
+  console.assert(userKey == "ameliebaldwin" || userKey == "ten_gop");
+  for (var i = 0; i < LOAD_CHUNK_SIZE; i++) {
+    drawTweet(tweets_map[userKey].shift())
+  }
+}
 
 function drawTweet(row) {
   var plot;
@@ -146,8 +168,17 @@ function updateDotT() {
     .style('opacity', .7);
 }
 
+$('#amelie_scroll').on('scroll', function() {
+    let div = $(this).get(0);
+    if(div.scrollTop + div.clientHeight >= div.scrollHeight) {
+      loadNextChunk("ameliebaldwin");
+    }
+});
 
-
-
-
+$('#ten_gop_scroll').on('scroll', function() {
+    let div = $(this).get(0);
+    if(div.scrollTop + div.clientHeight >= div.scrollHeight) {
+      loadNextChunk("ten_gop");
+    }
+});
 
