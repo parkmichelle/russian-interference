@@ -51,11 +51,12 @@ function preloadImages(array) {
             }
         }
         list.push(img);
-        img.src = array[i];
+        console.log(root + array[i]);
+        img.src = root + array[i];
     }
 }
 
-// Initializes the scrollama for each scrolly section and their own array of image paths
+// Initializes the scrollama for each scrolly section sand their own array of image paths
 preloadImages(wordImgs);
 init('.word-scrolly', '.second-step', '.word-sticky', 'word-img', wordImgs);
 preloadImages(scatterImgs);
