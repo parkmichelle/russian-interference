@@ -51,7 +51,6 @@ function preloadImages(array) {
             }
         }
         list.push(img);
-        console.log(root + array[i]);
         img.src = root + array[i];
     }
 }
