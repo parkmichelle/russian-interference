@@ -23,8 +23,8 @@ var origData;
 var amelie_scroll = d3.select('#amelie_scroll');
 var ten_gop_scroll = d3.select('#ten_gop_scroll');
 
-let amelie_plot = amelie_scroll.append('g')
-let ten_gop_plot = ten_gop_scroll.append('g')
+let amelie_plot = amelie_scroll.append('g');
+let ten_gop_plot = ten_gop_scroll.append('g');
 
 // Creates an array of ordered dates of posts for ameliebaldwin
 d3.csv('data/amelie_only.csv').then(function(data) {
@@ -50,7 +50,7 @@ d3.csv('data/ten_gop_only.csv').then(function(data) {
 // be sorted by ascending date
 d3.csv(dataDir + tweetsFilename, function(row) {
   if (row.user_key in tweets_map) {
-    tweets_map[row.user_key].push(row)
+    tweets_map[row.user_key].push(row);
   } else {
     tweets_map[row.user_key] = []
   }
@@ -86,7 +86,6 @@ function drawTweet(row) {
       .text("Tennessee");
     plot = ten_gop_plot;
   }
-
   // Populate the rest of the tweet
   plot.append('tspan')
       .attr('class', 'tweet h2')
@@ -95,7 +94,7 @@ function drawTweet(row) {
   plot.append('tspan')
       .attr('class', 'tweet h2')
       .attr('loading', 'lazy')
-      .text(convertDate(row.created_at));
+      .text(convertDate(row.created_str));
   plot.append('p')
       .attr('class', 'tweet body')
       .attr('loading', 'lazy')
@@ -112,9 +111,9 @@ function drawTweet(row) {
       .attr('loading', 'lazy');
 }
 
-// Converts a unicode time string to a date of format 'Oct 30, 2016'
+// Converts a date of the format 2/22/16 19:04 to the format 'Oct 30, 2016'
   function convertDate(datestr) {
-    var date = new Date(parseFloat(datestr));
+    var date = new Date(datestr.split(" ")[0]); // creates a Date object from the date portion of string
     var year =  date.getFullYear();
     return monthNames[date.getMonth()] + " " + date.getDate() + ", " + year;
   }
@@ -128,7 +127,7 @@ function drawTweet(row) {
 // Redraws position of the floating dot when user scrolls through tweets
 function updateDotA() {
   // Calculates which date should be top based on average pixels per tweet (height)
- index = Math.floor(amelie_scroll.node().scrollTop / (AMELIE_SCROLL_HEIGHT/amelie_dates.length));
+  index = Math.floor(amelie_scroll.node().scrollTop / (AMELIE_SCROLL_HEIGHT/amelie_dates.length));
   topdate = amelie_dates[index];
 
   amelie_t.selectAll('circle').remove();
