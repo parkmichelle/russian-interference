@@ -13,11 +13,6 @@
     <script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.5/waypoints.min.js"></script>
 
-    <!-- Uncomment for loading bar -->
-    <!--script src="external_scripts/pace.min.js"></script-->
-    <!--script src="load_destroy.js"></script-->
-    <!--link rel="stylesheet" href="external_scripts/load.css"-->
-
     <script src="https://unpkg.com/intersection-observer"></script>
     <script src="https://unpkg.com/scrollama"></script>
     <script src="external_scripts/stickyfill.min.js"></script>
@@ -33,6 +28,10 @@
 
   </head>
   <body>
+    <div id="scroll-top-wrapper" onclick=scrollToTop()>
+      <img id="scroll-top-img" src="images/scroll_to_top.png">
+    </div>
+
     <div class="spacer"></div>
     <div class="spacer"></div>
 
@@ -353,7 +352,7 @@
       </p>
     </div>
     <div class="spacer"></div>
-    <div class="caption"><p style="color: steelblue" onclick=topFunction()>Back to top</p></div>
+    <div class="caption"><p style="color: steelblue" onclick=scrollToTop()>Scroll to top</p></div>
     </body>
       
     <script src="scrollama_mod.js"></script>
@@ -363,9 +362,8 @@
     <script src="draw_scatter.js"></script>
     <script src="draw_timeseries.js"></script>
     <script>
-    function topFunction() {
-      document.body.scrollTop = 0; // For Safari
-      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    function scrollToTop() {
+      $("html, body").animate({ scrollTop: 0 }, "slow");
     }
     </script>
 
