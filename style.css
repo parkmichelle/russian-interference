@@ -392,3 +392,19 @@ input:checked + .slider:before {
 .overview-header {
   font-size: 32px;
 }
+
+#scroll-top-wrapper {
+  opacity: 1;
+  background-color: rgba(50, 0, 0, 1); 
+  border-color: rgba(0, 0, 0, 0); 
+}
+
+#scroll-top-img {
+  margin: 12px;
+  cursor: pointer;
+  position: fixed; 
+  right: 0; 
+  bottom: 0;
+  width: 60px;
+}
+
