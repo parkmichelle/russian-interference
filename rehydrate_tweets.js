@@ -1,18 +1,27 @@
 dataDir = 'data/';
 tweetsFilename = 'top2.csv';
 
+amelie_filename = 'amelie_only.csv';
+tengop_filename = 'tengop_only.csv';
+
 width = 800;
 height = 600;
 
 amelie_dates = [];
 ten_gop_dates = [];
+
+var tweets_map = {};
+
+const LOAD_CHUNK_SIZE = 5;
 const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
   "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const parser = d3.timeParse("%Y/%m/%d");
+const AMELIE_SCROLL_HEIGHT = 1062887;
+const TEN_GOP_SCROLL_HEIGHT = 345480;
 
 var origData;
-var amelie_scroll = d3.select('#amelie_scroll')
-var ten_gop_scroll = d3.select('#ten_gop_scroll')
+var amelie_scroll = d3.select('#amelie_scroll');
+var ten_gop_scroll = d3.select('#ten_gop_scroll');
 
 let amelie_plot = amelie_scroll.append('g')
 let ten_gop_plot = ten_gop_scroll.append('g')
@@ -36,30 +45,33 @@ d3.csv('data/ten_gop_only.csv').then(function(data) {
 });
 
 
-/*d3.csv(dataDir + 'small_top2.csv', function(data) {
-  d3.csv(dataDir + 'small_top2.csv', function(data) {
-    d3.csv(dataDir + 'small_top2.csv', function(data) {
-      drawTweet(data);
-    });
-    drawTweet(data);
-  });
-  drawTweet(data);
-});*/
-
-// Draws all tweets for both users
-d3.csv(dataDir + tweetsFilename, function(data) {
-    drawTweet(data);
+// Stores all tweets for both users
+// Note that current implementation requires csv file to
+// be sorted by ascending date
+d3.csv(dataDir + tweetsFilename, function(row) {
+  if (row.user_key in tweets_map) {
+    tweets_map[row.user_key].push(row)
+  } else {
+    tweets_map[row.user_key] = []
+  }
+}).then(function(data) {
+  loadNextChunk("ameliebaldwin");
+  loadNextChunk("ten_gop");
 });
 
 amelie_scroll.on("scroll.scroller", function() { updateDotA(); });
 ten_gop_scroll.on("scroll.scroller", function() { updateDotT(); });
 
+function loadNextChunk(userKey) {
+  console.assert(userKey == "ameliebaldwin" || userKey == "ten_gop");
+  for (var i = 0; i < LOAD_CHUNK_SIZE; i++) {
+    drawTweet(tweets_map[userKey].shift())
+  }
+}
 
 function drawTweet(row) {
   var plot;
   // Populate the username
-  //console.log("scroll top amelie: ", amelie_scroll.node().scrollTop);
-
   if (row.user_key == "ameliebaldwin") {
     amelie_plot.append('tspan')
       .attr('class', 'tweet h1')
@@ -116,7 +128,7 @@ function drawTweet(row) {
 // Redraws position of the floating dot when user scrolls through tweets
 function updateDotA() {
   // Calculates which date should be top based on average pixels per tweet (height)
-  index = Math.floor(amelie_scroll.node().scrollTop / (amelie_scroll.node().scrollHeight/amelie_dates.length));
+ index = Math.floor(amelie_scroll.node().scrollTop / (AMELIE_SCROLL_HEIGHT/amelie_dates.length));
   topdate = amelie_dates[index];
 
   amelie_t.selectAll('circle').remove();
@@ -132,7 +144,7 @@ function updateDotA() {
 
 function updateDotT() {
   // Calculates which date should be top based on average pixels per tweet (height)
-  index = Math.floor(ten_gop_scroll.node().scrollTop / (ten_gop_scroll.node().scrollHeight/ten_gop_dates.length));
+  index = Math.floor(ten_gop_scroll.node().scrollTop / (TEN_GOP_SCROLL_HEIGHT/ten_gop_dates.length));
   topdate = ten_gop_dates[index];
 
   ten_gop_t.selectAll('circle').remove();
@@ -146,8 +158,17 @@ function updateDotT() {
     .style('opacity', .7);
 }
 
+$('#amelie_scroll').on('scroll', function() {
+    let div = $(this).get(0);
+    if(div.scrollTop + div.clientHeight >= div.scrollHeight) {
+      loadNextChunk("ameliebaldwin");
+    }
+});
 
-
-
-
+$('#ten_gop_scroll').on('scroll', function() {
+    let div = $(this).get(0);
+    if(div.scrollTop + div.clientHeight >= div.scrollHeight) {
+      loadNextChunk("ten_gop");
+    }
+});
 

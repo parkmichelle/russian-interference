@@ -1,4 +1,5 @@
 const NUM_WORDS_IN_CLOUD = 100;
+const FONT_SIZE_MIN = 18;
 const FONT_SIZE_MAX = 84;
 
 const FIRST_TWEET_DATE = "2014-07-14";
@@ -8,7 +9,7 @@ const ELECTION_DATE = "2016-11-08";
 const DEFAULT_TWEET_DATE_MIN = "2015-04-22";
 const DEFAULT_TWEET_DATE_MAX = "2016-04-18";
 
-var fontScale = d3.scaleLinear().range([0, FONT_SIZE_MAX]);
+var fontScale = d3.scaleLinear().range([FONT_SIZE_MIN, FONT_SIZE_MAX]);
 
 const DATA_DIR = 'data/';
 const HASHTAG_COUNTS_FILENAME = 'hashtags_by_day.json'

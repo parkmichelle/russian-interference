@@ -9,7 +9,9 @@ var feedImgs = ["timeseries_compare_clean.png", "timeseries_compare.png", "times
 function updateChart(index, container, stepSel, id, array) {
   const sel = container.select(`[data-index='${index}']`); //select the element currently in view. Index is what matters here
   stepSel.classed('is-active', (d, i) => i === index); //Just color change. Ignore for now
-  document.getElementById(id).src = root + array[index]; //What needs to be on the sticky side
+  stickyElement = document.getElementById(id);
+  stickyElement.src = root + array[index];
+  stickyElement.classList.add("sticky-image");
 }
 
 function init(scrollySide, step, sticky, id, array) {
@@ -32,8 +34,34 @@ function init(scrollySide, step, sticky, id, array) {
 
 }
 
-// Initializes the scrollama for each scrolly section and their own array of image paths
+// Caches the images so that they load immediately when scrollama is displayed
+function preloadImages(array) {
+    if (!preloadImages.list) {
+        preloadImages.list = [];
+    }
+    var list = preloadImages.list;
+    for (var i = 0; i < array.length; i++) {
+        var img = new Image();
+        img.onload = function() {
+            var index = list.indexOf(this);
+            if (index !== -1) {
+                // remove image from the array once it's loaded
+                // for memory consumption reasons
+                list.splice(index, 1);
+            }
+        }
+        list.push(img);
+        img.src = root + array[i];
+    }
+}
+
+// Initializes the scrollama for each scrolly section sand their own array of image paths
+preloadImages(wordImgs);
 init('.word-scrolly', '.second-step', '.word-sticky', 'word-img', wordImgs);
+preloadImages(scatterImgs);
 init('.scatter-scrolly', '.second-step', '.scatter-sticky', 'scatter-img', scatterImgs);
+preloadImages(networkImgs);
 init('.network-scrolly', '.second-step', '.network-sticky', 'network-img', networkImgs);
+preloadImages(feedImgs);
 init('.feed-scrolly', '.second-step', '.feed-sticky', 'feed-img', feedImgs);
+

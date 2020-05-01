@@ -49,6 +49,11 @@ article {
   color: lightgray;
 }
 
+.sticky-image {
+  width: 480px;
+  height: auto;
+}
+
 figure.sticky {
   position: -webkit-sticky;
   position: sticky;

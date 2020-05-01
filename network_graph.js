@@ -9,6 +9,8 @@ let maxGraphDate = null;
 let currMinGraphDate = null;
 let currMaxGraphDate = null;
 
+let active_network = null;
+
 var network_width = window.innerWidth,
     network_height = window.innerHeight * 0.90;
 
@@ -38,6 +40,18 @@ var networkTipMouseover = function(d) {
         .transition()
         .duration(0) // ms
         .style("opacity", .9) // started as 0!
+    
+    var connectedNodeIds = active_network
+    .links
+    .filter(x => x.source == d.id || x.target == d.id)
+    .map(x => x.source == d.id ? x.target : x.source);
+    console.log(connectedNodeIds)
+
+    d3.selectAll("circle")
+    .attr("fill", function(c) {
+        if (connectedNodeIds.indexOf(c.id) > -1 || c.id == d.id) return "yellow";
+        else return "red";
+    });
 };
 // tooltip mouseout event handler
 var networkTipMouseout = function(d) {
@@ -89,6 +103,7 @@ function setup() {
 function updateNetwork(nodes, links) {
     // Make a shallow copy to protect against mutation, while
     // recycling old nodes to preserve position and velocity.
+    active_network = {'nodes': nodes, 'links': links};
     const old = new Map(node.data().map(d => [d.id, d]));
     nodes = nodes.map(d => Object.assign(old.get(d.id) || {}, d));
     links = links.map(d => Object.assign({}, d));
@@ -106,8 +121,8 @@ function updateNetwork(nodes, links) {
         .data(links, d => [d.source, d.target])
         .join("line")
         .attr("stroke-width", d => Math.sqrt(parseInt(d.weight)))
-        .attr("stroke", "#000")
-        .attr('marker-end','url(#triangle)');
+        .attr("stroke", "#000");
+        // .attr('marker-end','url(#triangle)');
 
     simulation.nodes(nodes);
     simulation.force("link").links(links);

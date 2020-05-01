@@ -28,19 +28,13 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="scrollama_mod.css">
 
-    <script type="text/javascript">
-        var timerStart = Date.now();
-    </script>
+    <title> Unmasking the Trolls </title>
+    <link rel="icon" type="image/png" href="images/favicon.png"/>
 
   </head>
   <body>
     <div class="spacer"></div>
     <div class="spacer"></div>
-    <!--<div class="backer">
-      <svg id="network"></svg>
-      <h1>Exploring Russian Interference</h1>
-      <h2 class="center">Understanding a Systematic Attack on American Democracy</h2>
-    </div>-->
 
     <div class="body-text">
     <h1>Exploring Russian Interference in<br>the 2016 U.S. Presidential Elections</h1>
@@ -362,28 +356,18 @@
     <div class="caption"><p style="color: steelblue" onclick=topFunction()>Back to top</p></div>
     </body>
       
+    <script src="scrollama_mod.js"></script>
     <script type="module" src="count_overview.js"></script>
     <script src="hashtag_timeline.js"></script>
     <script src="network_graph.js"></script>
     <script src="draw_scatter.js"></script>
     <script src="draw_timeseries.js"></script>
-    <script src="scrollama_mod.js"></script>
-    <!-- <script defer src="rehydrate_tweets.js"></script> -->
     <script>
     function topFunction() {
       document.body.scrollTop = 0; // For Safari
       document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     }
     </script>
-
-    <script type="text/javascript">
-      $(document).ready(function() {
-          console.log("Time until DOMready: ", Date.now()-timerStart);
-      });
-      $(window).load(function() {
-          console.log("Time until everything loaded: ", Date.now()-timerStart);
-      });
-
-    </script>
+    <script defer src="rehydrate_tweets.js"></script>
   </body>
 </html>
