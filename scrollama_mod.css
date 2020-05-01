@@ -13,13 +13,13 @@ strong, b {
 .scrolly {
   display: -webkit-box;
   display: flex;
-  margin: 5%;
-  padding: 1rem;
+  margin-left: 15%;
+  margin-right: 15%;
 }
 
 .scrolly > * {
   -webkit-box-flex: 1;
-          flex: 1;
+  flex: 1;
 }
 
 article {
@@ -28,6 +28,9 @@ article {
 }
 
 .step {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   min-height: 67vh;
   margin-bottom: 1rem;
   -webkit-transition: all 250ms ease-in-out;
@@ -52,6 +55,7 @@ article {
 .sticky-image {
   width: 480px;
   height: auto;
+  object-fit: contain;
 }
 
 figure.sticky {
@@ -71,3 +75,7 @@ figure.sticky {
   transition: width 1s ease-in-out;
 }
 
+.bar-outer {
+  height: 85vh;
+  display: flex;
+}
