@@ -64,29 +64,14 @@ let xAxis = plot.append('g')
 let yAxis = plot.append('g')
   .call(d3.axisLeft(yScale));
 
-// Add circle legend- not working currently
-var l = circleLegend(plot)
-        .domain([0, 61735]) // the dataset min and max
-        .range([0, getRadius(61735)]) // the circle area/size mapping
-        .values( [getRadius(500), getRadius(5000), getRadius(50000)]) // pass in values (e.g. min,mean/median & max)
-        // optional
-        .width(outerWidth - 300) // it centers to this
-        .height(plotMargin) // it centers to this
-        .suffix(' tweets') // ability to pass in a suffix e.g. '%'
-        .circleColor('steelblue') // stroke of the circles
-        .textPadding(0) // left padding on text
-        .textColor( '#454545'); // the fill for text
-    // and render it
-//l.render();
-
-var zoom = d3.zoom().on("zoom", (d) => {
+/*var zoom = d3.zoom().on("zoom", (d) => {
             // Transform the axes
             new_xScale = d3.event.transform.rescaleX(xScale);
             new_yScale = d3.event.transform.rescaleY(yScale);
             xAxis.call(d3.axisBottom(new_xScale));
             yAxis.call(d3.axisLeft(new_yScale));
             d3.selectAll('circle').data(allData)
-              .attr('cx', function(d) {return new_xScale(d.followers_count);})
+              .attr('cx', function(d) { return new_xScale(d.followers_count);})
               .attr('cy', function(d) {return new_yScale(d.favourites_count);})
               .attr('r', function(d) {
                 // Doesn't draw dots that are now out of bounds
@@ -116,15 +101,16 @@ var zoom = d3.zoom().on("zoom", (d) => {
                   .duration(750)
                   .call(zoom.transform, d3.zoomIdentity);
                 });
-
         })
-        .scaleExtent([0, 5]);
-        //.translateExtent([-plotWidth, -plotHeight], [outerWidth, outerHeight])); 
+        .scaleExtent([0, 5])
+        .translateExtent([[0, 0], [plotWidth, outerWidth]]);
+        //.translateExtent([[0, 0], [plotWidth, outerWidth]]);
+*/
 
 wholeChart
   .attr('width', outerWidth)
-  .attr('height', outerHeight)
-  .call(zoom);
+  .attr('height', outerHeight);
+  //.call(zoom);
 
 // label the axes
 plot.append("text")             
@@ -158,8 +144,8 @@ var subtitle = plot.append("text")
   .style("font-size", "18px") 
   .style("font-style", "italic")
   .style("fill", "gray")
-  .style("font-family", font)  
-  .text("Scroll to zoom");
+  .style("font-family", font);  
+  //.text("Scroll to zoom");
 
 // Add legend
 plot.append("svg:image")
