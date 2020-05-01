@@ -64,7 +64,7 @@ let xAxis = plot.append('g')
 let yAxis = plot.append('g')
   .call(d3.axisLeft(yScale));
 
-var zoom = d3.zoom().on("zoom", (d) => {
+/*var zoom = d3.zoom().on("zoom", (d) => {
             // Transform the axes
             new_xScale = d3.event.transform.rescaleX(xScale);
             new_yScale = d3.event.transform.rescaleY(yScale);
@@ -104,12 +104,13 @@ var zoom = d3.zoom().on("zoom", (d) => {
         })
         .scaleExtent([0, 5])
         .translateExtent([[0, 0], [plotWidth, outerWidth]]);
-
+        //.translateExtent([[0, 0], [plotWidth, outerWidth]]);
+*/
 
 wholeChart
   .attr('width', outerWidth)
-  .attr('height', outerHeight)
-  .call(zoom);
+  .attr('height', outerHeight);
+  //.call(zoom);
 
 // label the axes
 plot.append("text")             
@@ -143,8 +144,8 @@ var subtitle = plot.append("text")
   .style("font-size", "18px") 
   .style("font-style", "italic")
   .style("fill", "gray")
-  .style("font-family", font)  
-  .text("Scroll to zoom");
+  .style("font-family", font);  
+  //.text("Scroll to zoom");
 
 // Add legend
 plot.append("svg:image")
