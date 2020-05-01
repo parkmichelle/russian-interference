@@ -8,15 +8,26 @@ let minGraphDate = null;
 let maxGraphDate = null;
 let currMinGraphDate = null;
 let currMaxGraphDate = null;
+let opacity_scale = null;
+let colors_reset = true;
+let node_locked = false;
+let highlighted_nodes = [];
+let clicked_nodes = [];
+let shift_down = false;
 
 let active_network = null;
 
 var network_width = window.innerWidth,
     network_height = window.innerHeight * 0.90;
 
-var svg = d3.select("#network")
-    .attr("width", network_width)
-    .attr("height", network_height);
+var svg = d3.select("#network").on("click", () => {
+    if (shift_down) return;
+    highlighted_nodes = [];
+    clicked_nodes = [];
+    resetGraphColors();
+    node_locked = false;
+    colors_reset = true;
+});
 
 svg.append("svg:defs").append("svg:marker")
     .attr("id", "triangle")
@@ -33,24 +44,63 @@ svg.append("svg:defs").append("svg:marker")
 var networkTooltip = d3.select(".tooltip");
 
 var networkTipMouseover = function(d) {
-    var html  = "<span class='tooltip-header'>" + d.id + "</span>";
+    let start_date = new Date(parseInt(d['start_date']));
+    let end_date = new Date(parseInt(d['end_date']));
+
+    let start_date_str = (start_date.getMonth() + 1) + '/' + start_date.getDate() + '/' + start_date.getFullYear();
+    let end_date_str = (end_date.getMonth() + 1) + '/' + end_date.getDate() + '/' + end_date.getFullYear();
+
+    let mentioners_list = active_network
+    .links
+    .filter(x => x.target == d.id);
+    let high_count = Number.NEGATIVE_INFINITY;
+    let top_fan = null;
+    for (let i=mentioners_list.length-1; i>=0; i--) {
+        let tmp = mentioners_list[i].weight;
+        if (tmp > high_count) {
+            high_count = tmp;
+            top_fan = mentioners_list[i].source;
+        }
+    }
+
+    let mentionees_list = active_network
+    .links
+    .filter(x => x.source == d.id);
+    high_count = Number.NEGATIVE_INFINITY;
+    let top_mentionee = null;
+    for (let i=mentionees_list.length-1; i>=0; i--) {
+        let tmp = mentionees_list[i].weight;
+        if (tmp > high_count) {
+            high_count = tmp;
+            top_mentionee = mentionees_list[i].target;
+        }
+    }
+
+    var html = `<div class="graph_tooltip"><div class='tooltip-header'>@${d.id}</div><div>Date of first mention: ${start_date_str}</div><div>Date of last mention: ${end_date_str}</div><div>Total mentions: ${d.count}</div><div>Tyoe of user: ${d.type === "troll" ? "Troll" : "Real"}</div><div>Most mentions by: @${top_fan ? top_fan : "N/A"}</div><div>Most mentions of: @${top_mentionee ? top_mentionee : "N/A"}</div></div>`
     networkTooltip.html(html)
         .style("left", (d3.event.pageX + 10) + "px")
         .style("top", (d3.event.pageY - 60) + "px")
         .transition()
         .duration(0) // ms
-        .style("opacity", .9) // started as 0!
+        .style("opacity", .9); // started as 0!
     
+    if (node_locked) return;
     var connectedNodeIds = active_network
     .links
     .filter(x => x.source == d.id || x.target == d.id)
     .map(x => x.source == d.id ? x.target : x.source);
-    console.log(connectedNodeIds)
 
     d3.selectAll("circle")
-    .attr("fill", function(c) {
-        if (connectedNodeIds.indexOf(c.id) > -1 || c.id == d.id) return "yellow";
-        else return "red";
+    .attr("opacity", function(c) {
+        if (!c || !d) return "white";
+        if (connectedNodeIds.indexOf(c.id) > -1 || c.id == d.id) return 1;
+        else return 0.3;
+    });
+
+    d3.selectAll(".edges").style('opacity', function(l) {
+        if (!l.source || !l.target) return 0;
+        if (l.source.id == d.id || l.target.id == d.id) return 0.6;
+        else return 0.03;
     });
 };
 // tooltip mouseout event handler
@@ -58,7 +108,55 @@ var networkTipMouseout = function(d) {
     networkTooltip.transition()
         .duration(0) // ms
         .style("opacity", 0); // don't care about position!
+
+    if (node_locked) return;
+    d3.selectAll("circle")
+    .attr("opacity", 1)
+
+    d3.selectAll(".edges")
+    .style("opacity", d => opacity_scale(d.weight))
 };
+
+var resetGraphColors = () => {
+    d3.selectAll("circle")
+    .attr("opacity", 1)
+
+    d3.selectAll(".edges")
+    .style("opacity", d => opacity_scale(d.weight))
+}
+
+var highlightConnections = d => {
+    var connectedNodeIds = active_network
+    .links
+    .filter(x => x.source == d.id || x.target == d.id)
+    .map(x => x.source == d.id ? x.target : x.source);
+
+    if (shift_down) {
+        connectedNodeIds.forEach(c => highlighted_nodes.push(c));
+    } else {
+        resetGraphColors();
+        highlighted_nodes = connectedNodeIds;
+        clicked_nodes = [];
+    }
+    clicked_nodes.push(d.id);
+    highlighted_nodes.push(d.id);
+    node_locked = true;
+    colors_reset = false;
+
+    d3.selectAll("circle")
+    .attr("opacity", function(c) {
+        if (!c || !d) return "white";
+        if (highlighted_nodes.indexOf(c.id) > -1) return 1;
+        else return 0.3;
+    });
+
+    d3.selectAll(".edges").style('opacity', function(l) {
+        if (!l.source || !l.target) return 0;
+        if (clicked_nodes.indexOf(l.source.id) > -1 || clicked_nodes.indexOf(l.target.id) > -1) return 0.6;
+        else return 0.03;
+    });
+    d3.event.stopPropagation();
+}
 
 var simulation;
 var node;
@@ -74,7 +172,6 @@ function setup() {
         .force("center", d3.forceCenter(network_width / 2, network_height / 2));
 
     link = svg.append("g")
-        .attr("stroke-opacity", 0.4)
       .selectAll("line")
       
   
@@ -96,7 +193,8 @@ function setup() {
           .attr("cx", d => d.x)
           .attr("cy", d => d.y)
           .on("mouseover", networkTipMouseover)
-          .on("mouseout", networkTipMouseout);
+          .on("mouseout", networkTipMouseout)
+          .on("click", highlightConnections)
     });
 }
 
@@ -115,18 +213,33 @@ function updateNetwork(nodes, links) {
         .attr("stroke", "#fff")
         .attr("r", 3.5)
         .on("mouseover", networkTipMouseover)
-        .on("mouseout", networkTipMouseout));
+        .on("mouseout", networkTipMouseout)
+        .on("click", highlightConnections));
 
     link = link
         .data(links, d => [d.source, d.target])
         .join("line")
-        .attr("stroke-width", d => Math.sqrt(parseInt(d.weight)))
-        .attr("stroke", "#000");
+        .classed("edges", true)
+        .style('stroke', 'black')
+        .style("opacity", d => opacity_scale(d.weight))
+        .on("click", () => {
+            if (shift_down) return;
+            highlighted_nodes = [];
+            clicked_nodes = [];
+            resetGraphColors();
+            node_locked = false;
+            colors_reset = true;
+        });
         // .attr('marker-end','url(#triangle)');
 
     simulation.nodes(nodes);
     simulation.force("link").links(links);
     simulation.alpha(1).restart();
+    resetGraphColors();
+    highlighted_nodes = [];
+    clicked_nodes = [];
+    colors_reset = true;
+    node_locked = false;
 }
 
 function dragstarted(d) {
@@ -189,6 +302,19 @@ d3.json(DATA_DIR + GRAPH_DATA).then(function(data) {
     })
 
     let graph = trollsOnly;
+
+    var lowest = Number.POSITIVE_INFINITY;
+    var highest = Number.NEGATIVE_INFINITY;
+    var tmp;
+    for (var i=data.links.length-1; i>=0; i--) {
+        tmp = data.links[i].weight;
+        if (tmp < lowest) lowest = tmp;
+        if (tmp > highest) highest = tmp;
+    }
+    opacity_scale = d3.scaleLog()
+    .domain([lowest, highest])
+    .range([0.05, 0.65]);
+
     setup();
     updateNetwork(graph.nodes, graph.links)
 });
@@ -264,3 +390,30 @@ function filterCount(val) {
     let data = applyFiltersOnData(allGraphData);
     drawGraph(data);
 }
+
+let e = document.getElementById('network-container');
+
+$(window).on("scroll", function(){
+    if (this.window.scrollY + this.window.innerHeight < e.offsetTop || this.window.scrollY > e.offsetTop + this.window.innerHeight) {
+        if (!colors_reset) {
+            resetGraphColors();
+            colors_reset = true;
+            node_locked = false;
+            highlighted_nodes = [];
+            clicked_nodes = [];
+        }
+    }
+    this.window.scrollY;
+});
+
+document.addEventListener('keyup', (e) => {
+    if (e.code === "ShiftLeft" || e.code === "ShiftRight") {
+        shift_down = false;
+    }
+});
+
+document.addEventListener('keydown', (e) => {
+    if (e.code === "ShiftLeft" || e.code === "ShiftRight") {
+        shift_down = true;
+    }
+});
