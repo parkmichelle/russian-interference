@@ -56,7 +56,7 @@ let xScale = d3.scaleLinear()
   .range([0, plotWidth])
 let yScale = d3.scaleLinear()
   //.domain([0, 27500])
-  .domain([0, 4000])
+  .domain([0, 5000])
   .range([plotHeight, 0]); 
 
 // Draw our axes based on xScale and yScale
@@ -66,7 +66,7 @@ let xAxis = plot.append('g')
 let yAxis = plot.append('g')
   .call(d3.axisLeft(yScale));
 
-var zoom = d3.zoom().on("zoom", (d) => {
+/*var zoom = d3.zoom().on("zoom", (d) => {
             // Transform the axes
             new_xScale = d3.event.transform.rescaleX(xScale);
             new_yScale = d3.event.transform.rescaleY(yScale);
@@ -106,13 +106,13 @@ var zoom = d3.zoom().on("zoom", (d) => {
         })
         .scaleExtent([0, 5])
         .translateExtent([[0, 0], [plotWidth, outerWidth]]);
-        //.translateExtent([[0, 0], [plotWidth, outerWidth]]);
+        //.translateExtent([[0, 0], [plotWidth, outerWidth]]);*/
 
 
 wholeChart
   .attr('width', outerWidth)
-  .attr('height', outerHeight)
-  .call(zoom);
+  .attr('height', outerHeight);
+  //.call(zoom);
 
 // label the axes
 plot.append("text")             
@@ -146,8 +146,8 @@ var subtitle = plot.append("text")
   .style("font-size", "18px") 
   .style("font-style", "italic")
   .style("fill", "gray")
-  .style("font-family", font)
-  .text("Scroll to zoom");
+  .style("font-family", font);
+  //.text("Scroll to zoom");
 
 // Add legend
 plot.append("svg:image")
@@ -247,7 +247,7 @@ function drawScatterPlot(userData) {
 // Given a status count, returns the radius of the point
 function getRadius(statuses) {
   if (statuses == null) return 0;
-  return Math.pow(statuses, .85)*.001;
+  return Math.pow(statuses, .75)*.005;
 }
 // Displays the bio of the clicked account
 var showBio = function(d) {
