@@ -34,6 +34,7 @@ h2 {
 input[type="checkbox"] {
   width: 16px;
   height: 16px;
+  cursor: pointer;
 }
 
 #network-count {
@@ -45,6 +46,7 @@ input[type="checkbox"] {
 }
 
 #network {
+  cursor: pointer;
 	width: 100%;
 	height: 90vh;
 }
@@ -336,6 +338,7 @@ input:checked + .slider:before {
   width: 600px;
   margin-left: auto;
   margin-right: auto;
+  cursor: pointer;
 }
 
 .wordcloud-container {
