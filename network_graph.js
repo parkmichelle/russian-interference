@@ -76,7 +76,13 @@ var networkTipMouseover = function(d) {
         }
     }
 
-    var html = `<div class="graph_tooltip"><div class='tooltip-header'>@${d.id}</div><div>Date of first mention: ${start_date_str}</div><div>Date of last mention: ${end_date_str}</div><div>Total mentions: ${d.count}</div><div>Tyoe of user: ${d.type === "troll" ? "Troll" : "Real"}</div><div>Most mentions by: @${top_fan ? top_fan : "N/A"}</div><div>Most mentions of: @${top_mentionee ? top_mentionee : "N/A"}</div></div>`
+    var html = `<div class="graph_tooltip"><div class='tooltip-header'>@${d.id}</div><div>Date first mentioned: ${start_date_str}</div><div>Date last mentioned: ${end_date_str}</div><div>Total mentions by trolls: ${d.count}</div><div>Troll or real user?: ${d.type === "troll" ? "Troll" : "Real"}</div><div>Most frequently mentioned by: @${top_fan ? top_fan : "N/A"}</div>`;
+
+    if (top_mentionee) {
+      html += `<div>Most frequently mentions: @${top_mentionee ? top_mentionee : "N/A"}</div></div>`;
+    }
+
+
     networkTooltip.html(html)
         .style("left", (d3.event.pageX + 10) + "px")
         .style("top", (d3.event.pageY - 60) + "px")
