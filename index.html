@@ -382,6 +382,11 @@ the 2016 U.S. Presidential Elections</title>
     <div class="spacer"></div>
     <div class="caption"><p style="color: steelblue" onclick=scrollToTop()>Back to top</p></div>
     </body>
+    <script>
+      jQuery.htmlPrefilter = function( html ) {
+        return html;
+      };
+    </script>
       
     <script src="scrollama_mod.js"></script>
     <script type="module" src="count_overview.js"></script>
