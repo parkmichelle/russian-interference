@@ -10,7 +10,7 @@
     "countup.js": "^2.0.4",
     "d3-cloud": "^1.2.5",
     "intersection-observer": "^0.7.0",
-    "jquery": "^3.4.1",
+    "jquery": ">=3.5.0",
     "scrollama": "^2.2.1",
     "waypoints": "^4.0.1"
   },

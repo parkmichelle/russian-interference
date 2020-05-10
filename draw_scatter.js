@@ -51,10 +51,12 @@ var tipMouseout = function(d) {
 
 // Create our scales, each of which will map data to the size of our plot
 let xScale = d3.scaleLinear()
-  .domain([0, 100000])
+  //.domain([0, 100000])
+  .domain([0, 50000])
   .range([0, plotWidth])
 let yScale = d3.scaleLinear()
-  .domain([0, 27500])
+  //.domain([0, 27500])
+  .domain([0, 5000])
   .range([plotHeight, 0]); 
 
 // Draw our axes based on xScale and yScale
@@ -104,8 +106,8 @@ let yAxis = plot.append('g')
         })
         .scaleExtent([0, 5])
         .translateExtent([[0, 0], [plotWidth, outerWidth]]);
-        //.translateExtent([[0, 0], [plotWidth, outerWidth]]);
-*/
+        //.translateExtent([[0, 0], [plotWidth, outerWidth]]);*/
+
 
 wholeChart
   .attr('width', outerWidth)
@@ -144,7 +146,7 @@ var subtitle = plot.append("text")
   .style("font-size", "18px") 
   .style("font-style", "italic")
   .style("fill", "gray")
-  .style("font-family", font);  
+  .style("font-family", font);
   //.text("Scroll to zoom");
 
 // Add legend
@@ -245,7 +247,7 @@ function drawScatterPlot(userData) {
 // Given a status count, returns the radius of the point
 function getRadius(statuses) {
   if (statuses == null) return 0;
-  return Math.pow(statuses, .85)*.001;
+  return Math.pow(statuses, .75)*.005;
 }
 // Displays the bio of the clicked account
 var showBio = function(d) {

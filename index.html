@@ -144,16 +144,17 @@ the 2016 U.S. Presidential Elections</title>
                 <div class='step second-step' data-index='4'>
                 <p>Notice that <b>@ChicagoDailyNew</b> and <b>@DetroitDailyNew</b> have the exact same account description, aside from the location mentioned. These cookie-cutter fake news accounts provide a glimpse into the deeply systematized spread of misinformation that took place during election interference.
                 </p>
+                <p>Legitimacy for Russian troll accounts was more than appearing American- it also meant appearing to be an authoritative source.
+                </p>
+                </div>
+                <div class='step second-step' data-index='5'>
+                <p>In the interactive graph below, we present a subset (indicated by the box) of troll accounts by number of followers, favorites, and posts. Explore bios of different troll accounts by clicking on a dot.
+                </p>
                 </div>
                 </article>
             
-            </div>
-            
+            </div>    
         </section>
-      <div class="body-text">
-        <p>Legitimacy for Russian troll accounts was more than appearing American- it also meant appearing to be an authoritative source. Explore bios of different troll accounts by clicking on a dot.
-        </p>
-      </div>
 
       <div class="wordcloud-container">
       <div class="horizontal-flex space-around">
@@ -211,17 +212,31 @@ the 2016 U.S. Presidential Elections</title>
 
                 </p>
                 </div>
-                                <div class='step second-step' data-index='5'>
-                <p>While the 3 clusters are clearly separated, two of the accounts that are mentioned by trolls from all clusters are <b>@realdonaldtrump</b> and <b>@hillaryclinton</b> (they’re also the most mentioned accounts overall). This clustering and network makes it clear that the trolls tried to imitate real people instead of solely clustering around candidates. In order to further investigate the trolls actions, we took a look at the network graph without real users.
+                <div class='step second-step' data-index='5'>
+                <p>While the 3 clusters are clearly separated, two of the accounts that are mentioned by trolls from all clusters are <b>@realdonaldtrump</b> and <b>@hillaryclinton</b> (they’re also the most mentioned accounts overall).
 
                 </p>
                 </div>
-                                <div class='step second-step' data-index='6'>
-                <p>One thing becomes clear right away here: most trolls did not interact with other trolls. In fact, we have a central weakly connected component that includes only 27% of the accounts, but more than 95% of the edges. One of the nodes that becomes immediately interesting as we look more at this graph is <b>@ten_gop</b>. This is an account that <b>@realdonaldtrump</b> retweeted, and it is clearly well connected with other trolls (the most mentioned troll by other trolls). However, in all of the larger networks that we looked at, <b>@ten_gop</b> did not seem to be of particular significance.
+
+                <div class='step second-step' data-index='6'>
+                <p>This clustering and network makes it clear that the trolls tried to imitate real people instead of solely clustering around candidates. In order to further investigate the trolls actions, we took a look at the network graph without real users.
 
                 </p>
                 </div>
-                                <div class='step second-step' data-index='7'>
+                
+                 <div class='step second-step' data-index='7'>
+                <p>One thing becomes clear right away here: most trolls did not interact with other trolls. In fact, we have a central weakly connected component that includes only 27% of the accounts, but more than 95% of the edges. One of the nodes that becomes immediately interesting as we look more at this graph is <b>@ten_gop</b>.
+
+                </p>
+                </div>
+
+                <div class='step second-step' data-index='8'>
+                <p> This is an account that <b>@realdonaldtrump</b> retweeted, and it is clearly well connected with other trolls (the most mentioned troll by other trolls). However, in all of the larger networks that we looked at, <b>@ten_gop</b> did not seem to be of particular significance.
+
+                </p>
+                </div>
+
+                <div class='step second-step' data-index='9'>
                 <p>On the contrary, when we visualize the full graph, we see a new special troll account. The account is <b>@ameliebaldwin</b>, and it’s in fact the most connected troll. We notice here that <b>@ameliebaldwin’s</b> style involves mentioning a lot of real users (many of which are mentioned only once). Other trolls follow a similar pattern, but <b>@ameliebaldwin</b> is the clear front-runner here. This is an interesting contrast to the case of <b>@ten_gop</b>. <b>@ameliebaldwin</b> is not significant in the trolls only network, but it interacts with real users way more. On the contrary, <b>@ten_gop</b> is a source of disinformation even for other trolls.
 
 
@@ -365,8 +380,13 @@ the 2016 U.S. Presidential Elections</title>
       </p>
     </div>
     <div class="spacer"></div>
-    <div class="caption"><p style="color: steelblue" onclick=scrollToTop()>Scroll to top</p></div>
+    <div class="caption"><p style="color: steelblue" onclick=scrollToTop()>Back to top</p></div>
     </body>
+    <script>
+      jQuery.htmlPrefilter = function( html ) {
+        return html;
+      };
+    </script>
       
     <script src="scrollama_mod.js"></script>
     <script type="module" src="count_overview.js"></script>
