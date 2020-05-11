@@ -133,7 +133,7 @@ function normalizeSize(hashtagObjs) {
 
 // Wordcloud credits to http://bl.ocks.org/joews/9697914
 function wordCloud(selector) {
-  var fill = d3.scaleOrdinal(d3.schemeCategory10);
+  var fill = d3.scaleOrdinal(d3.schemeTableau10);
 
   //Construct the word cloud's SVG element
   var svg = d3.select(selector).append("svg")
@@ -158,7 +158,7 @@ function wordCloud(selector) {
     //Entering words
     cloud.enter()
       .append("text")
-      .style("font-family", "Impact")
+      .style("font-family", "Neuton")
       .style("fill", function(d, i) { return fill(i); })
       .attr("text-anchor", "middle")
       .attr("font-size", function(d) { return fontScale(d.size) + "px"; })
@@ -207,7 +207,7 @@ function wordCloud(selector) {
 
       d3.layout.cloud().size([WORDCLOUD_WIDTH, WORDCLOUD_HEIGHT])
           .words(words)
-          .font("Impact")
+          .font("Neuton")
           .text(function(d) { return d.text; })
           .padding(4)
           .rotate(function() {return 0; })

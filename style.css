@@ -12,7 +12,7 @@
     font-style: normal;
 }
 @font-face {
-    font-family: 'helveticaneuelight';
+    font-family: 'helveticaneueregular';
     src: url('fonts/helveticaneue_light-webfont.eot');
     src: url('fonts/helveticaneue_light-webfont.eot?#iefix') format('embedded-opentype'),
          url('fonts/helveticaneue_light-webfont.woff') format('woff'),
@@ -22,7 +22,17 @@
     font-style: normal;
 }
 @font-face {
-    font-family: 'helveticaneueregular';
+  font-family: 'helveticaneuebold';
+  src: url('fonts/helvetica_neu_bold-webfont.eot');
+  src: url('fonts/helvetica_neu_bold-webfont.eot?#iefix') format('embedded-opentype'),
+        url('fonts/helvetica_neu_bold-webfont.woff') format('woff'),
+        url('fonts/helvetica_neu_bold-webfont.ttf') format('truetype'),
+        url('fonts/helvetica_neu_bold-webfont.svg#helveticaneuebold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+    font-family: 'helveticaneuelight';
     src: url('fonts/helveticaneue-webfont.eot');
     src: url('fonts/helveticaneue-webfont.eot?#iefix') format('embedded-opentype'),
          url('fonts/helveticaneue-webfont.woff') format('woff'),
@@ -31,27 +41,109 @@
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+  font-family: "HelveticaNeue-CondensedBold";
+  src: url("fonts/FontsFree-Net-HelveticaNeueCondensedBold.eot"); /* IE9 Compat Modes */
+  src: url("fonts/FontsFree-Net-HelveticaNeueCondensedBold.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("fonts/FontsFree-Net-HelveticaNeueCondensedBold.otf") format("opentype"), /* Open Type Font */
+    url("fonts/FontsFree-Net-HelveticaNeueCondensedBold.svg") format("svg"), /* Legacy iOS */
+    url("fonts/FontsFree-Net-HelveticaNeueCondensedBold.ttf") format("truetype"), /* Safari, Android, iOS */
+    url("fonts/FontsFree-Net-HelveticaNeueCondensedBold.woff") format("woff"), /* Modern Browsers */
+    url("fonts/FontsFree-Net-HelveticaNeueCondensedBold.woff2") format("woff2"); /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'helveticaneuemedium';
+  src: url('fonts/helveticaneuemed-webfont.woff2') format('woff2'),
+       url('fonts/helveticaneuemed-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 
-a {
-  color: steelblue;
 }
 
 html {
-	font-family: 'helveticaneueblackcond', sans-serif;
+	font-family: 'Neuton', serif;
 	margin: 0;
-	width: 100%;
+  width: 100%;
+}
+
+.static-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.interactive-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.static {
+  width: 100%;
+  max-width: 1020px;
+}
+
+.interactive {
+  width: 100%;
+  max-width: 1300px;
+  border-radius: 8px;
+  -webkit-box-shadow: 0px 2px 13px -2px rgba(0,0,0,0.5); 
+  box-shadow: 0px 2px 13px -2px rgba(0,0,0,0.5);
+  padding: 32px;
+}
+
+.subtitle {
+  font-weight: normal;
+	font-size: 24px;
+  font-family: 'helveticaneuelight', sans-serif;
+  color: black;
+}
+
+.authors {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+  font-family: 'helveticaneueregular', sans-serif;
+  font-size: 18px;
+}
+
+a {
+  color: #006EFF;
 }
 
 h1 {
-	font-weight: lighter;
-	font-size: 36px;
-	font-family: 'helveticaneueblackcond', sans-serif;
-	text-align: center;
+	font-weight: normal;
+	font-size: 55px;
+  font-family: 'helveticaneueblackcond', sans-serif;
+  margin-bottom: 8px;
+  color: black;
 }
 
 h2 {
-	font-family: 'helveticaneueblackcond', sans-serif;
-	font-size: 24px;
+	font-family: 'HelveticaNeue-CondensedBold', sans-serif;
+  font-size: 44px;
+  line-height: 52px;
+  color: black;
+  margin-bottom: 8px;
+}
+
+.interactive-header {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 0px;
+}
+
+.interactive-description {
+  font-family: 'helveticaneueregular', sans-serif;
+  font-size: 16px;
+  color: #5E5E5E;
+  line-height: 18px;
 }
 
 .label {
@@ -72,10 +164,6 @@ input[type="checkbox"] {
   width: 40px;
 }
 
-#network-container {
-  width: 100%;
-}
-
 #network {
   cursor: pointer;
 	width: 100%;
@@ -83,7 +171,11 @@ input[type="checkbox"] {
 }
 
 h3 {
-	font-family: 'helveticaneueblackcond', sans-serif;
+	font-family: 'HelveticaNeue-CondensedBold', sans-serif;
+  font-size: 32px;
+  line-height: 38px;
+  color: black;
+  margin-bottom: 8px;
 }
 
 p {
@@ -96,13 +188,17 @@ body {
 	overflow-x: hidden;
 	width: 100%;
 	overflow: auto;
-	margin: 0;
+  margin: 0;
+  line-height: normal;
 }
 
 .body-text {
-	width: 60%;
-	margin-left: 20%;
-	margin-right: 20%;
+  font-weight: 300;
+	font-family: 'Neuton', serif;
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: light;
+  letter-spacing: 0.15px;
 }
 
 .backer {
@@ -137,9 +233,11 @@ strong, b {
 
 .caption {
 	text-align: center;
-	font-style: italic;
-	font-family: 'Open Sans', sans-serif;
-	font-size: 14px;
+  font-style: italic;
+  font-weight: 300;
+	font-family: 'Neuton', serif;
+  font-size: 18px;
+  line-height: 23px;
 }
 
 .center {
@@ -180,6 +278,16 @@ strong, b {
   	justify-content: left;
 }
 
+#bio_label {
+  font-family: 'helveticaneuemedium', sans-serif;
+  font-size: 22px;
+}
+
+#fakenews_scroll {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
 .space-around {
 	justify-content: space-around;
 }
@@ -189,11 +297,12 @@ strong, b {
 	flex-direction: column;
 	justify-content: center;
 	align-self: center;
-	width: 30%;
 }
 
-.thirty {
-	width: 30%;
+.scatter-side {
+  align-self: auto;
+  align-items: stretch;
+  flex: 1;
 }
 
 .forty {
@@ -203,12 +312,25 @@ strong, b {
 }
 
 .scroll {
-	width: 35%;
 	height: 300px;
 	overflow-y: auto;
-	padding: 15px;
-	border: .25px solid #697D8C;
-	overflow-x: hidden;
+  border: 0.5px solid #697D8C;
+  border-top: none;
+  overflow-x: hidden;
+  padding: 8px;
+  border-radius: 0px 0px 8px 8px;
+}
+
+.spacer-small {
+	height: 24px;
+}
+
+.spacer-med {
+	height: 48px;
+}
+
+.spacer-large {
+	height: 75px;
 }
 
 .spacer {
@@ -219,59 +341,72 @@ strong, b {
 	position: absolute;
 }
 
-#fakenews_scroll {
-	height: 200px;
-	width: 350px;
+.bio {
+  background-color: white;
+  border-radius: 8px;
+  -webkit-box-shadow: 0px 2px 13px -2px rgba(0,0,0,0.5); 
+  box-shadow: 0px 2px 13px -2px rgba(0,0,0,0.5);
+  padding: 8px;
+  width: 100%;
+  height: 150px;
 }
 
 .profile {
-	width: 35%;
-	padding: 15px;
-	border: .25px solid #697D8C;
-	margin-top: 1%;
+	padding: 8px;
 	font-size: 14px;
-	line-height: 1;
-	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+  font-family: 'helveticaneueregular', sans-serif;
+  background-color: #1DA1F2;
+  color: white;
+  border-radius: 8px 8px 0px 0px;
 }
 
-::-webkit-scrollbar {
-	width: 10px;
+p {
+  margin: 0;
 }
 
-::-webkit-scrollbar-track {
-	border: 1px solid steelblue;
-	border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb {
-	background: steelblue;  
-	border-radius: 5px;
-	height: 5px;
+hr {
+  margin-top: 16px;
+  margin-bottom: 8px;
 }
 
 .tweet {
-	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
-	margin-top: 1%;
-	margin-bottom: 1%;
+	font-family: 'helveticaneueregular', sans-serif;
 	font-size: 14px;
 	line-height: 1;
+}
+
+.tweet.h1 {
+  font-family: 'helveticaneuebold', sans-serif;
+}
+
+.tweet.body {
+  margin-top: 8px;
+}
+
+.scatter-interactive-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
 .tweet-header {
 	font-size: 18px;
-	font-weight: bold;
-	padding-bottom: 10px;
+	font-family: 'helveticaneuebold', sans-serif;
 }
 
 .tooltip, .network-tooltip {
     position: absolute;
     font-size: 12px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+    font-family: 'helveticaneueregular', sans-serif;
     width:  auto;
     height: auto;
     pointer-events: none;
     background-color: #f4f4f4;
     opacity: 0;
+    padding: 8px;
 }
 
 .tooltip-text {
@@ -279,18 +414,13 @@ strong, b {
 }
 
 .tooltip-header{
-	font-weight: bold;
+	font-family: 'helveticaneuebold', sans-serif;
 	font-size: 14px;
 }
 
 .handle {
-	color: #697D8C;
+	color: #DDDDDD;
 	padding-bottom: 5px;
-}
-
-.h1 {
-	font-weight: bold;
-	font-size: 14px;
 }
 
 .h2 {
@@ -300,14 +430,13 @@ strong, b {
 
 hr {
 	border: .5px solid #697D8C;
-	margin-top: 2.5%;
 }
 
 .switch {
   position: relative;
   display: inline-block;
-  width: 40px;
-  height: 22px;
+  width: 70px;
+  height: 34px;
 }
 
 /* Hide default HTML checkbox */
@@ -325,7 +454,10 @@ hr {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: steelblue;
+  background-color: #EEEEEE;
+  border-style: solid;
+  border-color: #A5A5A5;
+  border-width: 0.5px;
   -webkit-transition: .4s;
   transition: .4s;
 }
@@ -333,27 +465,35 @@ hr {
 .slider:before {
   position: absolute;
   content: "";
-  height: 17px;
-  width: 17px;
-  left: 3px;
-  bottom: 3px;
-  background-color: #f4f4f4;
+  height: 28px;
+  width: 28px;
+  left: 4px;
+  bottom: 2px;
+  background-color: #A5A5A5;
+  border-color: white;
+  border-width: 0.5px;
   -webkit-transition: .4s;
   transition: .4s;
 }
 
-input:checked + .slider {
-  background-color: #2196F3;
+input:checked + .slider:before {
+  border-style: solid;
+  border-color: white;
+  border-width: 0.5px;
+  background-color: #006EFF;
+  -webkit-box-shadow: 0px 0px 6px 2px rgba(0,111,255,0.5);
+  -moz-box-shadow: 0px 0px 6px 2px rgba(0,111,255,0.5);
+  box-shadow: 0px 0px 6px 2px rgba(0,111,255,0.5);
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 0px #006EFF;
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(18px);
-  -ms-transform: translateX(18px);
-  transform: translateX(18px);
+  -webkit-transform: translateX(34px);
+  -ms-transform: translateX(34px);
+  transform: translateX(34px);
 }
 
 /* Rounded sliders */
@@ -388,6 +528,17 @@ input:checked + .slider:before {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.side-figure {
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+  padding-left: 32px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }
 
 .figure {
@@ -449,9 +600,4 @@ input:checked + .slider:before {
   right: 0; 
   bottom: 0;
   width: 60px;
-}
-
-.graph_tooltip {
-	background-color: white;
-	padding: 8px;
 }

@@ -10,7 +10,7 @@ var allUserData;
 var new_xScale;
 var new_yScale;
 
-const font = "Work Sans";
+const font = "helveticaneueregular";
 const newsNames = ["darknally", "DailySanFran", "ChicagoDailyNew", "OnlineMemphis", 
 "DetroitDailyNew", "KansasDailyNews", "TodayPittsburgh", "PhiladelphiaON", "DailyLosAngeles", 
 "WashingtOnline", "TodayNYCity", "OnlineCleveland", "PhoenixDailyNew", "SanAntoTopNews", "Baltimore0nline", 

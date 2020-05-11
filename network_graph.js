@@ -17,7 +17,7 @@ let shift_down = false;
 
 let active_network = null;
 
-var network_width = window.innerWidth,
+var network_width = document.getElementById("network-container").offsetWidth,
     network_height = window.innerHeight * 0.90;
 
 var svg = d3.select("#network").on("click", () => {

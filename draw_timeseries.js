@@ -11,11 +11,12 @@ let dotRadius = 5;
 var amelie_counts = {};
 var ten_gop_counts = {};
 
+let timeseries_width = document.getElementById("amelie-container").offsetWidth * 0.8;
 var amelie = d3.select('#amelie_time')
-  .attr('width', outerWidth)
+  .attr('width', timeseries_width)
   .attr('height', smallHeight + 2 * smallMargin); 
 var ten_gop = d3.select('#ten_gop_time')
-  .attr('width', outerWidth)
+  .attr('width', timeseries_width)
   .attr('height', smallHeight + 2 * smallMargin); 
 
 let amelie_t= amelie.append('g')
@@ -25,7 +26,7 @@ let ten_gop_t= ten_gop.append('g')
 
 var x2 = d3.scaleTime()
   .domain([new Date("2016-02-01"), new Date("2017-03-31")])
-  .range([0, plotWidth]);
+  .range([0, timeseries_width]);
 
 var y2 = d3.scalePow()
   .domain([0, 834])
