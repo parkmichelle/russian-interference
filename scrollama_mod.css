@@ -42,9 +42,9 @@ article {
 .step p {
   margin: 0;
   padding: 0;
-  font-weight: 300;
-	font-family: 'Neuton', serif;
-  font-size: 20px;
+  #font-weight: 300;
+  font-family: 'helveticaneueregular', sans-serif;
+  font-size: 16px;
   line-height: 30px;
   font-weight: light;
   letter-spacing: 0.15px;
