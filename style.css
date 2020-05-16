@@ -574,9 +574,11 @@ input:checked + .slider:before {
 .note {
   display: flex;
   justify-content: center;
-  font-size: 8px;
+  font-family: 'helveticaneue', sans-serif;
+  font-size: 10px;
   font-style: italic;
   margin-top: -20px;
+  margin-bottom: 16px;
 }
 
 .counter-final-label {
@@ -600,4 +602,5 @@ input:checked + .slider:before {
   right: 0; 
   bottom: 0;
   width: 60px;
+  z-index: 1;
 }
