@@ -20,7 +20,10 @@ let active_network = null;
 var network_width = document.getElementById("network-container").offsetWidth,
     network_height = window.innerHeight * 0.90;
 
-var svg = d3.select("#network").on("click", () => {
+var svg = d3.select("#network")
+.attr("viewBox", "0 0 " + network_width + " " + network_height )
+.attr("preserveAspectRatio", "xMidYMid meet")
+.on("click", () => {
     if (shift_down) return;
     highlighted_nodes = [];
     clicked_nodes = [];

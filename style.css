@@ -81,6 +81,7 @@ html {
   align-items: center;
   margin-left: 10%;
   margin-right: 10%;
+  min-width: 840px;
 }
 
 .static {
@@ -102,6 +103,10 @@ html {
 	font-size: 24px;
   font-family: 'helveticaneuelight', sans-serif;
   color: black;
+}
+
+.author {
+  text-align: right;
 }
 
 .authors {
@@ -190,6 +195,7 @@ body {
 	overflow: auto;
   margin: 0;
   line-height: normal;
+  min-width: 1008px;
 }
 
 .body-text {
@@ -467,8 +473,8 @@ hr {
   content: "";
   height: 28px;
   width: 28px;
-  left: 4px;
-  bottom: 2px;
+  left: 3px;
+  bottom: 3px;
   background-color: #A5A5A5;
   border-color: white;
   border-width: 0.5px;
@@ -542,7 +548,7 @@ input:checked + .slider:before {
 }
 
 .figure {
-  width: 500px;
+  max-width: 100%;
 }
 
 .header-subtitle {
