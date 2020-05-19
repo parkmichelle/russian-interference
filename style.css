@@ -111,7 +111,7 @@ html {
 }
 
 a {
-  color: #006EFF;
+  color: steelblue;
 }
 
 h1 {
@@ -477,14 +477,14 @@ input:checked + .slider:before {
   border-style: solid;
   border-color: white;
   border-width: 0.5px;
-  background-color: #006EFF;
+  background-color: steelblue;
   -webkit-box-shadow: 0px 0px 6px 2px rgba(0,111,255,0.5);
   -moz-box-shadow: 0px 0px 6px 2px rgba(0,111,255,0.5);
   box-shadow: 0px 0px 6px 2px rgba(0,111,255,0.5);
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 0px #006EFF;
+  box-shadow: 0 0 0px steelblue;
 }
 
 input:checked + .slider:before {
