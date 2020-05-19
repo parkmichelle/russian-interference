@@ -100,17 +100,14 @@ html {
 .subtitle {
   font-weight: normal;
 	font-size: 24px;
-  font-family: 'helveticaneuelight', sans-serif;
+  font-family: 'helveticaneueregular', sans-serif;
   color: black;
 }
 
 .authors {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-end;
   font-family: 'helveticaneueregular', sans-serif;
   font-size: 18px;
+  padding-top: 1%;
 }
 
 a {
@@ -269,13 +266,13 @@ strong, b {
 .horizontal-flex {
 	display: flex;
 	flex-direction: row;
-  	justify-content: center;
+  justify-content: center;
 }
 
 .horizontal-flex-left {
 	display: flex;
 	flex-direction: row;
-  	justify-content: left;
+  justify-content: left;
 }
 
 #bio_label {
