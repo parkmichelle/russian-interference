@@ -99,21 +99,18 @@ html {
 
 .subtitle {
 	font-size: 24px;
-  font-family: 'helveticaneuelight', sans-serif;
+  font-family: 'helveticaneueregular', sans-serif;
   color: black;
 }
 
 .authors {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-end;
   font-family: 'helveticaneueregular', sans-serif;
   font-size: 18px;
+  padding-top: 1%;
 }
 
 a {
-  color: #006EFF;
+  color: steelblue;
 }
 
 h1 {
@@ -270,13 +267,13 @@ strong, b {
 .horizontal-flex {
 	display: flex;
 	flex-direction: row;
-  	justify-content: center;
+  justify-content: center;
 }
 
 .horizontal-flex-left {
 	display: flex;
 	flex-direction: row;
-  	justify-content: left;
+  justify-content: left;
 }
 
 #bio_label {
@@ -481,14 +478,14 @@ input:checked + .slider:before {
   border-style: solid;
   border-color: white;
   border-width: 0.5px;
-  background-color: #006EFF;
+  background-color: steelblue;
   -webkit-box-shadow: 0px 0px 6px 2px rgba(0,111,255,0.5);
   -moz-box-shadow: 0px 0px 6px 2px rgba(0,111,255,0.5);
   box-shadow: 0px 0px 6px 2px rgba(0,111,255,0.5);
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 0px #006EFF;
+  box-shadow: 0 0 0px steelblue;
 }
 
 input:checked + .slider:before {
