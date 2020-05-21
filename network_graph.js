@@ -165,6 +165,8 @@ var highlightConnections = d => {
         else return 0.03;
     });
     d3.event.stopPropagation();
+
+    console.log(clicked_nodes);
 }
 
 var simulation;
