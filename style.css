@@ -63,7 +63,7 @@
 }
 
 html {
-	font-family: 'Neuton', serif;
+	font-family: 'helveticaneue', serif;
 	margin: 0;
   width: 100%;
 }
@@ -98,7 +98,6 @@ html {
 }
 
 .subtitle {
-  font-weight: normal;
 	font-size: 24px;
   font-family: 'helveticaneueregular', sans-serif;
   color: black;
@@ -190,11 +189,9 @@ body {
 }
 
 .body-text {
-  font-weight: 300;
-	font-family: 'Neuton', serif;
-  font-size: 20px;
+  font-family: 'helveticaneueregular', sans-serif;
+  font-size: 18px;
   line-height: 30px;
-  font-weight: light;
   letter-spacing: 0.15px;
 }
 
@@ -232,7 +229,7 @@ strong, b {
 	text-align: center;
   font-style: italic;
   font-weight: 300;
-	font-family: 'Neuton', serif;
+  font-family: 'helveticaneueregular', sans-serif;
   font-size: 18px;
   line-height: 23px;
 }

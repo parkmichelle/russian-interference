@@ -158,7 +158,7 @@ function wordCloud(selector) {
     //Entering words
     cloud.enter()
       .append("text")
-      .style("font-family", "Neuton")
+      .style("font-family", "helveticaneueregular")
       .style("fill", function(d, i) { return fill(i); })
       .attr("text-anchor", "middle")
       .attr("font-size", function(d) { return fontScale(d.size) + "px"; })
@@ -207,7 +207,7 @@ function wordCloud(selector) {
 
       d3.layout.cloud().size([WORDCLOUD_WIDTH, WORDCLOUD_HEIGHT])
           .words(words)
-          .font("Neuton")
+          .font("helveticaneueregular")
           .text(function(d) { return d.text; })
           .padding(4)
           .rotate(function() {return 0; })
