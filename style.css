@@ -312,7 +312,7 @@ strong, b {
 }
 
 .scroll {
-	height: 300px;
+	height: 400px;
 	overflow-y: auto;
   border: 0.5px solid #697D8C;
   border-top: none;
