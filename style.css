@@ -128,6 +128,7 @@ html {
 
   /* Position the tooltip */
   position: absolute;
+  top: 35px;
   z-index: 1;
   font-size: 18px;
   font-family: 'helveticaneueregular', sans-serif;
@@ -638,4 +639,9 @@ input:checked + .slider:before {
   bottom: 0;
   width: 60px;
   z-index: 1;
+}
+
+.impact-item {
+  margin-left: 24px;
+  margin-right: 24px;
 }
