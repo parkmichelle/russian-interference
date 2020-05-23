@@ -70,7 +70,7 @@ html {
 
 .static-wrapper {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   margin-left: 20%;
   margin-right: 20%;
 }
@@ -169,11 +169,12 @@ h2 {
   display: flex;
   flex-direction: row;
   margin-bottom: 0px;
+
 }
 
 .interactive-description {
   font-family: 'helveticaneueregular', sans-serif;
-  font-size: 16px;
+  font-size: 18px;
   color: #5E5E5E;
   line-height: 18px;
 }
@@ -231,7 +232,7 @@ body {
 
 .body-text {
   font-family: 'helveticaneueregular', sans-serif;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 30px;
   letter-spacing: 0.15px;
 }
@@ -388,7 +389,7 @@ strong, b {
 
 .profile {
 	padding: 8px;
-	font-size: 14px;
+	font-size: 16px;
   font-family: 'helveticaneueregular', sans-serif;
   background-color: #1DA1F2;
   color: white;
@@ -411,7 +412,7 @@ b {
 
 .tweet {
 	font-family: 'helveticaneueregular', sans-serif;
-	font-size: 14px;
+	font-size: 16px;
 	line-height: 1;
 }
 
@@ -464,7 +465,7 @@ b {
 }
 
 .h2 {
-	font-size: 14px;
+	font-size: 16px;
 	color: #697D8C
 }
 
