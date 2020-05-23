@@ -634,3 +634,8 @@ input:checked + .slider:before {
   width: 60px;
   z-index: 1;
 }
+
+.impact-item {
+  margin-left: 24px;
+  margin-right: 24px;
+}
