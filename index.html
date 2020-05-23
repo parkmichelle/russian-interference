@@ -65,13 +65,15 @@
     </div>
     
     <div class="static-wrapper">
-      <div class="static row">
+      <div class="static">
         <div class="subtitle col-9" style="padding: 0px">
           Exploring Russian Interference Tactics in the 2016 U.S. Elections
         </div>
-        <div class="authors">
+        <div id="authors-tooltip">
           <div class="authors"><a href="http://www.abdallah.io" target="_blank">Abdallah Abuhashem</a> + <a href="http://stephanieniu.com/" target="_blank">Stephanie Niu</a> + <a href="http://michellehpark.com/" target="_blank">Michelle Park</a></div>
+          <div id="author-tooltip-text">*All authors contributed equally to this article.</div>
         </div>
+        <div class="publish-date">Updated May 22, 2020, 6:00PM PST</div>
       </div>
     </div>
 
@@ -616,6 +618,20 @@
       jQuery.htmlPrefilter = function( html ) {
         return html;
       };
+
+      auth = document.getElementById("authors-tooltip");
+      auth_text = document.getElementById("author-tooltip-text");
+
+      auth.addEventListener("mouseover", function( event ) {  
+        var x = event.clientX - 385;
+        var y = event.clientY - 240;
+        auth_text.style.visibility = "visible";
+        auth_text.style.left = x.toString() + "px";
+        auth_text.style.top = y.toString() + "px";
+      });
+      auth.addEventListener("mouseout", function( event ) {  
+        auth_text.style.visibility = "hidden";
+      });
     </script>
       
     <script src="scrollama_mod.js"></script>

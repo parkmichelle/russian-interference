@@ -109,9 +109,39 @@ html {
 }
 
 .authors {
+  margin-top: 6px;
   font-family: 'helveticaneueregular', sans-serif;
   font-size: 18px;
   padding-top: 1%;
+}
+
+#authors-tooltip {
+  font-family: 'helveticaneueregular', sans-serif;
+  position: relative;
+  display: inline-block;
+}
+
+#author-tooltip-text {
+  visibility: hidden;
+  font-weight: bold;
+  text-align: center;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  font-size: 18px;
+  font-family: 'helveticaneueregular', sans-serif;
+  width:  375px;
+  height: auto;
+  background-color: #f4f4f4;
+  padding: 8px;
+}
+
+
+.publish-date {
+  font-family: 'helveticaneueregular', sans-serif;
+  font-size: 16px;
+  margin-top: 8px;
 }
 
 a {
