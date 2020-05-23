@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Work+Sans&display=swap');
 
 strong, b {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .filler {
@@ -39,6 +39,10 @@ article {
   color: black;
 }
 
+.step.is-active a {
+  color: steelblue;
+}
+
 .step p {
   margin: 0;
   padding: 0;
@@ -46,8 +50,11 @@ article {
   font-family: 'helveticaneueregular', sans-serif;
   font-size: 16px;
   line-height: 30px;
-  font-weight: light;
   letter-spacing: 0.15px;
+  color: lightgray;
+}
+
+.step a {
   color: lightgray;
 }
 
