@@ -190,6 +190,10 @@ input[type="checkbox"] {
   cursor: pointer;
 }
 
+#network-trolls {
+  margin-top: 10px;
+}
+
 #network-count {
   width: 40px;
 }
