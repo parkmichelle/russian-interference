@@ -92,8 +92,50 @@
 
     <div class="static-wrapper">
       <div class="static row">
+        <div class="col-12" style="padding: 0px">
+          <h2>Prelude</h2>
+        </div>
+      </div>
+    </div>
+    <div class="static-wrapper">
+      <div class="static row">
+        <div class="col-12 body-text" style="padding: 0px">
+          It’s difficult to think about democracy in the midst of a global pandemic. In addition to dominating headlines and the mental space of most citizens, the coronavirus has led to the postponement of <a href="https://www.nytimes.com/article/2020-campaign-primary-calendar-coronavirus.html" target="_blank">various state primaries</a> and halted campaign events, largely placing the 2020 presidential election in the backseat in our minds and calendars. 
+        </div>
+      </div>
+    </div>
+
+    <div class="spacer-small"></div>
+    <div class="static-wrapper">
+      <div class="static row">
+        <div class="col-12 body-text" style="padding: 0px">
+          However, one effect of the pandemic is not so removed from the November elections. Forced to stay home and observe social distancing, Americans are online now more than ever. According to the <a href="https://acaconnects.org/covid-19/broadband-dashboard/" target="_blank">ACA (America’s Communication Association)</a>, download usage in the U.S. has increased by 27% during the pandemic, with upload usage by 36%. For those of us confined at home, spending time on social media and streaming sites has replaced our day-to-day rhythms outside the house. Even more than before, online media has become a vital channel for  accessing information about the world. With critical health outcomes depending on our united knowledge of and response against the pandemic, online misinformation and fake news have become all the more dangerous. 
+        </div>
+      </div>
+    </div>
+
+    <div class="spacer-small"></div>
+    <div class="static-wrapper">
+      <div class="static row">
+        <div class="col-12 body-text" style="padding: 0px">
+          In this article, we seek to understand one particular source of such misinformation— foreign actors using Twitter to pose as Americans and spread polarizing opinions. To do this, we take a deep dive into the strategies used by Russian agents to deceive the American public in the 2016 presidential elections. Importantly, we show that election interference is a pervasive, ongoing force, one that is likely occurring right this moment. At a time when Americans are online more than ever, we must remain vigilant in preparing for such threats not only for our next election, but for the integrity of our online dialogue as a whole. 
+        </div>
+      </div>
+    </div>
+
+    <div class="spacer-med"></div>
+
+    <div class="static-wrapper">
+      <div class="static row">
+        <div class="col-12" style="padding: 0px">
+          <h2>Introduction</h2>
+        </div>
+      </div>
+    </div>
+    <div class="static-wrapper">
+      <div class="static row">
         <div class="col-7 body-text" style="padding: 0px">
-          Almost a year after taking office, President Donald Trump retweeted a Russian bot. This retweet was of a fake account called <b>@ten_gop</b> that posed as the “Unofficial Twitter of Tennessee Republicans.” Before being removed, it was favorited by nearly <a href="https://twitter.com/realDonaldTrump/status/910331061409902592">45,000 people</a> and retweeted by thousands more before it was eventually removed. At the time this tweet was published in 2017, the American public had already been informed about Russian interference in the 2016 presidential elections. How, then, could  this fake account succeed- and consequently, American democracy fail- so dramatically?
+          Almost a year after taking office, President Donald Trump retweeted a Russian bot. This retweet was originally authored by a fake account called <b>@10_gop</b>, which called itself the “Unofficial Twitter of Tennessee Republicans.” Before its removal, this retweet was favorited by nearly 45,000 people and retweeted by thousands more. At the time this tweet was published in 2017, the American public had already been informed about Russian interference in the 2016 presidential elections; yet this Russian bot still slipped effortlessly into the president’s own feed. How, then, did this fake account succeed- and consequently, the integrity of American dialogue online fail- so spectacularly?
         </div>
         <div class="col-5 side-figure">
           <img class="figure" style="width: 100%" src="images/trump_retweet.png"></img>
@@ -107,7 +149,7 @@
     <div class="static-wrapper">
       <div class="static row">
         <div class="col-12 body-text" style="padding: 0px">
-          Since 2016, information about Russian interference in the presidential election has become public knowledge.  What’s less obvious is the targeted strategies Russian actors used to achieve remarkable success in hacking American trust.  In this article, we take a deep dive into the subtle strategies used by Russian trolls to push and pull our dialogue during the elections. By understanding how these troll accounts worked, particularly the successful ones, we seek to understand the biggest vulnerabilities in American digital trust, as well as give insight into how we can defend against such interference in upcoming elections.
+          Since 2016, information about Russian interference in the presidential election has become public knowledge. What’s perhaps less obvious is the series of targeted strategies that Russian actors used to achieve remarkable success in hacking American trust.  In this article, we explore the subtle strategies used by Russian trolls to push and pull our dialogue during the elections— how they established authenticity as “genuine Americans,” succeeded in mimicking plausible authority, and magnified one another’s  deceptions through retweets and mentions. For our analyses, we pull from a <a href="https://www.kaggle.com/vikasg/russian-troll-tweets" target="_blank">dataset collected by NBC</a> of 200,000 Russian troll tweets posted around the time of the 2016 elections. By understanding how these fake accounts worked and succeeded, we seek to understand the biggest vulnerabilities in American digital trust and give insight into possible defenses against similar interference in upcoming elections.
         </div>
       </div>
     </div>
@@ -117,14 +159,14 @@
     <div class="static-wrapper">
       <div class="static row">
         <div class="col-12" style="padding: 0px">
-          <h2>Setup Strategies</h2>
+          <h2>Mimicking the American Voice</h2>
         </div>
       </div>
     </div>
     <div class="static-wrapper">
       <div class="static row">
         <div class="col-12 body-text" style="padding: 0px">
-          The largest success of the troll accounts was establishing a voice. In the world of Twitter, being heard requires establishing authenticity as a run-of-the-mill neighbor, or authority as something like a news source. The accounts identified as trolls were able to do both with frightening success, using two main strategies.
+          The first key success of the 2016 Russian interference was in setting up Twitter accounts impersonating credible or prominent American voices. Bots prepared months in advance of the 2016 elections by establishing their authenticity and speaking power as run-of-the-mill American neighbors, or as U.S. news sources. We begin by exploring these two strategies for mimicking the American voice— establishing authenticity and establishing power.
         </div>
       </div>
     </div>
@@ -141,7 +183,7 @@
     <div class="static-wrapper">
       <div class="static row">
         <div class="col-12 body-text" style="padding: 0px">
-          The first strategy we observed in identified troll accounts was establishing authenticity as an average American citizen with an average American voice. Russian bots used varying rhetorical strategies over time to mimic the American voice and interject divisive dialogue. In the following wordclouds, we walk through the most frequently used hashtags in 2014, 2015, 2016, and 2017.
+          Russian agents used a variety of rhetorical strategies to establish their fake Twitter accounts as authentic American voices and subsequently inject divisive dialogue into the American election debate.  In the following wordclouds, we display the bots’ most frequently used hashtags in 2014, 2015, 2016, and 2017.
         </div>
       </div>
     </div>
@@ -159,11 +201,11 @@
         <!--  step text   -->
           <article>
             <div class='step second-step' data-index='0' style="padding-top: 10vh;">
-              <p>In 2014, just before election activity begins to stir, we see Russian fake accounts starting to establish themselves as authentic American accounts. Hashtags such as #Love and #USA dominate tweets in this year, as well as interesting references to music (#Itunes, #rap, #RAPCORE), famous Americans (#Kurt_Vonnegut, #SteveJobs), and emotions (#happy, #sadness, #lonely). This early setup stage— two years before the 2016 elections— indicates significant and intentional forethought on the part of the Russians as they prepared their bots to later inject divisive dialogue during the U.S. presidential election.
+              <p>In 2014, just before election activity begins to stir, we see the Russian bots establishing themselves as authentic “American” accounts. Hashtags such as #Love and #USA dominate tweets in this year, as well as interesting references to music (#Itunes, #rap, #RAPCORE), famous Americans (#Kurt_Vonnegut, #SteveJobs), and emotions (#happy, #sadness, #lonely). This early setup stage— two years before the 2016 elections— indicates significant and intentional forethought on the part of Russian agents as they prepared their bots to later inject divisive dialogue during the U.S. presidential election.
               </p>
             </div>
             <div class='step second-step' data-index='1'>
-              <p>In 2015, we see the Russian bots begin to publish increasingly politically charged tweets, masquerading as Americans as they react to hot topics and news in the U.S. (#Prayers4California, #GOPDebate, #SanBernardino).
+              <p>In 2015, the Russian bots publish increasingly politically-charged tweets, masquerading as Americans as they react to hot topics and current events  (#SanBernardino, #Prayers4California, #GOPDebate).
               </p>
             </div>
             <div class='step second-step' data-index='2'>
@@ -171,7 +213,7 @@
               </p>
             </div>
             <div class='step second-step' data-index='3' style="justify-content: flex-start;">
-              <p>Then, even after President Trump had won the 2016 elections, Russian bots continued to pose as Americans. In 2017, we see these fake accounts slowing down their political rhetoric and instead interjecting tweets about everyday American topics— similar to the 2014 setup stage. Alarmingly, this suggests that Russian actors sought to preserve the perceived authenticity of these fake accounts in preparation for more interference attempts in the future. The U.S. must prepare to prevent this from happening once more.
+              <p>Then, even after President Trump won the 2016 elections, Russian bots continued to pose as Americans. In 2017, we see these fake accounts transitioning from politically-charged tweets to ones about everyday American topics— similar to their 2014 tweets that mimicked the everyday American voice. Alarmingly, this suggests that Russian actors sought to preserve the perceived authenticity of their fake accounts— likely to leave the door open for another interference attempt in the future.
               </p>
             </div>
            <div class='step second-step' data-index='4' style="justify-content: flex-start;">
@@ -186,10 +228,10 @@
     <div class="interactive-wrapper">
       <div class="interactive">
         <div class="interactive-header">
-          <h2>Wordcloud Interactive</h2>
+          <h2>Interactive Wordcloud</h2>
         </div>
         <div class="interactive-description">
-          In the interactive wordcloud below, we present the hashtags used by Russian bots in the given range of time. To view the hashtags published by these fake accounts in a certain time range, drag the labeled knobs on the slider to select your desired start and end date.
+          In the interactive wordcloud below, we present the hashtags used by Russian bots for a given range of time. Adjust the slider to change the time range.
         </div>
         <div class="spacer-med"></div>
         <div id="wordcloud-slider"></div>
@@ -220,19 +262,19 @@
         <!--  step text   -->
           <article>
             <div class='step second-step' data-index='0'>
-              <p>In addition to establishing the American authenticity of these fake accounts, Russian actors also sought to establish authority and power by garnering followers and posing as powerful American institutions.</p>
+              <p>In addition to mimicking an authentic American voice, Russian actors also sought to establish authority by garnering followers and posing as influential American news sources and institutions. To show this, we begin with a plot of bot popularity, placing the number of followers along the x-axis and the total number of favorites along the y-axis. We also represent the total number of tweets with the size of each point— the bigger the circle, the more tweets that account tweeted.</p>
             </div>
             <div class='step second-step' data-index='1'>
-              <p>When looking at user popularity (in favorites vs. followers), most troll tweets fall into a dense column near the y-axis; these posts garner a lot of favorites, despite being made by users with not many followers. Many of these accounts pose as regular people, with handles like <b>@KarenParker93, @MsM0re,</b> and <b>@RealRobert1987.</b></p>
+              <p>Interestingly, most of the less active trolls (smaller circles) fall into a dense column near the y-axis; these bots post tweets that garner many favorites, despite having fewer followers. Many of these accounts pose as regular people, with handles like <b>@KarenParker93, @MsM0re,</b> and <b>@RealRobert1987.</b></p>
             </div>
             <div class='step second-step' data-index='2'>
-              <p>However, we also see a band of accounts along the x-axis that do not have very popular posts, but do have many followers- and post quite a lot. This is a striking departure from where most accounts cluster along the y-axis. Interestingly, these low-favorited, well-followed accounts are almost all fake news accounts.</p>
+              <p>However, we also see a band of more active accounts (larger circles) along the x-axis that do not get many favorites, but do have many followers. Interestingly, these low-favorited, well-followed bots are almost all posing as American news sources.</p>
             </div>
             <div class='step second-step' data-index='3'>
-              <p>Examining account handles shows just how targeted fake news accounts were. Many mentioned densely-populated American cities, like <b>@TodayNYCity</b>. Some even copied names of genuine news outlets but replaced the word “news” with “new,” as in <b>@ChicagoDailyNew</b> or <b>@DetroitDailyNew</b>. The high follower counts of these accounts testify to their success at impersonating news outlets. </p>
+              <p>The bots’ account handles demonstrate how closely they targeted specific U.S. audiences. Many like <b>@TodayNYCity</b> focused on densely-populated American cities. Others copied names of real news outlets but replaced the word “news” with “new,” as in <b>@ChicagoDailyNew</b> or <b>@DetroitDailyNew</b>, to mislead readers into believing they were the actual news outlets. As indicated in the previous plot, these fake news accounts had high follower counts— testifying  to their success at impersonation.</p>
             </div>
             <div class='step second-step' data-index='4'>
-              <p>Notice that <b>@ChicagoDailyNew</b> and <b>@DetroitDailyNew</b> have the exact same account description, aside from the location mentioned. These cookie-cutter fake news accounts provide a glimpse into the deeply systematized spread of misinformation that took place during election interference.
+              <p>Notice that <b>@ChicagoDailyNew</b> and <b>@DetroitDailyNew</b> have the exact same account description, aside from the location mentioned. These cookie-cutter fake news accounts provide a glimpse into the strategic and systematic  spread of misinformation by Russian actors in the 2016 U.S. elections.
               </p>
               <p>Legitimacy for Russian troll accounts was more than appearing American- it also meant appearing to be an authoritative source.
               </p>
@@ -253,7 +295,7 @@
     <div class="interactive-wrapper" style="min-width: 840px;">
       <div class="interactive" style="min-width: 840px;">
         <div class="interactive-header">
-          <h2>Popularity Plot Interactive</h2>
+          <h2>Interactive Popularity Plot</h2>
         </div>
         <div class="interactive-description">
           In the interactive plot below, we present fake accounts follower count vs. favorites on their tweets to show trends. Hover over accounts and click them to see more information.
@@ -279,19 +321,29 @@
       </div>
     </div>
 
+    <div class="spacer-med"></div>
+
+    <div class="static-wrapper">
+      <div class="static row">
+        <div class="col-12 body-text" style="padding: 0px">
+          By mimicking the American voice and establishing authority as fake news outlets, Russian actors were able to use their Twitter bots to fool others into believing their tweets were from real Americans. In the following section, we detail some of the impacts of this interference in how real users unknowingly interacted with and augmented the voices of these Russian bots on Twitter.
+        </div>
+      </div>
+    </div>
+
     <div class="spacer-large"></div>
 
     <div class="static-wrapper">
       <div class="static row">
         <div class="col-12" style="padding: 0px">
-          <h2>Active/Interference Strategies</h2>
+          <h2>The Mentions Network</h2>
         </div>
       </div>
     </div>
     <div class="static-wrapper">
       <div class="static row">
         <div class="col-12 body-text" style="padding: 0px">
-          We wanted to better understand the patterns of interaction from trolls to real users and among the trolls themselves. As a result, we set on a network graph analysis of the mentions from trolls to other users.
+          In addition to mimicking the American voice, Russian bots actively worked to mention other accounts and grow their following. To explore this, we examined how bots interacted with one another and real Twitter accounts with a network graph analysis of troll mentions.
         </div>
       </div>
     </div>
@@ -309,36 +361,45 @@
         <!--  step text   -->
           <article>
             <div class='step second-step' data-index='0'>
-              <p><br><br>We initially visualized the full network using directed graphs. In the photo, we see trolls in red and real users in green. While trolls were around 200 accounts, the total number of accounts in the graph was around 14000 indicating a large impact per troll. Our next step was to filter accounts that were not mentioned frequently.</p>
+              <p><br><br>We initially visualized the full network of users that Russian bots mentioned using a directed graph. In the photo, we see trolls in red and real users in green. While the graph displays around 14,000 accounts, approximately 200 of these are troll accounts—  indicating a large impact on real accounts per troll. Next, we took a closer look at the accounts that were mentioned most frequently.</p>
             </div>
             <div class='step second-step' data-index='1'>
-              <p>Here, we see an image of accounts that were mentioned by trolls at least 10 times. We start to see here a slightly different, and clearer, pattern compared to the initial visualization. This highlights that targeting from trolls was not random, but rather each troll (or group of trolls) focused on a certain set of topics and users, which created the clusters.</p>
+              <p>Here, we see an image of accounts that were mentioned by Russian trolls at least ten times. Notice that we now start to see a clearer pattern; there are clusters of topics and users that each troll or group of trolls targeted, indicating that these mentions were strategic and not random.</p>
             </div>
             <div class='step second-step' data-index='2'>
-              <p>In the 3 main clusters shown, we see variability in the topics of the real accounts, size of clusters and troll ratio to real users. We found that cluster 1 includes a high number of accounts that are driven by social justice (or a certain ideology). While the overwhelming majority of the trolls showed clear connections to the GOP and Trump’s voter base, this cluster was the most neutral.</p>
+              <p>In the three main groups of mentions shown, we see differences in the content of mentions from trolls to real users as well as the identity of the real users. We labeled each of the three groups with the most common content category of the tweets.</p>
             </div>
             <div class='step second-step' data-index='3'>
-              <p>Cluster 2 has a clear high number of trolls compared to real users. In addition, it has the largest number of trolls out of all 3. This was a cluster that had more news accounts than the other ones. We believe trolls here worked on building skepticism around news, which required a high number of trolls. Additionally, as news accounts tweet often, mentioning them is more likely than mentioning individuals.</p>
+              <p>Group 1 was the least dense of all groups with a total of about 400 tweets and only 9 real accounts. We found that the majority of the real users in this group tweeted left-leaning content, and only one user supported Trump. Interestingly, the tweets from these trolls were not pushing a certain agenda; instead, trolls were retweeting whatever the real accounts had posted. For instance, @toneporter, a fake account, mentioned the left-leaning real account @chiefplan1 by tweeting “RT @chiefplan1: Debate watch: Notice how, w/every lie Delusional Donnie tells, bags under his eyes get bigger--fuller of baggage...” On the other hand, other troll accounts retweeted a real pro-Trump account saying “RT @Shane_Rodenbeck: #IHaveARightToKnow if Obama is planning on moving back to his birthplace, Kenya.” Therefore, in contrast to possible expectations that Russian trolls would primarily retweet pro-Trump content, this group of trolls primarily retweeted anti-Trump content— indicating a more complex strategy to polarize American dialogue online.</p>
             </div>
             <div class='step second-step' data-index='4'>
-              <p>Cluster 3 included clear GOP supporters and Trump supporters and family members. Here, clearly the number of real users is far larger than trolls. It is unclear why that’s the reason, but one possibility is that trolls worked on amplifying the message of these real accounts, which did not require as many mentions, but rather possible retweets and favorites.</p>
+              <p>When looking at the most common words within the tweets of this group, “Hillary” comes up first at 77 separate occurrences, and Trump second with 70 occurrences. The numbers drop sharply for all other words, though we see a focus on the presidential debates through words such as delusional (36 occurrences), vote (32  occurrences), healthcare (26  occurrences), and RejectedDebateTopics (14  occurrences).</p>
             </div>
             <div class='step second-step' data-index='5'>
-              <p>While the 3 clusters are clearly separated, two of the accounts that are mentioned by trolls from all clusters are <b>@realdonaldtrump</b> and <b>@hillaryclinton</b> (they’re also the most mentioned accounts overall).</p>
+              <p>Next, group 2 was considerably more dense than group 1, consisting of about 1300 tweets and 25 real accounts. Similar to group 1, most of the real accounts here were liberal, but they were much more well-known public figures— with a particularly high number of activists. For instance, we see @shaunking, @jamilsmith, @revjjackson and @deray, all of whom are African American activists with followers between 150k to +1m. The trolls in this group occasionally exhibited opinions different from the real account they mentioned, and, at times, used mentions to attack the real account’s statements. For instance, @ten_gop tweeted “WOW! @Deray and @POTUS[referring to Obama] plotting against America for nearly 4.5 hours! So how many plans for riots?! <a href="https://t.co/CkHuoqpLB" target="_blank">https://t.co/CkHuoqpLB</a>” This exemplifies one of group 2’s trolling strategies in using mentions to magnify their voice by responding to real public figures.</p>
             </div>
             <div class='step second-step' data-index='6'>
-              <p>This clustering and network makes it clear that the trolls tried to imitate real people instead of solely clustering around candidates. In order to further investigate the trolls actions, we took a look at the network graph without real users.</p>
+              <p>The general topics that were discussed in group 2 focused on news headlines speculating Trump’s policies. For example, @javonhidp, a fake account, tweeted “RT @blicqer: ▶ On Trump’s Education Policy https://t.co/AgECMmglkY @NatCounterPunch <a href="https://t.co/2IJLKyZ3ry" target="_blank">https://t.co/2IJLKyZ3ry</a>” Whether the tweets were supportive of the mentioned headline or not, we noticed significant visibility for Donald Trump in this group and fewer mentions of Hillary Clinton. The word “Trump” showed up 441 times and “Donald” 154 times, while “Clinton” showed up only 117 times and “Hillary” 69 times. These numbers show that these trolls gave Trump more visibility than Clinton.</p>
             </div>
             <div class='step second-step' data-index='7'>
-              <p>One thing becomes clear right away here: most trolls did not interact with other trolls. In fact, we have a central weakly connected component that includes only 27% of the accounts, but more than 95% of the edges. One of the nodes that becomes immediately interesting as we look more at this graph is <b>@ten_gop</b>.</p>
+              <p>Notably, this group also spread fake news. One of the headlines these trolls retweeted multiple times read “RT @FacMagnaAmerica: The suspect of the alleged "assassination" attempt on Trump in Reno.  He's dressed like @deray. Shocking.“ This referred to an <a href="https://www.washingtonpost.com/politics/trump-vows-go-to-democratic-states-as-early-voting-numbers-surge-in-nevada/2016/11/05/5fde6c7c-a366-11e6-8832-23a007c77bb4_story.html" target="_blank">alleged assassination attempt of Trump</a> back in 2016 in Reno, and it was later confirmed that the suspect did not have a weapon nor an intention of attacking Trump. Our dataset shows no attempt to correct such a headline.</p>
             </div>
             <div class='step second-step' data-index='8'>
-              <p> This is an account that <b>@realdonaldtrump</b> retweeted, and it is clearly well connected with other trolls (the most mentioned troll by other trolls). However, in all of the larger networks that we looked at, <b>@ten_gop</b> did not seem to be of particular significance.</p>
+              <p>Lastly, group 3 was the most dense with about 5000 tweets and 60 real accounts. This group of trolls mentioned the real accounts of prominent Trump supporters and public figures from the GOP. We see @tedcruz, @seanhannity, @erictrump and @mike_pence. Unlike groups 1 and 2, group 3 had fewer trolls than real accounts.</p>
             </div>
-            <div class='step second-step' data-index='9' style="justify-content: flex-start;">
-              <p>On the contrary, when we visualize the full graph, we see a new special troll account. The account is <b>@ameliebaldwin</b>, and it’s in fact the most connected troll. We notice here that <b>@ameliebaldwin’s</b> style involves mentioning a lot of real users (many of which are mentioned only once). Other trolls follow a similar pattern, but <b>@ameliebaldwin</b> is the clear front-runner here. This is an interesting contrast to the case of <b>@ten_gop</b>. <b>@ameliebaldwin</b> is not significant in the trolls only network, but it interacts with real users way more. On the contrary, <b>@ten_gop</b> is a source of disinformation even for other trolls.</p>
+            <div class='step second-step' data-index='9'>
+              <p> In this group, Trump and Clinton were mentioned a similar number of times at 946 and 845 occurrences respectively. When we look at the content of the tweets, they were mostly retweets of strong attacks on Hillary Clinton or vigorous endorsements of Trump. Some of the common attacks against Hillary Clinton referred to Clinton’s emails and Benghazi, and hashtags such as #NeverHillary was among the most used. One of the most frequently retweeted tweets was “RT @DonaldJTrumpJr: Bernie Delegate: DNC is Replacing Sanders Supporters With Paid Seat Fillers to Create Fake Unity https://t.co/dOQpqVruV…”. Tweets like these targeted Bernie supporters who were suspicious of the DNC’s disapproval of Bernie. Generally, these trolls retweeted posts that aimed to steer voters away from Hillary Clinton and towards other candidates: “RT @Tevorbowles: @PrisonPlanet @DrJillStein Please urge your supporters to go to Trump then Ms. Stein. Hillary is a dangerous sociopath.”</p>
             </div>
-            <div class='step second-step' data-index='10' style="justify-content: flex-start;">
+            <div class='step second-step' data-index='10'>
+              <p> In order to more closely investigate the bots’ strategies, we removed all the real accounts from this graph and examined only the trolls’ interactions with one another. One thing becomes immediately clear in this graph— most trolls did not mention other trolls. More specifically, only 27% of the trolls interacted with other trolls.</p>
+            </div>
+            <div class='step second-step' data-index='11'>
+              <p>One of the nodes that stands out particularly well in this graph is @ten_gop. In all of the graphs that included real users, @ten_gop did not seem to be of particular significance. However, in this graph, we can see that @ten_gop was able to reach a wide audience through other trolls— likely creating perceived social proof for @ten_gop’s ideas. As detailed by the <a href="https://russiatweets.com/page/faq" target="_blank">Russia Tweets Projects</a>, this fake account garnered over 145,000 followers, and its backup account @10_gop was retweeted by @realdonaldtrump himself.</p>
+            </div>
+            <div class='step second-step' data-index='12' style="justify-content: flex-start;">
+              <p>In addition to @ten_gop, we notice another interesting fake account when we visualize the full mentioned network with all accounts and edges. Notice how the single bot @ameliebaldwin connects a swath of real users to the central cluster of bots. This account is the most connected troll in the full graph. Upon taking a closer look, we found that this bot took the approach of mentioning many real accounts a few times each. Other bots follow a similar pattern, but @ameliebaldwin is the clear front-runner here based on sheer volume of mentions. Notice this interesting contrast between @ten_gop and @ameliebaldwin. @ameliebaldwin is not very noticeable in its interactions with other trolls (see the trolls-only network), but is very noticeable in its interactions with real users. On the contrary, @ten_gop is more prominent in the trolls-only network, and it actively mentions and is mentioned by other trolls.However, @ten_gop is not as prominent in networks that contain both real and troll accounts.</p>
+            </div>
+            <div class='step second-step' data-index='12' style="justify-content: flex-start;">
               <p></p>
             </div>
           </article>
@@ -349,7 +410,7 @@
     <div class="interactive-wrapper">
       <div class="interactive" id="network-container">
         <div class="interactive-header">
-          <h2>Network Mentions Interactive</h2>
+          <h2>Interactive Mentions Network</h2>
         </div>
         <div class="interactive-description">
           In the interactive network below we visualize Twitter accounts as nodes and mentions as edges. Hover on nodes and click to reveal more information (you can multi-select using shift+click).
@@ -383,12 +444,29 @@
       </div>
     </div>
 
+    <div class="spacer-med"></div>
+
+    <div class="static-wrapper">
+      <div class="static row">
+        <div class="col-12" style="padding: 0px">
+          <h3>Limitations</h3>
+        </div>
+      </div>
+    </div>
+    <div class="static-wrapper">
+      <div class="static row">
+        <div class="col-12 body-text" style="padding: 0px">
+          While there are useful insights to gain from this analysis, note that this graph is limited without corresponding mentions from real accounts. Future work could look at real accounts’ mentions of Russian trolls and analyze how such connections developed over time.
+        </div>
+      </div>
+    </div>
+
     <div class="spacer-large"></div>
 
     <div class="static-wrapper">
       <div class="static row">
         <div class="col-12" style="padding: 0px">
-          <h2>Digging into the Tweets</h2>
+          <h2>Facing the Tweets</h2>
         </div>
       </div>
     </div>
@@ -406,13 +484,13 @@
         <!--  step text   -->
           <article>
             <div class='step second-step' data-index='0'>
-              <p>We’ve seen two drastically different approaches to election interference; the affected authenticity of <b>@ten_gop</b> aiming to create human content, and the retweet-machine of <b>@ameliebaldwin.</b></p>
+              <p>We’ve seen two drastically different approaches to election interference— the affected authenticity of @ten_gop aiming to create human content and the retweet-machine of @ameliebaldwin.</p>
             </div>
             <div class='step second-step' data-index='1'>
-              <p>Even the frequency of their activity differs vastly; <b>@ten_gop</b> posted regularly and consistently, while <b>@ameliebaldwin</b> remained dormant for a long time and suddenly tweeted en masse.</p><p> On September 2017, 2016 alone, she tweeted 834 times.</p>
+              <p>Even the frequency of their activity differs vastly; <b>@ten_gop</b> posts regularly and consistently, while <b>@ameliebaldwin</b> remains dormant for long periods of time and suddenly tweets en masse.</p><p>For instance, on the single day of September 17, 2016 alone, she tweeted 834 times.</p>
             </div>
             <div class='step second-step' data-index='2' style="justify-content: flex-start;">
-              <p>Explore their tweets throughout and after the election period to see what each account what actually saying.</p>
+              <p>Explore the tweets of fake accounts @ameliebaldwin and @ten_gop throughout and after the 2016 election period to see what each account tweeted and compare their trolling approaches.</p>
             </div>
             <div class='step second-step' data-index='3' style="justify-content: flex-start;">
               <p></p>
@@ -425,7 +503,7 @@
     <div class="interactive-wrapper" style="margin-top: -10vh;">
       <div class="interactive">
         <div class="interactive-header">
-          <h2>Fake Tweets Interactive</h2>
+          <h2>Interactive Fake Tweets</h2>
         </div>
         <div class="interactive-description">
           In this interactive feed, we show the tweets from @ameliebaldwin and @ten_gop accounts.
@@ -520,10 +598,13 @@
     <div class="static-wrapper">
       <div class="static row">
         <div class="col-12 body-text" style="padding: 0px">
-          The Russian attack on U.S. elections was sophisticated and consequential, leading to interactions with millions online who believed these bots were their fellow citizens. Perhaps most importantly, Russian interference continued after President Trump was sworn into office, and is likely happening to this very day. This calls for serious efforts on part of all social media platforms and the U.S. government to expect and defend against Russian interference in our upcoming 2020 presidential election. All of us can do our part too. By understanding the way Russian trolls behave and acknowledging their existence in our Twitter, Facebook, and Reddit feeds, we can all take a step in reading online opinions with caution, and reporting any accounts that seem suspicious.
+          In this article, we’ve demonstrated that the Russian attacks on the 2016 U.S. presidential elections were strategic, multifaceted, and alarmingly successful. Troll accounts were systematically built to mimic individual Americans and reputable news outlets. After establishing these accounts, trolls used mentions and retweets, often of each other, to amplify their messages.
           <br>
           <br>
-          Hopefully, we will be better prepared this time.
+          Perhaps most importantly, Russian interference continued after President Trump was sworn into office, and is likely happening to this very day. This calls for serious efforts by all social media platforms and the U.S. government to expect foreign interference once more in the upcoming 2020 presidential elections. Each of us also have our part to play. By understanding the way Russian trolls behave and acknowledging their existence in our social media feeds, we can all help defend our online dialogue by  reading with caution and reporting any accounts that seem suspicious. Four years ago, we failed to notice and correct for foreign interference in our conversations online. Political preferences aside, Americans deserve to know when the opinions they read online are not from their fellow neighbors, but a Russian bot. By presenting this analysis, we hope to provide insight into the strategic and intentional deception tactics used by Russian agents to attack the integrity of the 2016 elections.
+          <br>
+          <br>
+          Hopefully, we will be better prepared next time.
         </div>
       </div>
     </div>

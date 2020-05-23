@@ -1,8 +1,9 @@
 var root = "images/";
 var wordImgs = ["wordclouds/2014.png", "wordclouds/2015.png", "wordclouds/2016.png", "wordclouds/2017.png", "wordclouds/2017.png"];
 var scatterImgs = ["leftband_clean.png", "leftband.png", "x-axis.png", "newsbios_clean.png", "newsbios.png", "box.png", "box.png"];
-var networkImgs = ["iris_share.png", "high_mention.png", "high_mention_clusters.png", "high_mention_clusters1.png", 
-"high_mention_clusters2.png","high_mention_clusters3.png", "trolls_only.png", "trolls_only1.png", "full.png", "full.png", "full.png", "full.png"];
+var networkImgs = ["iris_share.png", "high_mention.png", "high_mention_clusters.png", "high_mention_clusters1.png", "high_mention_clusters1.png", 
+"high_mention_clusters2.png", "high_mention_clusters2.png", "high_mention_clusters2.png", "high_mention_clusters3.png", "high_mention_clusters3.png",
+"trolls_only.png", "trolls_only1.png", "full.png", "full.png"];
 var feedImgs = ["timeseries_compare_clean.png", "timeseries_compare.png", "timeseries_compare.png", "timeseries_compare.png"];
 
 
