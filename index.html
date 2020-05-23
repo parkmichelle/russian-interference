@@ -82,8 +82,8 @@
     <div class="static-wrapper">
       <div class="static row">
         <div class="col-3" style="padding: 0px"></div>
-        <div class="col-6 figure" style="padding: 0px">
-          <img class="figure" src="images/iris_share.png"></img>
+        <div class="col-6" style="padding: 0px">
+          <img class="figure img-responsive" src="images/iris_share.png"></img>
           <p class="caption">Network of Russian Twitter bots (red) mentioning real accounts (green) and one another from 2014-2017.</p>
         </div>
         <div class="col-3" style="padding: 0px"></div>
@@ -252,8 +252,8 @@
       </section>
     </div>
 
-    <div class="interactive-wrapper">
-      <div class="interactive">
+    <div class="interactive-wrapper" style="min-width: 840px;">
+      <div class="interactive" style="min-width: 840px;">
         <div class="interactive-header">
           <h2>Popularity Plot Interactive</h2>
         </div>
@@ -261,12 +261,12 @@
           In the interactive plot below, we present fake accounts follower count vs. favorites on their tweets to show trends. Hover over accounts and click them to see more information.
         </div>
         <div class="spacer-med"></div>
-        <div class="scatter-interactive-container">
+        <div class="scatter-interactive-container" style="flex-wrap: wrap;">
           <svg id="users-overview">
             <div class="tooltip"></div>
           </svg>
           <div class="vertical-flex scatter-side">
-            <div class="horizontal-flex-left" style="align-items: center; justify-content: space-between;">
+            <div class="horizontal-flex-left" style="align-items: center; justify-content: space-between;min-width: 330px;">
               <h3 class="label" style="font-family: 'helveticaneueregular', sans-serif;">Highlight fake news accounts</h3>
               <label class="switch" style="margin: 0px">
                 <input type="checkbox" id='news'>
@@ -437,6 +437,7 @@
           <div class="col-1"></div>
           <div class="col-5" style="display: flex; flex-direction: column;" id="amelie-container">
             <svg id="amelie_time"></svg>
+            <div class="spacer-small"></div>
             <div class="profile" style="flex: 1;">
               <div class="tweet-header">Amelie Baldwin</div>
               <div class="handle">@ameliebaldwin</div>
@@ -446,6 +447,7 @@
           </div>
           <div class="col-5" id="amelie-container">
             <svg id="ten_gop_time"></svg>
+            <div class="spacer-small"></div>
             <div class="profile">
               <div class="tweet-header">Tennessee</div>
               <div class="handle">@ten_gop</div>
@@ -454,6 +456,7 @@
             <div class="scroll" id="ten_gop_scroll"></div>
           </div>
         </div>
+        <div class="spacer-small"></div>
       </div>
     </div>
 
@@ -485,7 +488,7 @@
         </div>
         <div class="spacer"></div>
         <h2 class="center">The Impact</h2>
-        <div class="horizontal-flex">
+        <div class="horizontal-flex space-around">
           <div class="vertical-flex">
             <span class="number">2,061,661</span> 
             <div class="counter">favorites</div>
@@ -506,6 +509,8 @@
           <div class="spacer"></div>
       </div>
     </div>
+
+    <div class="spacer-med"></div>
 
     <div class="static-wrapper">
       <div class="static row">

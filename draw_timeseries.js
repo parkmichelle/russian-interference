@@ -11,22 +11,25 @@ let dotRadius = 5;
 var amelie_counts = {};
 var ten_gop_counts = {};
 
-let timeseries_width = document.getElementById("amelie-container").offsetWidth * 0.8;
+let timeseries_width = document.getElementById("amelie-container").offsetWidth * 0.9;
+let timeseries_height = smallHeight + 2 * smallMargin;
 var amelie = d3.select('#amelie_time')
-  .attr('width', timeseries_width)
-  .attr('height', smallHeight + 2 * smallMargin); 
+.attr("viewBox", "0 0 " + timeseries_width + " " + timeseries_height)
+.attr("preserveAspectRatio", "xMidYMid meet"); 
 var ten_gop = d3.select('#ten_gop_time')
-  .attr('width', timeseries_width)
-  .attr('height', smallHeight + 2 * smallMargin); 
+.attr("viewBox", "0 0 " + timeseries_width + " " + timeseries_height)
+.attr("preserveAspectRatio", "xMidYMid meet"); 
 
 let amelie_t= amelie.append('g')
-  .attr('transform', `translate(${plotMargin},${smallMargin})`); 
+  .attr('transform', `translate(${plotMargin},${smallMargin})`)
+  .style('width', timeseries_width - plotMargin); 
 let ten_gop_t= ten_gop.append('g')
-  .attr('transform', `translate(${plotMargin},${smallMargin})`); 
+  .attr('transform', `translate(${plotMargin},${smallMargin})`)
+  .style('width', timeseries_width - plotMargin); 
 
 var x2 = d3.scaleTime()
   .domain([new Date("2016-02-01"), new Date("2017-03-31")])
-  .range([0, timeseries_width]);
+  .range([0, timeseries_width-plotMargin]);
 
 var y2 = d3.scalePow()
   .domain([0, 834])
