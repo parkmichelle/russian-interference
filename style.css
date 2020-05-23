@@ -48,15 +48,13 @@
     url("fonts/FontsFree-Net-HelveticaNeueCondensedBold.otf") format("opentype"), /* Open Type Font */
     url("fonts/FontsFree-Net-HelveticaNeueCondensedBold.svg") format("svg"), /* Legacy iOS */
     url("fonts/FontsFree-Net-HelveticaNeueCondensedBold.ttf") format("truetype"), /* Safari, Android, iOS */
-    url("fonts/FontsFree-Net-HelveticaNeueCondensedBold.woff") format("woff"), /* Modern Browsers */
-    url("fonts/FontsFree-Net-HelveticaNeueCondensedBold.woff2") format("woff2"); /* Modern Browsers */
+    url("fonts/FontsFree-Net-HelveticaNeueCondensedBold.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'helveticaneuemedium';
-  src: url('fonts/helveticaneuemed-webfont.woff2') format('woff2'),
-       url('fonts/helveticaneuemed-webfont.woff') format('woff');
+  src: url('fonts/helveticaneuemed-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 
