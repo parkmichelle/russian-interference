@@ -63,7 +63,7 @@
 }
 
 html {
-	font-family: 'Neuton', serif;
+	font-family: 'helveticaneue', serif;
 	margin: 0;
   width: 100%;
 }
@@ -98,16 +98,50 @@ html {
 }
 
 .subtitle {
-  font-weight: normal;
 	font-size: 24px;
   font-family: 'helveticaneueregular', sans-serif;
   color: black;
 }
 
 .authors {
+  margin-top: 6px;
   font-family: 'helveticaneueregular', sans-serif;
   font-size: 18px;
   padding-top: 1%;
+}
+
+.authors-tooltip {
+  font-family: 'helveticaneueregular', sans-serif;
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px;
+  border: solid #d4d4d4 1px;
+
+  /* Position the tooltip */
+  position: absolute;
+  left: 0;
+  top: -30px;
+  z-index: 1;
+
+  box-shadow: 0 0 11px rgba(33,33,33,.2);
+}
+
+.authors-tooltip:hover .tooltip-text {
+  background-color: white;
+  visibility: visible;
+}
+
+.publish-date {
+  font-family: 'helveticaneueregular', sans-serif;
+  font-size: 16px;
+  margin-top: 8px;
 }
 
 a {
@@ -190,11 +224,9 @@ body {
 }
 
 .body-text {
-  font-weight: 300;
-	font-family: 'Neuton', serif;
-  font-size: 20px;
+  font-family: 'helveticaneueregular', sans-serif;
+  font-size: 18px;
   line-height: 30px;
-  font-weight: light;
   letter-spacing: 0.15px;
 }
 
@@ -232,7 +264,7 @@ strong, b {
 	text-align: center;
   font-style: italic;
   font-weight: 300;
-	font-family: 'Neuton', serif;
+  font-family: 'helveticaneueregular', sans-serif;
   font-size: 18px;
   line-height: 23px;
 }
