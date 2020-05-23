@@ -399,6 +399,11 @@ hr {
   margin-bottom: 8px;
 }
 
+b {
+  font-family: 'helveticaneuebold', sans-serif;
+  font-weight: normal;
+}
+
 .tweet {
 	font-family: 'helveticaneueregular', sans-serif;
 	font-size: 14px;
