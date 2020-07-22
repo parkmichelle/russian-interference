@@ -1,68 +1,77 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Neuton:ital,wght@0,200;0,300;0,400;0,700;0,800;1,400&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Work+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Neuton:ital,wght@0,200;0,300;0,400;0,700;0,800;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Work+Sans&display=swap");
 @font-face {
-    font-family: 'helveticaneueblackcond';
-    src: url('fonts/helveticaneue_blackcond-webfont.eot');
-    src: url('fonts/helveticaneue_blackcond-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/helveticaneue_blackcond-webfont.woff') format('woff'),
-         url('fonts/helveticaneue_blackcond-webfont.ttf') format('truetype'),
-         url('fonts/helveticaneue_blackcond-webfont.svg#helveticaneueblackcond') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'helveticaneueregular';
-    src: url('fonts/helveticaneue_light-webfont.eot');
-    src: url('fonts/helveticaneue_light-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/helveticaneue_light-webfont.woff') format('woff'),
-         url('fonts/helveticaneue_light-webfont.ttf') format('truetype'),
-         url('fonts/helveticaneue_light-webfont.svg#helveticaneuelight') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-  font-family: 'helveticaneuebold';
-  src: url('fonts/helvetica_neu_bold-webfont.eot');
-  src: url('fonts/helvetica_neu_bold-webfont.eot?#iefix') format('embedded-opentype'),
-        url('fonts/helvetica_neu_bold-webfont.woff') format('woff'),
-        url('fonts/helvetica_neu_bold-webfont.ttf') format('truetype'),
-        url('fonts/helvetica_neu_bold-webfont.svg#helveticaneuebold') format('svg');
+  font-family: "helveticaneueblackcond";
+  src: url("fonts/helveticaneue_blackcond-webfont.eot");
+  src: url("fonts/helveticaneue_blackcond-webfont.eot?#iefix")
+      format("embedded-opentype"),
+    url("fonts/helveticaneue_blackcond-webfont.woff") format("woff"),
+    url("fonts/helveticaneue_blackcond-webfont.ttf") format("truetype"),
+    url("fonts/helveticaneue_blackcond-webfont.svg#helveticaneueblackcond")
+      format("svg");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-    font-family: 'helveticaneuelight';
-    src: url('fonts/helveticaneue-webfont.eot');
-    src: url('fonts/helveticaneue-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/helveticaneue-webfont.woff') format('woff'),
-         url('fonts/helveticaneue-webfont.ttf') format('truetype'),
-         url('fonts/helveticaneue-webfont.svg#helveticaneueregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "helveticaneueregular";
+  src: url("fonts/helveticaneue_light-webfont.eot");
+  src: url("fonts/helveticaneue_light-webfont.eot?#iefix")
+      format("embedded-opentype"),
+    url("fonts/helveticaneue_light-webfont.woff") format("woff"),
+    url("fonts/helveticaneue_light-webfont.ttf") format("truetype"),
+    url("fonts/helveticaneue_light-webfont.svg#helveticaneuelight")
+      format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "helveticaneuebold";
+  src: url("fonts/helvetica_neu_bold-webfont.eot");
+  src: url("fonts/helvetica_neu_bold-webfont.eot?#iefix")
+      format("embedded-opentype"),
+    url("fonts/helvetica_neu_bold-webfont.woff") format("woff"),
+    url("fonts/helvetica_neu_bold-webfont.ttf") format("truetype"),
+    url("fonts/helvetica_neu_bold-webfont.svg#helveticaneuebold") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "helveticaneuelight";
+  src: url("fonts/helveticaneue-webfont.eot");
+  src: url("fonts/helveticaneue-webfont.eot?#iefix") format("embedded-opentype"),
+    url("fonts/helveticaneue-webfont.woff") format("woff"),
+    url("fonts/helveticaneue-webfont.ttf") format("truetype"),
+    url("fonts/helveticaneue-webfont.svg#helveticaneueregular") format("svg");
+  font-weight: normal;
+  font-style: normal;
 }
 @font-face {
   font-family: "HelveticaNeue-CondensedBold";
   src: url("fonts/FontsFree-Net-HelveticaNeueCondensedBold.eot"); /* IE9 Compat Modes */
-  src: url("fonts/FontsFree-Net-HelveticaNeueCondensedBold.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
-    url("fonts/FontsFree-Net-HelveticaNeueCondensedBold.otf") format("opentype"), /* Open Type Font */
-    url("fonts/FontsFree-Net-HelveticaNeueCondensedBold.svg") format("svg"), /* Legacy iOS */
-    url("fonts/FontsFree-Net-HelveticaNeueCondensedBold.ttf") format("truetype"), /* Safari, Android, iOS */
-    url("fonts/FontsFree-Net-HelveticaNeueCondensedBold.woff") format("woff");
+  src: url("fonts/FontsFree-Net-HelveticaNeueCondensedBold.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("fonts/FontsFree-Net-HelveticaNeueCondensedBold.otf")
+      format("opentype"),
+    /* Open Type Font */
+      url("fonts/FontsFree-Net-HelveticaNeueCondensedBold.svg") format("svg"),
+    /* Legacy iOS */ url("fonts/FontsFree-Net-HelveticaNeueCondensedBold.ttf")
+      format("truetype"),
+    /* Safari, Android, iOS */
+      url("fonts/FontsFree-Net-HelveticaNeueCondensedBold.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: 'helveticaneuemedium';
-  src: url('fonts/helveticaneuemed-webfont.woff') format('woff');
+  font-family: "helveticaneuemedium";
+  src: url("fonts/helveticaneuemed-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
-
 }
 
 html {
-	font-family: 'helveticaneue', serif;
-	margin: 0;
+  font-family: "helveticaneue", serif;
+  margin: 0;
   width: 100%;
 }
 
@@ -91,14 +100,14 @@ html {
   width: 100%;
   max-width: 1300px;
   border-radius: 8px;
-  -webkit-box-shadow: 0px 2px 13px -2px rgba(0,0,0,0.5); 
-  box-shadow: 0px 2px 13px -2px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 0px 2px 13px -2px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 2px 13px -2px rgba(0, 0, 0, 0.5);
   padding: 32px;
 }
 
 .subtitle {
-	font-size: 24px;
-  font-family: 'helveticaneueregular', sans-serif;
+  font-size: 24px;
+  font-family: "helveticaneueregular", sans-serif;
   color: black;
 }
 
@@ -108,13 +117,13 @@ html {
 
 .authors {
   margin-top: 6px;
-  font-family: 'helveticaneueregular', sans-serif;
+  font-family: "helveticaneueregular", sans-serif;
   font-size: 18px;
   padding-top: 1%;
 }
 
 #authors-tooltip {
-  font-family: 'helveticaneueregular', sans-serif;
+  font-family: "helveticaneueregular", sans-serif;
   position: relative;
   display: inline-block;
 }
@@ -129,16 +138,15 @@ html {
   top: 35px;
   z-index: 1;
   font-size: 18px;
-  font-family: 'helveticaneueregular', sans-serif;
-  width:  375px;
+  font-family: "helveticaneueregular", sans-serif;
+  width: 375px;
   height: auto;
   background-color: #f4f4f4;
   padding: 8px;
 }
 
-
 .publish-date {
-  font-family: 'helveticaneueregular', sans-serif;
+  font-family: "helveticaneueregular", sans-serif;
   font-size: 16px;
   margin-top: 8px;
 }
@@ -148,15 +156,15 @@ a {
 }
 
 h1 {
-	font-weight: normal;
-	font-size: 55px;
-  font-family: 'helveticaneueblackcond', sans-serif;
+  font-weight: normal;
+  font-size: 55px;
+  font-family: "helveticaneueblackcond", sans-serif;
   margin-bottom: 8px;
   color: black;
 }
 
 h2 {
-	font-family: 'HelveticaNeue-CondensedBold', sans-serif;
+  font-family: "HelveticaNeue-CondensedBold", sans-serif;
   font-size: 44px;
   line-height: 52px;
   color: black;
@@ -167,22 +175,21 @@ h2 {
   display: flex;
   flex-direction: row;
   margin-bottom: 0px;
-
 }
 
 .interactive-description {
-  font-family: 'helveticaneueregular', sans-serif;
+  font-family: "helveticaneueregular", sans-serif;
   font-size: 18px;
-  color: #5E5E5E;
+  color: #5e5e5e;
   line-height: 18px;
 }
 
 .label {
   font-size: 18px;
   font-weight: lighter;
-	margin: 0px;
+  margin: 0px;
   margin-right: 8px;
-	padding-left: 5px;
+  padding-left: 5px;
 }
 
 input[type="checkbox"] {
@@ -201,12 +208,12 @@ input[type="checkbox"] {
 
 #network {
   cursor: pointer;
-	width: 100%;
-	height: 90vh;
+  width: 100%;
+  height: 90vh;
 }
 
 h3 {
-	font-family: 'HelveticaNeue-CondensedBold', sans-serif;
+  font-family: "HelveticaNeue-CondensedBold", sans-serif;
   font-size: 32px;
   line-height: 38px;
   color: black;
@@ -214,106 +221,107 @@ h3 {
 }
 
 p {
-	font-family: 'helveticaneueblackcond', sans-serif;
-	font-size: 18px;
-	line-height: 2;
+  font-family: "helveticaneueblackcond", sans-serif;
+  font-size: 18px;
+  line-height: 2;
 }
 
 body {
-	overflow-x: hidden;
-	width: 100%;
-	overflow: auto;
+  overflow-x: hidden;
+  width: 100%;
+  overflow: auto;
   margin: 0;
   line-height: normal;
   min-width: 1008px;
 }
 
 .body-text {
-  font-family: 'helveticaneueregular', sans-serif;
+  font-family: "helveticaneueregular", sans-serif;
   font-size: 20px;
   line-height: 30px;
   letter-spacing: 0.15px;
 }
 
 .backer {
-	opacity: .5;
-	display: inline;
-	position: absolute;
-	top: 0;
-	height: 300px;
+  opacity: 0.5;
+  display: inline;
+  position: absolute;
+  top: 0;
+  height: 300px;
 }
 
 button {
-	height: 100px;
-	border: 2px solid steelblue;
-	border-radius: 10px;
-	padding: 10px;
+  height: 100px;
+  border: 2px solid steelblue;
+  border-radius: 10px;
+  padding: 10px;
 
-	font-size: 18px;
-	font-family: 'Work Sans', sans-serif;
-	color: white;
-	background-color: steelblue;
-	opacity: .5;
+  font-size: 18px;
+  font-family: "Work Sans", sans-serif;
+  color: white;
+  background-color: steelblue;
+  opacity: 0.5;
 }
 
 line {
-	stroke: #00AA8D;
-	fill: none;
+  stroke: #00aa8d;
+  fill: none;
 }
 
-strong, b {
-    font-weight: bold;
+strong,
+b {
+  font-weight: bold;
 }
 
 .caption {
-	text-align: center;
+  text-align: center;
   font-style: italic;
   font-weight: 300;
-  font-family: 'helveticaneueregular', sans-serif;
+  font-family: "helveticaneueregular", sans-serif;
   font-size: 18px;
   line-height: 23px;
 }
 
 .center {
-	text-align: center;
+  text-align: center;
 }
 
 .counter {
-	font-family: 'helveticaneueregular', sans-serif;
-	font-size: 18px;
-	text-align: center;
+  font-family: "helveticaneueregular", sans-serif;
+  font-size: 18px;
+  text-align: center;
 }
 
 .number {
-	font-family: 'helveticaneueregular', sans-serif;
-	font-size: 18px;
-	text-align: center;
-	color: steelblue;
+  font-family: "helveticaneueregular", sans-serif;
+  font-size: 18px;
+  text-align: center;
+  color: steelblue;
 }
 
 #counter-impact {
-	font-size: 48px;
-	font-weight: bold;
+  font-size: 48px;
+  font-weight: bold;
 }
 
 .bright {
-	border: 1px solid steelblue;
+  border: 1px solid steelblue;
 }
 
 .horizontal-flex {
-	display: flex;
-	flex-direction: row;
+  display: flex;
+  flex-direction: row;
   justify-content: center;
 }
 
 .horizontal-flex-left {
-	display: flex;
-	flex-direction: row;
+  display: flex;
+  flex-direction: row;
   justify-content: left;
 }
 
 #bio_label {
-  font-family: 'helveticaneuemedium', sans-serif;
+  font-family: "helveticaneuemedium", sans-serif;
   font-size: 22px;
 }
 
@@ -323,14 +331,14 @@ strong, b {
 }
 
 .space-around {
-	justify-content: space-around;
+  justify-content: space-around;
 }
 
 .vertical-flex {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
 }
 
 .scatter-side {
@@ -340,15 +348,15 @@ strong, b {
 }
 
 .forty {
-	width: 500px;
-	margin-left: auto;
-	margin-right: auto;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .scroll {
-	height: 400px;
-	overflow-y: auto;
-  border: 0.5px solid #697D8C;
+  height: 400px;
+  overflow-y: auto;
+  border: 0.5px solid #697d8c;
   border-top: none;
   overflow-x: hidden;
   padding: 8px;
@@ -356,40 +364,40 @@ strong, b {
 }
 
 .spacer-small {
-	height: 24px;
+  height: 24px;
 }
 
 .spacer-med {
-	height: 48px;
+  height: 48px;
 }
 
 .spacer-large {
-	height: 75px;
+  height: 75px;
 }
 
 .spacer {
-	height: 50px;
+  height: 50px;
 }
 
 #subtitle {
-	position: absolute;
+  position: absolute;
 }
 
 .bio {
   background-color: white;
   border-radius: 8px;
-  -webkit-box-shadow: 0px 2px 13px -2px rgba(0,0,0,0.5); 
-  box-shadow: 0px 2px 13px -2px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 0px 2px 13px -2px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 2px 13px -2px rgba(0, 0, 0, 0.5);
   padding: 8px;
   width: 100%;
   height: 150px;
 }
 
 .profile {
-	padding: 8px;
-	font-size: 16px;
-  font-family: 'helveticaneueregular', sans-serif;
-  background-color: #1DA1F2;
+  padding: 8px;
+  font-size: 16px;
+  font-family: "helveticaneueregular", sans-serif;
+  background-color: #1da1f2;
   color: white;
   border-radius: 8px 8px 0px 0px;
 }
@@ -404,18 +412,18 @@ hr {
 }
 
 b {
-  font-family: 'helveticaneuebold', sans-serif;
+  font-family: "helveticaneuebold", sans-serif;
   font-weight: normal;
 }
 
 .tweet {
-	font-family: 'helveticaneueregular', sans-serif;
-	font-size: 16px;
-	line-height: 1;
+  font-family: "helveticaneueregular", sans-serif;
+  font-size: 16px;
+  line-height: 1;
 }
 
 .tweet.h1 {
-  font-family: 'helveticaneuebold', sans-serif;
+  font-family: "helveticaneuebold", sans-serif;
 }
 
 .tweet.body {
@@ -427,48 +435,49 @@ b {
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-between;
-  padding-left: 10%;
-  padding-right: 10%;
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
 .tweet-header {
-	font-size: 18px;
-	font-family: 'helveticaneuebold', sans-serif;
+  font-size: 18px;
+  font-family: "helveticaneuebold", sans-serif;
 }
 
-.tooltip, .network-tooltip {
-    position: absolute;
-    font-size: 12px;
-    font-family: 'helveticaneueregular', sans-serif;
-    width:  auto;
-    height: auto;
-    pointer-events: none;
-    background-color: #f4f4f4;
-    opacity: 0;
-    padding: 8px;
+.tooltip,
+.network-tooltip {
+  position: absolute;
+  font-size: 12px;
+  font-family: "helveticaneueregular", sans-serif;
+  width: auto;
+  height: auto;
+  pointer-events: none;
+  background-color: #f4f4f4;
+  opacity: 0;
+  padding: 8px;
 }
 
 .tooltip-text {
-	color: steelblue;
+  color: steelblue;
 }
 
-.tooltip-header{
-	font-family: 'helveticaneuebold', sans-serif;
-	font-size: 14px;
+.tooltip-header {
+  font-family: "helveticaneuebold", sans-serif;
+  font-size: 14px;
 }
 
 .handle {
-	color: #DDDDDD;
-	padding-bottom: 5px;
+  color: #dddddd;
+  padding-bottom: 5px;
 }
 
 .h2 {
-	font-size: 16px;
-	color: #697D8C
+  font-size: 16px;
+  color: #697d8c;
 }
 
 hr {
-	border: .5px solid #697D8C;
+  border: 0.5px solid #697d8c;
 }
 
 .switch {
@@ -493,12 +502,12 @@ hr {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #EEEEEE;
+  background-color: #eeeeee;
   border-style: solid;
-  border-color: #A5A5A5;
+  border-color: #a5a5a5;
   border-width: 0.5px;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .slider:before {
@@ -508,11 +517,11 @@ hr {
   width: 28px;
   left: 3px;
   bottom: 3px;
-  background-color: #A5A5A5;
+  background-color: #a5a5a5;
   border-color: white;
   border-width: 0.5px;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 input:checked + .slider:before {
@@ -520,9 +529,9 @@ input:checked + .slider:before {
   border-color: white;
   border-width: 0.5px;
   background-color: steelblue;
-  -webkit-box-shadow: 0px 0px 6px 2px rgba(0,111,255,0.5);
-  -moz-box-shadow: 0px 0px 6px 2px rgba(0,111,255,0.5);
-  box-shadow: 0px 0px 6px 2px rgba(0,111,255,0.5);
+  -webkit-box-shadow: 0px 0px 6px 2px rgba(0, 111, 255, 0.5);
+  -moz-box-shadow: 0px 0px 6px 2px rgba(0, 111, 255, 0.5);
+  box-shadow: 0px 0px 6px 2px rgba(0, 111, 255, 0.5);
 }
 
 input:focus + .slider {
@@ -613,7 +622,7 @@ input:checked + .slider:before {
 .note {
   display: flex;
   justify-content: center;
-  font-family: 'helveticaneue', sans-serif;
+  font-family: "helveticaneue", sans-serif;
   font-size: 10px;
   font-style: italic;
   margin-top: -20px;
@@ -630,15 +639,15 @@ input:checked + .slider:before {
 
 #scroll-top-wrapper {
   opacity: 1;
-  background-color: rgba(50, 0, 0, 1); 
-  border-color: rgba(0, 0, 0, 0); 
+  background-color: rgba(50, 0, 0, 1);
+  border-color: rgba(0, 0, 0, 0);
 }
 
 #scroll-top-img {
   margin: 12px;
   cursor: pointer;
-  position: fixed; 
-  right: 0; 
+  position: fixed;
+  right: 0;
   bottom: 0;
   width: 60px;
   z-index: 1;
